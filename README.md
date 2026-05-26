@@ -1,8 +1,10 @@
 # CCS Cost Models
 
-A Python re-implementation of the NETL offshore CO2 storage cost engine,
-exposed as a FastMCP server and cross-checked against the original Excel
-model on its calibration formation.
+This repo is a deterministic engineering-tool example: a Python rebuild of the NETL offshore CO2 storage cost workflow, exposed through both normal Python entry points and FastMCP tools.
+
+I built it because LLM agents should not invent cost numbers. If an agent needs a storage-cost estimate, a sensitivity sweep, or a supply-curve sketch, it should call a typed calculator with known assumptions and limitations. This repository is that calculator for a narrow CCS storage-cost use case.
+
+The model is useful as a transparent portfolio and methodology artifact. It is not a project sanctioning tool, not a safety basis, and not investment advice.
 
 ## What's technically interesting
 
