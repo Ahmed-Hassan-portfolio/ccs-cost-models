@@ -1,0 +1,122 @@
+# US Gulf of America (GOA) monitoring configuration
+# Source: NETL CO2_S_COM_Offshore v1.1 Back-End_Cost Items sheet
+# All costs in 2008 USD
+#
+# Monitoring is the largest single O&M category ($556M, ~46% of total O&M).
+# Subsea monitoring runs annually for 80 years (30 ops + 50 PISC).
+
+base_year: 2008
+currency: USD
+
+monitoring_technologies:
+  subsea_monitoring:
+    # Vessel-based subsea surveys -- dominant monitoring cost
+    # Characterization: baseline surveys
+    characterization_cost: 14194779.20
+    # Construction: equipment installation
+    construction_capital: 5280000.00
+    # Annual campaign costs differ between operations and PISC
+    annual_ops_cost: 6032786.83    # $180,983,605 / 30 years
+    annual_pisc_cost: 7106207.19   # $355,310,360 / 50 years
+    classification_capital: expense
+    classification_ops: expense
+    depreciation: none
+
+  seismic_3d:
+    # Periodic 3-D seismic surveys over plume area
+    # Events every 5 years during operations and PISC
+    frequency_years: 5
+    ops_cost_per_event: 4324375.21   # $25,946,251 / 6 events
+    pisc_cost_per_event: 5412310.79  # $54,123,108 / 10 events
+    classification: capital
+    depreciation: seismic
+
+  seismic_2d:
+    # Periodic 2-D seismic surveys
+    # PISC only in NETL reference ($1,558,543 total)
+    # 10 events during 50yr PISC at every 5 years
+    frequency_years: 5
+    pisc_cost_per_event: 155854.35   # $1,558,543 / 10 events
+    ops_cost_per_event: 0.0
+    classification: capital
+    depreciation: seismic
+
+  microseismic:
+    # Continuous microseismic monitoring
+    # Capital: equipment ($7,956,000 during construction)
+    # O&M: annual operations cost
+    equipment_capital: 7319520.00
+    # O&M: NETL row63 col9=9,547,200/30yr=318,240/yr (ops) and col10=15,912,000/50yr=318,240/yr (PISC)
+    # Note: col4=26,095,680 / 80yr = 326,196/yr but col9+col10=25,459,200 uses 318,240/yr.
+    # The FYBE NPV computation uses col9 for ops and col10 for PISC phases, so 318,240/yr is correct.
+    annual_ops_cost: 318240.00
+    annual_pisc_cost: 318240.00
+    classification_equipment: capital
+    classification_operations: expense
+    depreciation: site_characterization
+
+  well_integrity_test:
+    # Annual mechanical integrity testing for injection wells
+    # $44,398,570 / 30 years / 5 wells = $295,990.46/well/yr
+    cost_per_well_per_year: 295990.46
+    applies_to: injection
+    during: operations
+    classification: expense
+
+  well_mit_inject:
+    # MIT testing for injection wells (separate from integrity test)
+    # $5,082,070 / 30 years / 5 wells = $33,880.47/well/yr
+    cost_per_well_per_year: 33880.47
+    applies_to: injection
+    during: operations
+    classification: expense
+
+  well_om_inject:
+    # Well O&M for injection wells
+    # $42,790,611 / 30 years / 5 wells = $285,270.74/well/yr
+    cost_per_well_per_year: 285270.74
+    applies_to: injection
+    during: operations
+    classification: expense
+
+  well_om_in_res:
+    # Well O&M for in-reservoir monitoring wells
+    # Different rates during ops vs PISC
+    # Ops: $17,116,244 / 30 years / 12 wells = $47,545.12/well/yr
+    # PISC: $57,054,148 / 50 years / 12 wells = $95,090.25/well/yr
+    ops_cost_per_well_per_year: 47545.12
+    pisc_cost_per_well_per_year: 95090.25
+    n_wells_default: 12   # 2 per satellite, (5+1)=6 satellites
+    applies_to: in_reservoir
+    classification: expense
+
+  sampling_analysis_in_res:
+    # Sampling and analysis for in-reservoir monitoring wells
+    # Ops: $1,533,600 / 30 = $51,120/yr; PISC: $2,556,000 / 50 = $51,120/yr
+    # Total: $4,089,600
+    ops_annual: 51120.00
+    pisc_annual: 51120.00
+    applies_to: in_reservoir
+    classification: expense
+
+  sampling_analysis_ab_seal:
+    # Sampling and analysis for above-seal monitoring wells
+    # Only during PISC: $1,968,000 total
+    # PISC: $1,230,000 / 50 = $24,600/yr (partial year adjustment for col10)
+    # But total (col5) = $1,968,000, col10 = $1,230,000
+    # Ops: ($1,968,000 - $1,230,000) / 30 = $24,600/yr
+    ops_annual: 24600.00
+    pisc_annual: 24600.00
+    applies_to: above_seal
+    classification: expense
+
+  gravity_survey:
+    # One-time gravity survey during construction/characterization
+    cost: 1512480.00
+    classification: capital
+    depreciation: site_characterization
+    timing: characterization
+
+vessel_rates:
+  supply_vessel_day: 3000   # GOA rate (USD/day)
+  weather_downtime_pct: 0.07  # 7% downtime

@@ -1,0 +1,45 @@
+# Monte Carlo uncertainty distributions for US Gulf of America formations
+# All relative distributions multiply the formation's base value by the sampled factor.
+# absolute distributions use the actual value directly.
+parameters:
+  porosity:
+    distribution: triangular
+    relative: true
+    min: 0.8      # 0.8x base
+    mode: 1.0     # base value
+    max: 1.2      # 1.2x base
+
+  permeability_md:
+    distribution: triangular
+    relative: true
+    min: 0.5      # permeability has higher uncertainty than porosity
+    mode: 1.0
+    max: 2.0
+
+  thickness_m:
+    distribution: triangular
+    relative: true
+    min: 0.8
+    mode: 1.0
+    max: 1.2
+
+  depth_m:
+    distribution: triangular
+    relative: true
+    min: 0.9
+    mode: 1.0
+    max: 1.1
+
+  net_to_gross:
+    distribution: triangular
+    relative: true
+    min: 0.8
+    mode: 1.0
+    max: 1.2
+
+  injection_rate_mtpa:
+    distribution: uniform
+    relative: true
+    min: 0.8
+    max: 1.2
+    description: "Fraction of target injection rate (operational variability)"

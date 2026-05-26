@@ -1,0 +1,715 @@
+{
+  "_metadata": {
+    "source_file": "reference-models\\netl-offshore\\FECM_NETL_CO2_S_COM_Offshore_V1.1.xlsm",
+    "extraction_timestamp": "2026-03-07T15:18:14.839932+00:00",
+    "none_cells": [
+      "Key_Inputs!C13 (NPV)"
+    ],
+    "note": "data_only=True reads cached values. None means the cell was not recalculated before last save."
+  },
+  "default_scenario": {
+    "geology": {
+      "formation_identifier": "1241_1",
+      "formation_name": "PL_A1",
+      "protraction": "Chandeleur Area",
+      "lithology": "Clastic",
+      "depositional_environment": "Shallow shelf",
+      "depth_top_ft": 3439.1666666666665,
+      "thickness_ft": 78.17777777777776,
+      "temperature_f": 118.15,
+      "pressure_psi": 1623.15,
+      "porosity": 0.32249999999999995,
+      "permeability_md": 533.4,
+      "salinity_mg_l": 150000,
+      "water_depth_ft": 68.77777777777777,
+      "co2_density_kg_m3": 581.9626983970547,
+      "structure": "Reg_dip",
+      "storage_coefficient": 0.0593,
+      "plume_area_mi2": 174.7051190152831,
+      "plume_uncertainty_area_mi2": 218.38139876910387,
+      "pressure_front_area_mi2": 1091.9069938455193,
+      "total_co2_injected_tonnes": 119999999.99999999,
+      "annual_co2_injection_tonnes": 3999999.9999999995,
+      "max_daily_injection_rate_tonne_day": 12892.828364222401,
+      "number_injection_wells": 5,
+      "number_active_injection_wells": 4,
+      "max_injection_projects": 7
+    },
+    "key_inputs": {
+      "fybe_2008_usd_per_tonne": 25.33761128566039,
+      "fybe_2024_usd_per_tonne": 72.19798299661907,
+      "npv": null,
+      "irr": "NA",
+      "selected_formation": 1,
+      "probability": "P50",
+      "thickness_setting": "Gross Thickness",
+      "structure_type": "Reg_dip",
+      "annual_co2_injection_tonnes": 4000000,
+      "capacity_factor": 0.85,
+      "total_co2_injected_tonnes": 120000000,
+      "pipeline_length_mi": 41.563589354870004,
+      "pipeline_diameter_in": 12,
+      "water_depth_ft": 68.77777777777777,
+      "platform_type": "Jacket"
+    },
+    "costs": {
+      "cost_breakdown_totals": {
+        "Summary: Total Costs": {},
+        "Total Costs": {
+          "col3": 847798983.099946,
+          "col4": 406015971.65803,
+          "col5": 1253814954.7579758,
+          "col6": 0.6761755232562183,
+          "col7": 0.3238244767437818,
+          "col8": 0.6761755232562183,
+          "col9": 0.3238244767437818,
+          "col10": 1
+        },
+        "PISC and Site Closure O&M Total Cost": {
+          "col3": 542590535.0959828,
+          "col4": 0.44945884239361145,
+          "col5": 1546078743.7826214,
+          "col6": 0.4494588423936113,
+          "col7": 7364863.164355439,
+          "col8": 0.018139343470356263
+        },
+        "Site Screening Total Cost": {
+          "col3": 94012.3896,
+          "col4": 5.4486674591963934e-05,
+          "col5": 267882.5888237404,
+          "col6": 5.4486674591963934e-05,
+          "col7": 267882.5888237404,
+          "col8": 0.0002136540067632626
+        },
+        "Site Selection & Site Characterization Total Cost": {
+          "col3": 62805544.570796825,
+          "col4": 0.03640015198167129,
+          "col5": 178960581.08611113,
+          "col6": 0.0364001519816713,
+          "col7": 159145983.66207314,
+          "col8": 0.12692940298578037
+        },
+        "Permitting & Construction Total Cost": {
+          "col3": 378423441.3446345,
+          "col4": 0.21932252753328854,
+          "col5": 1078294590.429064,
+          "col6": 0.2193225275332886,
+          "col7": 717425985.2579008,
+          "col8": 0.5721944713894289
+        },
+        "Operations Total Cost": {
+          "col3": 680358475.3270893,
+          "col4": 0.39431473882067813,
+          "col5": 1938640114.0769823,
+          "col6": 0.39431473882067836,
+          "col7": 368822837.07972026,
+          "col8": 0.2941605024570106
+        },
+        "PISC and Site Closure Total Cost": {
+          "col3": 603738370.8350544,
+          "col4": 0.34990809498976994,
+          "col5": 1720315784.3306403,
+          "col6": 0.34990809498976977,
+          "col7": 8152266.169457869,
+          "col8": 0.006501969161016668
+        },
+        "Total Capital": {
+          "col3": 518211344.1150747,
+          "col4": 0.30033927439561986,
+          "col5": 1476611721.178678,
+          "col6": 0.30033927439561997,
+          "col7": 847798983.099946,
+          "col8": 0.6761755232562182
+        },
+        "Total Cost": {
+          "col3": 1725419844.4671752,
+          "col4": 1,
+          "col5": 4916478952.511621,
+          "col6": 1,
+          "col7": 1253814954.757976,
+          "col8": 1
+        },
+        "Total Cost per tonne injected": {
+          "col3": 14.378498703893127,
+          "col5": 40.97065793759685,
+          "col7": 10.448457956316467
+        }
+      },
+      "cost_breakdown_details": {
+        "row30_Acquire existing data": {
+          "label": "Acquire existing data",
+          "col3": 6290135.130827268,
+          "col5": 6290135.130827268,
+          "col7": 6208451.385227268,
+          "col12": 6290135.130827268,
+          "col13": 17923357.65601224,
+          "col14": 16176301.336052207
+        },
+        "row34_Design": {
+          "label": "Design",
+          "col3": 1536147.6439999999,
+          "col5": 1536147.6439999999,
+          "col7": 1536147.6439999999,
+          "col12": 1536147.6439999999,
+          "col13": 4377159.32379842,
+          "col14": 3757971.1771979416
+        },
+        "row36_Reporting-Upfront": {
+          "label": "Reporting-Upfront",
+          "col13": 1580340.244378908,
+          "col14": 1328323.1904528434
+        },
+        "row37_Reporting-Ops & PISC": {
+          "label": "Reporting-Ops & PISC",
+          "col4": 6038027.0400000075,
+          "col5": 6564871.848000008,
+          "col9": 2899140.900000001,
+          "col10": 3577923.480000002,
+          "col12": 6564871.848000008,
+          "col13": 18706203.229391534,
+          "col14": 1798705.442958884
+        },
+        "row38_Public outreach": {
+          "label": "Public outreach",
+          "col13": 1139775.6826031809
+        },
+        "row39_Reserv model & data analys": {
+          "label": "Reserv model & data analys",
+          "col4": 4800000,
+          "col5": 4800000,
+          "col9": 1800000,
+          "col10": 3000000,
+          "col12": 4800000,
+          "col13": 13677308.191238167,
+          "col14": 1016105.3858215656
+        },
+        "row40_Subpart RR": {
+          "label": "Subpart RR",
+          "col4": 1029407.9999999987,
+          "col5": 1238179.92,
+          "col12": 1238179.92,
+          "col13": 3528118.4087588754
+        },
+        "row41_Corrective action": {
+          "label": "Corrective action",
+          "col3": 4697024.7824,
+          "col5": 4697024.7824,
+          "col9": 4688090,
+          "col12": 4697024.7824,
+          "col13": 13383886.568910044,
+          "col14": 4365834.316302944
+        },
+        "row43_Surf Equip": {
+          "label": "Surf Equip",
+          "col3": 3672455.321911197,
+          "col4": 26269628.337908678,
+          "col5": 29942083.659819875,
+          "col8": 3672455.321911197,
+          "col9": 26269628.337908678,
+          "col12": 29942083.659819875,
+          "col13": 85318147.10483184,
+          "col14": 21565162.14587027
+        },
+        "row46_Offshore Pipeline": {
+          "label": "Offshore Pipeline",
+          "col3": 206369911.29228276,
+          "col4": 127445902.94701925,
+          "col5": 333815814.23930174,
+          "col8": 206371158.1999634,
+          "col9": 55464000.722787626,
+          "col10": 71980655.31655097,
+          "col12": 333815814.23930174,
+          "col13": 951187868.8458438,
+          "col14": 421075239.53541446
+        },
+        "row47_Primary Offshore Structure": {
+          "label": "Primary Offshore Structure",
+          "col3": 46918491.73654595,
+          "col4": 45306120.53872053,
+          "col5": 92224612.27526657,
+          "col8": 46918491.73654595,
+          "col9": 35747172.47888722,
+          "col10": 9558948.059833307,
+          "col12": 92224612.27526657,
+          "col13": 262788426.02213895,
+          "col14": 108437374.43324839
+        },
+        "row49_Offshore Satellite Structure": {
+          "label": "Offshore Satellite Structure",
+          "col3": 19012621.171896935,
+          "col4": 38652494.077385895,
+          "col5": 57665115.24928283,
+          "col8": 19012621.171896935,
+          "col9": 33544713.959264793,
+          "col10": 5107780.1181211015,
+          "col12": 57665115.24928283,
+          "col13": 164313240.23910612,
+          "col14": 54502576.36765398
+        },
+        "row51_Transport Vessels": {
+          "label": "Transport Vessels",
+          "col3": 8832000,
+          "col4": 71608800,
+          "col5": 80440800,
+          "col9": 59104800,
+          "col10": 21120000,
+          "col12": 80440800,
+          "col13": 229211169.32286447,
+          "col14": 33949557.688795835
+        },
+        "row53_Lease and surface access": {
+          "label": "Lease and surface access",
+          "col3": 15826939.349003624,
+          "col5": 15826939.349003624,
+          "col7": 12945499.349003624,
+          "col8": 1920959.9999999998,
+          "col12": 15826939.349003624,
+          "col13": 45097901.50007438,
+          "col14": 38517900.34331683
+        },
+        "row54_Long-term stewardship fees": {
+          "label": "Long-term stewardship fees",
+          "col4": 8400000,
+          "col5": 8400000,
+          "col9": 8400000,
+          "col12": 8400000,
+          "col13": 23935289.334666796,
+          "col14": 4675546.091020083
+        },
+        "row55_Pore space fees": {
+          "label": "Pore space fees",
+          "col4": 29999999.999999996,
+          "col5": 29999999.999999996,
+          "col9": 29999999.999999996,
+          "col12": 29999999.999999996,
+          "col13": 85483176.19523855,
+          "col14": 16698378.896500297
+        },
+        "row56_Other fees": {
+          "label": "Other fees",
+          "col4": 1317023.615209691,
+          "col5": 1353478.6152096908,
+          "col9": 1218703.615209691,
+          "col12": 1353478.6152096908,
+          "col13": 3856655.031348583
+        },
+        "row57_ERR fees or premiums": {
+          "label": "ERR fees or premiums",
+          "col4": 89999999.99999999,
+          "col5": 89999999.99999999,
+          "col9": 89999999.99999999,
+          "col12": 89999999.99999999,
+          "col13": 256449528.58571562,
+          "col14": 50095136.68950089
+        },
+        "row60_3-D Seismic": {
+          "label": "3-D Seismic",
+          "col3": 80069359.19709083,
+          "col5": 80069359.19709083,
+          "col9": 25946251.277471058,
+          "col10": 54123107.91961976,
+          "col12": 80069359.19709083,
+          "col13": 228152771.33615863,
+          "col14": 10814972.244955616
+        },
+        "row61_2-D Seismic": {
+          "label": "2-D Seismic",
+          "col3": 1558543.4629038132,
+          "col5": 1558543.4629038132,
+          "col10": 1202737.8194519654,
+          "col12": 1558543.4629038132,
+          "col13": 4440974.848244799
+        },
+        "row63_Microseismic": {
+          "label": "Microseismic",
+          "col3": 7319519.999999999,
+          "col4": 26095680,
+          "col5": 33415200,
+          "col8": 7955999.999999999,
+          "col9": 9547200,
+          "col10": 15912000,
+          "col12": 33415200,
+          "col13": 95214580.97330433,
+          "col14": 21423340.114324212
+        },
+        "row68_Gravity Surv": {
+          "label": "Gravity Surv",
+          "col3": 1512479.9999999998,
+          "col5": 1512479.9999999998,
+          "col8": 1512479.9999999998,
+          "col12": 1512479.9999999998,
+          "col13": 4309719.811059147,
+          "col14": 3168325.224691315
+        },
+        "row75_Surf Equip Leak Detect": {
+          "label": "Surf Equip Leak Detect",
+          "col13": 2735461.6382476324
+        },
+        "row77_Subsea Monitoring": {
+          "label": "Subsea Monitoring",
+          "col4": 555768744.1075068,
+          "col5": 555768744.1075068,
+          "col7": 14194779.198673345,
+          "col8": 5280000,
+          "col9": 180983604.94199935,
+          "col10": 355310359.9668339,
+          "col12": 555768744.1075068,
+          "col13": 1583629249.211614,
+          "col14": 143690423.53203604
+        },
+        "row80_Well Drl & Cmp-Strat": {
+          "label": "Well Drl & Cmp-Strat",
+          "col3": 19734283.3856482,
+          "col5": 19734283.3856482,
+          "col7": 19734283.3856482,
+          "col12": 19734283.3856482,
+          "col13": 56231640.79140447,
+          "col14": 50750578.33159248
+        },
+        "row82_Well Data-Strat": {
+          "label": "Well Data-Strat",
+          "col3": 6961142.23204438,
+          "col5": 6961142.23204438,
+          "col7": 6961142.23204438,
+          "col12": 6961142.23204438,
+          "col13": 19835351.598065536,
+          "col14": 17901941.87551041
+        },
+        "row86_Well Drl & Cmp-Inject": {
+          "label": "Well Drl & Cmp-Inject",
+          "col3": 56659314.088731416,
+          "col5": 56659314.088731416,
+          "col8": 56659314.088731416,
+          "col12": 56659314.088731416,
+          "col13": 161447270.97827968,
+          "col14": 107120271.99705414
+        },
+        "row89_Well Data-Inject": {
+          "label": "Well Data-Inject",
+          "col3": 4623645.260161485,
+          "col5": 4623645.260161485,
+          "col8": 4623645.260161485,
+          "col12": 4623645.260161485,
+          "col13": 13174796.081288796,
+          "col14": 8741477.828530446
+        },
+        "row90_Well Integrity Test-Inject": {
+          "label": "Well Integrity Test-Inject",
+          "col4": 44398569.6,
+          "col5": 44398569.6,
+          "col9": 44398569.6,
+          "col12": 44398569.6,
+          "col13": 126511024.93111205,
+          "col14": 24706100.64666008
+        },
+        "row91_Well MIT-Inject": {
+          "label": "Well MIT-Inject",
+          "col4": 5082069.860730591,
+          "col5": 5082069.860730591,
+          "col9": 5082069.860730591,
+          "col12": 5082069.860730591,
+          "col13": 14481049.111378158,
+          "col14": 2828744.270432132
+        },
+        "row92_Well O&M-Inject": {
+          "label": "Well O&M-Inject",
+          "col4": 42790611.02831595,
+          "col5": 42790611.02831595,
+          "col9": 42790611.02831595,
+          "col12": 42790611.02831595,
+          "col13": 121929244.73451507,
+          "col14": 23817794.538786132
+        },
+        "row93_Well Plugging-Inject": {
+          "label": "Well Plugging-Inject",
+          "col13": 2137782.636227064
+        },
+        "row95_Well Drl & Cmp-In Res": {
+          "label": "Well Drl & Cmp-In Res",
+          "col3": 18288514.957657427,
+          "col5": 18288514.957657427,
+          "col8": 18288514.957657427,
+          "col12": 18288514.957657427,
+          "col13": 52112011.5491562,
+          "col14": 34576322.14923129
+        },
+        "row98_Well Data-In Res": {
+          "label": "Well Data-In Res",
+          "col3": 5310954.31410524,
+          "col5": 5310954.31410524,
+          "col8": 5310954.31410524,
+          "col12": 5310954.31410524,
+          "col13": 15133241.44658402,
+          "col14": 10040906.421845093
+        },
+        "row99_Well MIT-In Res": {
+          "label": "Well MIT-In Res",
+          "col13": 1538649.7061892005
+        },
+        "row100_Well O&M-In Res": {
+          "label": "Well O&M-In Res",
+          "col4": 74170392.44908106,
+          "col5": 74170392.44908106,
+          "col9": 17116244.41132637,
+          "col10": 57054148.03775464,
+          "col12": 74170392.44908106,
+          "col13": 211344024.20649248,
+          "col14": 10442744.05371561
+        },
+        "row102_Samp & Analys-In Res": {
+          "label": "Samp & Analys-In Res",
+          "col4": 4089600,
+          "col5": 4089600,
+          "col9": 1533600,
+          "col10": 2556000,
+          "col12": 4089600,
+          "col13": 11653066.578934934
+        },
+        "row111_Samp & Analys-Ab Seal": {
+          "label": "Samp & Analys-Ab Seal",
+          "col4": 1968000,
+          "col5": 1968000,
+          "col10": 1230000,
+          "col12": 1968000,
+          "col13": 5607696.358407656
+        },
+        "row142_Total from Above Categories": {
+          "label": "Total from Above Categories",
+          "col3": 518211344.1150747,
+          "col4": 1207208500.3521008,
+          "col5": 1725419844.4671755,
+          "col7": 62805544.57079682,
+          "col8": 378423441.3446345,
+          "col9": 680358475.3270894,
+          "col10": 603738370.8350545,
+          "col12": 1725419844.4671755,
+          "col13": 4916478952.51162,
+          "col14": 1253814954.7579765
+        },
+        "row143_From 'Back-End_Cost Items' sheet": {
+          "label": "From 'Back-End_Cost Items' sheet",
+          "col12": 1725534661.1473904,
+          "col13": 4916806115.661787,
+          "col14": 1270515597.9536018
+        },
+        "row144_Difference": {
+          "label": "Difference",
+          "col14": 16700643.195625305
+        },
+        "row151_Site Selection & Site Characterization": {
+          "label": "Site Selection & Site Characterization",
+          "col3": 48302012.57212347,
+          "col4": 14503531.998673346,
+          "col5": 62805544.570796825
+        },
+        "row152_Permitting & Construction": {
+          "label": "Permitting & Construction",
+          "col3": 372244552.35695386,
+          "col4": 6178888.987680646,
+          "col5": 378423441.3446345
+        },
+        "row153_Operations": {
+          "label": "Operations",
+          "col3": 36422931.057325676,
+          "col4": 643935544.2697638,
+          "col5": 680358475.3270893
+        },
+        "row154_PISC and Site Closure": {
+          "label": "PISC and Site Closure",
+          "col3": 61147835.73907174,
+          "col4": 542590535.0959828,
+          "col5": 603738370.8350544
+        },
+        "row155_Total Costs": {
+          "label": "Total Costs",
+          "col3": 518211344.1150747,
+          "col4": 1207208500.3521006,
+          "col5": 1725419844.467175
+        },
+        "row158_Site Selection & Site Characterization": {
+          "label": "Site Selection & Site Characterization",
+          "col3": 137633648.37624863,
+          "col4": 41326932.70986247,
+          "col5": 178960581.08611113
+        },
+        "row159_Permitting & Construction": {
+          "label": "Permitting & Construction",
+          "col3": 1060688221.8949065,
+          "col4": 17606368.534157462,
+          "col5": 1078294590.429064
+        },
+        "row160_Operations": {
+          "label": "Operations",
+          "col3": 103784927.77067994,
+          "col4": 1834855186.306302,
+          "col5": 1938640114.0769823
+        },
+        "row161_PISC and Site Closure": {
+          "label": "PISC and Site Closure",
+          "col3": 174237040.54801917,
+          "col4": 1546078743.7826214,
+          "col5": 1720315784.3306403
+        },
+        "row162_Total Costs": {
+          "label": "Total Costs",
+          "col3": 1476611721.178678,
+          "col4": 3439867231.3329434,
+          "col5": 4916478952.511621
+        },
+        "row165_Site Selection & Site Characterization": {
+          "label": "Site Selection & Site Characterization",
+          "col3": 123660191.35682409,
+          "col4": 35485792.30524902,
+          "col5": 159145983.66207314
+        },
+        "row166_Permitting & Construction": {
+          "label": "Permitting & Construction",
+          "col3": 705090163.838572,
+          "col4": 12335821.419328902,
+          "col5": 717425985.2579008
+        },
+        "row167_Operations": {
+          "label": "Operations",
+          "col3": 17993342.310623728,
+          "col4": 350829494.7690966,
+          "col5": 368822837.07972026
+        },
+        "row168_PISC and Site Closure": {
+          "label": "PISC and Site Closure",
+          "col4": 7364863.164355439,
+          "col5": 8152266.169457869
+        },
+        "row169_Total Costs": {
+          "label": "Total Costs",
+          "col3": 847798983.099946,
+          "col4": 406015971.65803,
+          "col5": 1253814954.7579758
+        },
+        "row174_Site Selection & Site Characterization C": {
+          "label": "Site Selection & Site Characterization Capital Cost",
+          "col3": 48302012.57212347,
+          "col5": 137633648.37624863,
+          "col7": 123660191.35682409
+        },
+        "row175_Permitting & Construction Capital Cost": {
+          "label": "Permitting & Construction Capital Cost",
+          "col3": 372244552.35695386,
+          "col5": 1060688221.8949065,
+          "col7": 705090163.838572
+        },
+        "row176_Operations Capital Cost": {
+          "label": "Operations Capital Cost",
+          "col3": 36422931.057325676,
+          "col5": 103784927.77067994,
+          "col7": 17993342.310623728
+        },
+        "row177_PISC and Site Closure Capital Cost": {
+          "label": "PISC and Site Closure Capital Cost",
+          "col3": 61147835.73907174,
+          "col5": 174237040.54801917
+        },
+        "row179_Site Selection & Site Characterization O": {
+          "label": "Site Selection & Site Characterization O&M Cost",
+          "col3": 14503531.998673346,
+          "col5": 41326932.70986247,
+          "col7": 35485792.30524902
+        },
+        "row180_Permitting & Construction O&M Cost": {
+          "label": "Permitting & Construction O&M Cost",
+          "col3": 6178888.987680646,
+          "col5": 17606368.534157462,
+          "col7": 12335821.419328902
+        },
+        "row181_Operations O&M Cost": {
+          "label": "Operations O&M Cost",
+          "col3": 643935544.2697638,
+          "col5": 1834855186.306302,
+          "col7": 350829494.7690966
+        },
+        "row182_PISC and Site Closure O&M Total Cost": {
+          "label": "PISC and Site Closure O&M Total Cost",
+          "col3": 542590535.0959828,
+          "col5": 1546078743.7826214,
+          "col7": 7364863.164355439
+        },
+        "row184_Site Selection & Site Characterization T": {
+          "label": "Site Selection & Site Characterization Total Cost",
+          "col3": 62805544.570796825,
+          "col5": 178960581.08611113,
+          "col7": 159145983.66207314
+        },
+        "row185_Permitting & Construction Total Cost": {
+          "label": "Permitting & Construction Total Cost",
+          "col3": 378423441.3446345,
+          "col5": 1078294590.429064,
+          "col7": 717425985.2579008
+        },
+        "row186_Operations Total Cost": {
+          "label": "Operations Total Cost",
+          "col3": 680358475.3270893,
+          "col5": 1938640114.0769823,
+          "col7": 368822837.07972026
+        },
+        "row187_PISC and Site Closure Total Cost": {
+          "label": "PISC and Site Closure Total Cost",
+          "col3": 603738370.8350544,
+          "col5": 1720315784.3306403,
+          "col7": 8152266.169457869
+        },
+        "row188_Total Capital": {
+          "label": "Total Capital",
+          "col3": 518211344.1150747,
+          "col5": 1476611721.178678,
+          "col7": 847798983.099946
+        },
+        "row189_Total O&M": {
+          "label": "Total O&M",
+          "col3": 1207208500.3521006,
+          "col5": 3439867231.3329434,
+          "col7": 406015971.65803
+        },
+        "row190_Total Cost": {
+          "label": "Total Cost",
+          "col3": 1725419844.4671752,
+          "col5": 4916478952.511621,
+          "col7": 1253814954.757976
+        },
+        "row191_Weighted tonnes of CO2 Injected": {
+          "label": "Weighted tonnes of CO2 Injected",
+          "col3": 120000000,
+          "col5": 120000000,
+          "col7": 120000000
+        },
+        "row198_Upfront existing data acquisition": {
+          "label": "Upfront existing data acquisition",
+          "col3": 6535913.774827268,
+          "col5": 6535913.774827268,
+          "col7": 6441901.385227268,
+          "col12": 6535913.774827268,
+          "col13": 18623688.9603482,
+          "col14": 16782533.95567614
+        },
+        "row199_Design & related reporting": {
+          "label": "Design & related reporting",
+          "col3": 2255599.7833999996,
+          "col5": 2333045.1914,
+          "col7": 2054262.2377999998,
+          "col12": 2333045.1914,
+          "col13": 6647870.438930009,
+          "col14": 5606460.854382649
+        }
+      }
+    },
+    "financial": {
+      "equity_pct": 0.45,
+      "cost_of_equity": 0.108,
+      "cost_of_debt": 0.0391,
+      "tax_rate": 0.2574,
+      "escalation_rate": 0,
+      "base_calendar_year": 2008,
+      "starting_calendar_year": 2024,
+      "escalation_factor_2008_to_2024": 2.8494392065079523,
+      "escalation_rate_base_to_start": 0.06763416297931021
+    }
+  }
+}

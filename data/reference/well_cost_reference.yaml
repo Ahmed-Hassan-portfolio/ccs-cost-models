@@ -1,0 +1,530 @@
+# CCS Reference Wells — Oliasoft WellDesign + Sodir Calibration
+# Created: 2026-03-21, Updated: 2026-03-22
+# All wells under: Norway / Smeahia / alpha / CCS1 / T1 in Oliasoft WellDesign
+# Oliasoft instance: https://welldesign.oliasoft.com/896
+# Forecast instance: https://forecast.oliasoft.com
+
+# CALIBRATION SOURCE: Sodir FactPages — 920 NCS injection wells (1970-2025)
+# See: data/sodir/well-durations/duration-statistics.md
+# CO2 well benchmarks: Sleipner (22d), Snohvit (40-45d), Northern Lights (23-33d)
+# CO2 wells perform at P10-P25 of general injection well population
+
+# NOTE: No CRA (25Cr super duplex) grades available in Oliasoft library.
+# All production casings use Q-125 carbon steel. Apply cra_factor to production
+# casing + tubing costs per implementation plan §3.2.
+#
+# CRA MATERIAL COST MULTIPLIERS (source: IEAGHG 2018-08, Table 2):
+#   13Cr   = 3x carbon steel (L80)
+#   22Cr duplex = 4-5x carbon steel
+#   25Cr super duplex = 5-6x carbon steel  ← for CO2 injection wells
+#   Alloy 625 = 10x carbon steel
+#   CO2-resistant cement = +25% vs standard cement
+#
+# Impact on TOTAL well cost: production casing + tubing is ~15-20% of well cost.
+# At 5-6x material multiplier on that fraction: total well cost impact = 1.15-1.25x
+# Implementation plan cra_factor (1.35) is slightly high — covers material + fabrication premium.
+# Recommended range: 1.15-1.35 (material only: 1.15-1.25, with fabrication: 1.25-1.35)
+
+# NOTE: Oliasoft Forecast gave 11 days / $3.8M for RW-2 — this is ~40% of realistic
+# time because the activity model only had 12 activities (drill/case/cement × 4 sections).
+# A real well has 50-80 activities (tripping, BOP, logging, completion, NPT, etc.).
+# Use Sodir percentile bands below as the authoritative time calibration.
+
+rw1_utsira_shallow:
+  description: Shallow Utsira formation, lower bound reference
+  analog: Sleipner 15/9-A-16 (TVD 1,164m, 22 days, 82m WD)
+  oliasoft:
+    design_name: RW1-Utsira-Shallow
+    design_id: 49722
+    url: https://welldesign.oliasoft.com/896/casing/49722/design
+    forecast_estimate: RW1-Cost-Estimate
+    temp_sim: CO2 injection + shut-in (Pure CO2)
+  well_config:
+    configuration: Offshore
+    drilling_unit: Semi / Floater
+    water_depth_m: 100
+    air_gap_m: 25
+    wellhead_depth_rkb_m: 125
+  trajectory:
+    type: vertical
+    target_tvd_m: 1000
+    total_md_rkb_m: 1125
+    inclination_deg: 0
+  formation:
+    pore_pressure_gradient_sg: 0.951
+    temperature_gradient_c_per_100m: 3.75
+    seabed_temp_c: 4
+    drill_floor_temp_c: 20
+    temperature_at_td_c: 37.75  # T = 4 + 3.75*(1000-100)/100
+    reservoir_pressure_bar: 93  # 0.951 SG * 0.0981 * 1000m TVD
+  casing_program:
+    n_sections: 3  # no intermediate — shallow well
+    sections:
+      - name: Conductor
+        casing_size_in: 30
+        hole_size_in: 36
+        shoe_depth_md_m: 225
+        grade: X-56
+        weight_ppf: 309.7
+        mud_weight_sg: 1.03
+      - name: Surface
+        casing_size_in: 20
+        hole_size_in: 26
+        shoe_depth_md_m: 425
+        grade: K-55
+        weight_ppf: 133
+        mud_weight_sg: 1.10
+        cement_top_md_m: 125
+      - name: Production
+        casing_size_in: 9.625
+        hole_size_in: 12.25
+        shoe_depth_md_m: 1125
+        grade: Q-125  # 25Cr super duplex in reality — apply cra_factor
+        weight_ppf: 53.5
+        mud_weight_sg: 1.15
+        cement_top_md_m: 325
+  drilling_duration:
+    source: Sodir FactPages — NCS injection wells, TVD 1,000-2,000m (n=107)
+    co2_benchmark: Sleipner 15/9-A-16 — 22 days (TVD 1,164m, 82m WD, 1996, NOTE MD=3752m deviated)
+    p10_days: 10
+    p25_days: 16
+    p50_days: 22
+    p75_days: 52
+    p90_days: 135
+    recommended_co2_p50_days: 15  # shallower than Sleipner; vertical well should be faster
+    oliasoft_forecast_days: 11  # from Oliasoft — understated, only 12 activities modeled
+    oliasoft_forecast_mc:
+      mean_days: 16.4
+      p10_days: 16.1
+      p90_days: 16.7
+      n_activities: 30
+      n_sections: 3  # no intermediate (shallow well)
+      date: 2026-03-23
+
+rw2_utsira_moderate:
+  description: Moderate depth Utsira formation — no direct real-well analog
+  analog: Between Sleipner (1,164m TVD) and Northern Lights (2,818m TVD)
+  oliasoft:
+    design_name: RW2-Utsira-Deep
+    design_id: 49721
+    url: https://welldesign.oliasoft.com/896/casing/49721/design
+    forecast_estimate: RW2-Cost-Estimate
+    temp_sim: CO2 injection + shut-in (Pure CO2)
+  well_config:
+    configuration: Offshore
+    drilling_unit: Semi / Floater
+    water_depth_m: 300
+    air_gap_m: 25
+    wellhead_depth_rkb_m: 325
+  trajectory:
+    type: vertical
+    target_tvd_m: 1500
+    total_md_rkb_m: 1825
+    inclination_deg: 0
+  formation:
+    pore_pressure_gradient_sg: 0.951
+    temperature_gradient_c_per_100m: 3.75
+    seabed_temp_c: 4
+    drill_floor_temp_c: 20
+    temperature_at_td_c: 49.0  # T = 4 + 3.75*(1500-300)/100
+    reservoir_pressure_bar: 140  # 0.951 SG * 0.0981 * 1500m TVD
+  casing_program:
+    n_sections: 4
+    sections:
+      - name: Conductor
+        casing_size_in: 30
+        hole_size_in: 36
+        shoe_depth_md_m: 425
+        grade: X-56
+        weight_ppf: 309.7
+        mud_weight_sg: 1.03
+      - name: Surface
+        casing_size_in: 20
+        hole_size_in: 26
+        shoe_depth_md_m: 625
+        grade: K-55
+        weight_ppf: 133
+        mud_weight_sg: 1.10
+        cement_top_md_m: 325
+      - name: Intermediate
+        casing_size_in: 13.375
+        hole_size_in: 17.5
+        shoe_depth_md_m: 1325
+        grade: P-110
+        weight_ppf: 72
+        mud_weight_sg: 1.15
+        cement_top_md_m: 525
+      - name: Production
+        casing_size_in: 9.625
+        hole_size_in: 12.25
+        shoe_depth_md_m: 1825
+        grade: Q-125
+        weight_ppf: 53.5
+        mud_weight_sg: 1.20
+        cement_top_md_m: 1225
+  drilling_duration:
+    source: Sodir FactPages — NCS injection wells, TVD 1,000-2,000m (n=107)
+    co2_benchmark: null  # no direct CO2 analog at 1500m TVD
+    p10_days: 10
+    p25_days: 16
+    p50_days: 22
+    p75_days: 52
+    p90_days: 135
+    recommended_co2_p50_days: 20  # between Sleipner depth and NL depth; vertical well
+    oliasoft_forecast_days: 11  # understated
+    oliasoft_forecast_mc:
+      mean_days: 21.7
+      p10_days: 21.2
+      p90_days: 22.1
+      n_activities: 38
+      n_sections: 5  # conductor, surface, intermediate, production, upper completion
+      date: 2026-03-23
+
+rw3_johansen:
+  description: Northern Lights analog — Johansen/Cook formation, 300m WD
+  analog: Northern Lights 31/5-A-7 AH (TVD 2,818m, 23 days, 307m WD, 2022)
+  analog_2: Northern Lights 31/5-C-1 H (TVD 2,935m, 33 days, 307m WD, 2022)
+  analog_3: Snohvit 7121/4-G-4 H (TVD 2,636m, 40 days, 316m WD, 2016)
+  oliasoft:
+    design_name: RW3-Johansen
+    design_id: 49723
+    url: https://welldesign.oliasoft.com/896/casing/49723/design
+    forecast_estimate: RW3-Cost-Estimate
+    temp_sim: CO2 injection + shut-in (Pure CO2)
+  well_config:
+    configuration: Offshore
+    drilling_unit: Semi / Floater
+    water_depth_m: 300
+    air_gap_m: 25
+    wellhead_depth_rkb_m: 325
+  trajectory:
+    type: vertical
+    target_tvd_m: 2600
+    total_md_rkb_m: 2925
+    inclination_deg: 0
+  formation:
+    pore_pressure_gradient_sg: 0.951
+    temperature_gradient_c_per_100m: 3.75
+    seabed_temp_c: 4
+    drill_floor_temp_c: 20
+    temperature_at_td_c: 90.25  # T = 4 + 3.75*(2600-300)/100
+    reservoir_pressure_bar: 242  # 0.951 SG * 0.0981 * 2600m TVD
+  casing_program:
+    n_sections: 4
+    sections:
+      - name: Conductor
+        casing_size_in: 30
+        hole_size_in: 36
+        shoe_depth_md_m: 425
+        grade: X-56
+        weight_ppf: 309.7
+        mud_weight_sg: 1.03
+      - name: Surface
+        casing_size_in: 20
+        hole_size_in: 26
+        shoe_depth_md_m: 725
+        grade: K-55
+        weight_ppf: 133
+        mud_weight_sg: 1.10
+        cement_top_md_m: 325
+      - name: Intermediate
+        casing_size_in: 13.375
+        hole_size_in: 17.5
+        shoe_depth_md_m: 1925
+        grade: P-110
+        weight_ppf: 72
+        mud_weight_sg: 1.20
+        cement_top_md_m: 625
+      - name: Production
+        casing_size_in: 9.625
+        hole_size_in: 12.25
+        shoe_depth_md_m: 2925
+        grade: Q-125
+        weight_ppf: 53.5
+        mud_weight_sg: 1.30
+        cement_top_md_m: 1825
+  drilling_duration:
+    source: Sodir FactPages — NCS injection wells, TVD 2,000-3,000m (n=455)
+    co2_benchmark: Northern Lights 23-33 days, Snohvit 40 days (same depth range)
+    p10_days: 14
+    p25_days: 23
+    p50_days: 41
+    p75_days: 72
+    p90_days: 158
+    recommended_co2_p50_days: 28  # NL achieved 23-33d at similar depth; between P25 (23d) and P50 (41d)
+    oliasoft_forecast_days: 11  # severely understated — same model imported from RW-2
+    oliasoft_forecast_mc:
+      mean_days: 25.1
+      p10_days: 24.6
+      p90_days: 25.7
+      n_activities: 38
+      n_sections: 5
+      date: 2026-03-22  # entered manually (first well done)
+
+rw4_cook_deep:
+  description: Deep Cook/Sognefjord target with 7" liner
+  analog: Snohvit 7121/4-F-2 H (TVD 2,795m, 45 days, 318m WD, 2004)
+  oliasoft:
+    design_name: RW4-Cook-Deep
+    design_id: 49724
+    url: https://welldesign.oliasoft.com/896/casing/49724/design
+    forecast_estimate: RW4-Cost-Estimate
+    temp_sim: CO2 injection + shut-in (Pure CO2)
+  well_config:
+    configuration: Offshore
+    drilling_unit: Semi / Floater
+    water_depth_m: 350
+    air_gap_m: 25
+    wellhead_depth_rkb_m: 375
+  trajectory:
+    type: vertical
+    target_tvd_m: 3000
+    total_md_rkb_m: 3375
+    inclination_deg: 0
+  formation:
+    pore_pressure_gradient_sg: 0.951
+    temperature_gradient_c_per_100m: 3.75
+    seabed_temp_c: 4
+    drill_floor_temp_c: 20
+    temperature_at_td_c: 103.4  # T = 4 + 3.75*(3000-350)/100
+    reservoir_pressure_bar: 280  # 0.951 SG * 0.0981 * 3000m TVD
+  casing_program:
+    n_sections: 5  # includes 7" liner
+    sections:
+      - name: Conductor
+        casing_size_in: 30
+        hole_size_in: 36
+        shoe_depth_md_m: 475
+        grade: X-56
+        weight_ppf: 309.7
+        mud_weight_sg: 1.03
+      - name: Surface
+        casing_size_in: 20
+        hole_size_in: 26
+        shoe_depth_md_m: 875
+        grade: K-55
+        weight_ppf: 133
+        mud_weight_sg: 1.10
+        cement_top_md_m: 375
+      - name: Intermediate
+        casing_size_in: 13.375
+        hole_size_in: 17.5
+        shoe_depth_md_m: 2075
+        grade: P-110
+        weight_ppf: 72
+        mud_weight_sg: 1.20
+        cement_top_md_m: 775
+      - name: Production
+        casing_size_in: 9.625
+        hole_size_in: 12.25
+        shoe_depth_md_m: 2875
+        grade: Q-125
+        weight_ppf: 53.5
+        mud_weight_sg: 1.30
+        cement_top_md_m: 1975
+      - name: Production Liner
+        type: Liner
+        casing_size_in: 7
+        hole_size_in: 8.5
+        top_md_m: 2775
+        shoe_depth_md_m: 3375
+        grade: Q-125
+        weight_ppf: 35
+        mud_weight_sg: 1.35
+        cement_top_md_m: 2775
+  drilling_duration:
+    source: Sodir FactPages — NCS injection wells, TVD 3,000-4,000m (n=266)
+    co2_benchmark: Snohvit 7121/4-F-2 H — 45 days (TVD 2,795m, 2004)
+    p10_days: 22
+    p25_days: 33
+    p50_days: 53
+    p75_days: 103
+    p90_days: 220
+    recommended_co2_p50_days: 40  # 5 sections + liner adds complexity; Snohvit achieved 45d at 2795m
+    oliasoft_forecast_days: 11  # severely understated
+    oliasoft_forecast_mc:
+      mean_days: 26.6
+      p10_days: 26.0
+      p90_days: 27.3
+      n_activities: 38
+      n_sections: 5
+      date: 2026-03-23
+
+rw5_gassum_shallow:
+  description: Gassum formation, shallow water, moderate depth
+  analog: Similar depth to RW-2, shallower water (platform/jackup territory)
+  oliasoft:
+    design_name: RW5-Gassum-Shallow
+    design_id: 49725
+    url: https://welldesign.oliasoft.com/896/casing/49725/design
+    forecast_estimate: RW5-Cost-Estimate
+    temp_sim: CO2 injection + shut-in (Pure CO2)
+  well_config:
+    configuration: Offshore
+    drilling_unit: Semi / Floater
+    water_depth_m: 100
+    air_gap_m: 25
+    wellhead_depth_rkb_m: 125
+  trajectory:
+    type: vertical
+    target_tvd_m: 1500
+    total_md_rkb_m: 1625
+    inclination_deg: 0
+  formation:
+    pore_pressure_gradient_sg: 0.951
+    temperature_gradient_c_per_100m: 3.75
+    seabed_temp_c: 4
+    drill_floor_temp_c: 20
+    temperature_at_td_c: 56.5  # T = 4 + 3.75*(1500-100)/100
+    reservoir_pressure_bar: 140  # 0.951 SG * 0.0981 * 1500m TVD
+  casing_program:
+    n_sections: 4
+    sections:
+      - name: Conductor
+        casing_size_in: 30
+        hole_size_in: 36
+        shoe_depth_md_m: 225
+        grade: X-56
+        weight_ppf: 309.7
+        mud_weight_sg: 1.03
+      - name: Surface
+        casing_size_in: 20
+        hole_size_in: 26
+        shoe_depth_md_m: 525
+        grade: K-55
+        weight_ppf: 133
+        mud_weight_sg: 1.10
+        cement_top_md_m: 125
+      - name: Intermediate
+        casing_size_in: 13.375
+        hole_size_in: 17.5
+        shoe_depth_md_m: 1125
+        grade: P-110
+        weight_ppf: 72
+        mud_weight_sg: 1.15
+        cement_top_md_m: 425
+      - name: Production
+        casing_size_in: 9.625
+        hole_size_in: 12.25
+        shoe_depth_md_m: 1625
+        grade: Q-125
+        weight_ppf: 53.5
+        mud_weight_sg: 1.20
+        cement_top_md_m: 1025
+  drilling_duration:
+    source: Sodir FactPages — NCS injection wells, TVD 1,000-2,000m (n=107)
+    co2_benchmark: null  # no direct CO2 analog at shallow water + moderate depth
+    p10_days: 10
+    p25_days: 16
+    p50_days: 22
+    p75_days: 52
+    p90_days: 135
+    recommended_co2_p50_days: 18  # shallower water = slightly faster than RW-2
+    oliasoft_forecast_days: 11  # understated
+    oliasoft_forecast_mc:
+      mean_days: 19.9
+      p10_days: 19.6
+      p90_days: 20.3
+      n_activities: 38
+      n_sections: 5
+      date: 2026-03-23
+
+rw6_generic_mid:
+  description: Generic mid-range reference for sensitivity analysis
+  analog: No specific analog — interpolation between shallow and deep wells
+  oliasoft:
+    design_name: RW6-Generic-Mid
+    design_id: 49726
+    url: https://welldesign.oliasoft.com/896/casing/49726/design
+    forecast_estimate: RW6-Cost-Estimate
+    temp_sim: CO2 injection + shut-in (Pure CO2)
+  well_config:
+    configuration: Offshore
+    drilling_unit: Semi / Floater
+    water_depth_m: 200
+    air_gap_m: 25
+    wellhead_depth_rkb_m: 225
+  trajectory:
+    type: vertical
+    target_tvd_m: 2000
+    total_md_rkb_m: 2225
+    inclination_deg: 0
+  formation:
+    pore_pressure_gradient_sg: 0.951
+    temperature_gradient_c_per_100m: 3.75
+    seabed_temp_c: 4
+    drill_floor_temp_c: 20
+    temperature_at_td_c: 71.5  # T = 4 + 3.75*(2000-200)/100
+    reservoir_pressure_bar: 187  # 0.951 SG * 0.0981 * 2000m TVD
+  casing_program:
+    n_sections: 4
+    sections:
+      - name: Conductor
+        casing_size_in: 30
+        hole_size_in: 36
+        shoe_depth_md_m: 325
+        grade: X-56
+        weight_ppf: 309.7
+        mud_weight_sg: 1.03
+      - name: Surface
+        casing_size_in: 20
+        hole_size_in: 26
+        shoe_depth_md_m: 625
+        grade: K-55
+        weight_ppf: 133
+        mud_weight_sg: 1.10
+        cement_top_md_m: 225
+      - name: Intermediate
+        casing_size_in: 13.375
+        hole_size_in: 17.5
+        shoe_depth_md_m: 1525
+        grade: P-110
+        weight_ppf: 72
+        mud_weight_sg: 1.15
+        cement_top_md_m: 525
+      - name: Production
+        casing_size_in: 9.625
+        hole_size_in: 12.25
+        shoe_depth_md_m: 2225
+        grade: Q-125
+        weight_ppf: 53.5
+        mud_weight_sg: 1.25
+        cement_top_md_m: 1425
+  drilling_duration:
+    source: Sodir FactPages — NCS injection wells, TVD 2,000-3,000m (n=455)
+    co2_benchmark: null  # no direct CO2 analog at 2000m TVD
+    p10_days: 14
+    p25_days: 23
+    p50_days: 41
+    p75_days: 72
+    p90_days: 158
+    recommended_co2_p50_days: 25  # interpolated; between P25 (23d) and P50 (41d)
+    oliasoft_forecast_days: 11  # understated
+    oliasoft_forecast_mc:
+      mean_days: 22.1
+      p10_days: 21.7
+      p90_days: 22.6
+      n_activities: 38
+      n_sections: 5
+      date: 2026-03-23
+
+# ============================================================================
+# CALIBRATION SUMMARY
+# ============================================================================
+#
+# Real NCS CO2 injection wells (from Sodir FactPages):
+#
+# | Well                 | Year | TVD (m) | WD (m) | Duration (days) | Project         |
+# |----------------------|------|---------|--------|-----------------|-----------------|
+# | 15/9-A-16            | 1996 | 1,164   | 82     | 22              | Sleipner        |
+# | 7121/4-F-2 H         | 2004 | 2,795   | 318    | 45              | Snohvit         |
+# | 7121/4-G-4 H         | 2016 | 2,636   | 316    | 40              | Snohvit         |
+# | 31/5-A-7 AH          | 2022 | 2,818   | 307    | 23              | Northern Lights |
+# | 31/5-C-1 H           | 2022 | 2,935   | 307    | 33              | Northern Lights |
+#
+# CO2 wells consistently perform at P10-P25 of the general NCS injection well
+# population for their depth range. This reflects: purpose-built wells, known
+# formations, dedicated rig campaigns, vertical/low-deviation trajectories.
+#
+# Sodir data source: data/sodir/well-durations/ (920 injection wells, NLOD 2.0)
+# ============================================================================

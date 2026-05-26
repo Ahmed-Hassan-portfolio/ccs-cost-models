@@ -1,0 +1,347 @@
+# Validation Design: Calibration / Hold-Out Split
+# =================================================
+# Clean separation of data used to tune the model vs data for blind prediction.
+# This ensures validation is meaningful -- the model cannot be "overfit" to
+# hold-out benchmarks because they are never used during calibration.
+#
+# Source: Implementation plan Section 5 (Validation Strategy)
+# Created: 2026-03-27
+
+# ============================================================================
+# CALIBRATION SET — data used to tune model parameters
+# These benchmarks informed model design and coefficient selection.
+# Model is EXPECTED to match these closely.
+# ============================================================================
+calibration_set:
+
+  - id: CAL-01
+    name: "Northern Lights pipeline"
+    what_it_calibrates: "Pipeline cost lower bound"
+    value: "EUR 480K/km (Subsea 7 EPCI contract)"
+    value_numeric:
+      amount: 480
+      unit: "kEUR/km"
+      year: 2022
+    source: "Subsea 7 EPCI contract, Northern Lights Phase 1"
+    notes: >
+      May be anomalously low (first-mover pricing, Equinor leverage).
+      Treated as lower bound, not target.
+
+  - id: CAL-02
+    name: "Snohvit pipeline"
+    what_it_calibrates: "Pipeline cost mid-range (historical)"
+    value: "EUR 781K/km (escalated from 2008 to 2024 via CEPCI)"
+    value_numeric:
+      amount: 781
+      unit: "kEUR/km"
+      year: 2024
+      original_year: 2008
+      escalation: "CEPCI 800.0/575.4 = 1.39"
+    source: "Statoil/Equinor historical, 160 km, 8-inch pipeline"
+    notes: >
+      8-inch pipeline is small for CCS scale. Cost per km is high due
+      to fixed mobilization costs spread over short distance.
+
+  - id: CAL-03
+    name: "Northern Lights subsea system"
+    what_it_calibrates: "Subsea infrastructure reference cost"
+    value: "NOK 250M/well system (Aker Solutions EPCI)"
+    value_numeric:
+      amount: 250
+      unit: "MNOK/system"
+      year: 2022
+    source: "Aker Solutions EPCI contract, Meld. St. 33"
+    notes: >
+      Includes tree, wellhead, flow base, controls, and options.
+      First system NOK 200M, repeat NOK 170M (learning curve).
+
+  - id: CAL-04
+    name: "ZEP Case 6 (offshore aquifer, medium)"
+    what_it_calibrates: "Total storage cost anchor"
+    value: "14 EUR/t"
+    value_numeric:
+      amount: 14
+      unit: "EUR/tCO2"
+      year: 2009
+    source: "ZEP 2011, Table 4"
+    notes: >
+      ZEP Case 6 is the closest match to our target: offshore saline aquifer,
+      medium scenario. Wells are 40-70% of storage cost across all ZEP cases.
+
+  - id: CAL-05
+    name: "SBBU well time model + Oliasoft quantities + NCS rates"
+    what_it_calibrates: "Well cost primary (activity-based)"
+    value: "Bottom-up from 5 sources"
+    source: "SBBU Rev B (Sangesland 2013), Oliasoft WellDesign, NCS day rates, IEAGHG 2018-08, Sodir FactPages"
+    notes: >
+      Activity WBS from SBBU, casing quantities from Oliasoft reference wells,
+      NCS day rates from SP Global/Sodir, CRA multipliers from IEAGHG.
+      Validated against 5 real CO2 wells (Sleipner, Snohvit x2, NL x2).
+
+  - id: CAL-06
+    name: "NCS CO2 well durations (5 wells)"
+    what_it_calibrates: "Drilling time regression and percentile bands"
+    value: "22-45 days across 1164-2935m TVD"
+    source: "Sodir FactPages: Sleipner (22d), Snohvit (40d, 45d), NL (23d, 33d)"
+    notes: >
+      CO2 wells cluster at P25-P50 of injection well population.
+      Used to validate drilling uncertainty module prediction intervals.
+
+
+# ============================================================================
+# HOLD-OUT SET — data for blind prediction
+# Model predictions must be made BEFORE comparing to these benchmarks.
+# Model was NOT tuned to match these values.
+# ============================================================================
+holdout_set:
+
+  - id: HO-01
+    name: "ZEP Cases 1-5"
+    expected_range:
+      min: 3
+      max: 10
+      unit: "EUR/tCO2"
+      year: 2009
+    independent: "Partially"
+    independence_notes: >
+      ZEP methodology overlaps with our approach (same IEAGHG heritage).
+      But specific case parameters were not used in calibration.
+    source: "ZEP 2011"
+    n_cases: 5
+
+  - id: HO-02
+    name: "BEIS 2019 UK benchmarks"
+    expected_range:
+      min: 8
+      max: 31
+      unit: "GBP/tCO2"
+      year: 2018
+    independent: "Yes"
+    independence_notes: >
+      Different model (UK Treasury Green Book methodology), different data
+      (UK cost estimates), different geography. Fully independent.
+    source: "BEIS 2019 CCUS Deployment: An update on business models for CCS"
+    n_cases: 11
+    success_criterion: "Model P10-P90 contains >= 7 of 11 BEIS cases"
+
+  - id: HO-03
+    name: "IEA Europe T&S range"
+    expected_range:
+      min: 30
+      max: 60
+      unit: "USD/tCO2"
+      year: 2023
+    independent: "Yes"
+    independence_notes: >
+      IEA World Energy Outlook methodology is independent. Uses different
+      cost databases and modeling approach.
+    source: "IEA WEO, various years"
+    success_criterion: "Model P50 falls within 30-60 USD/t for standard scenarios"
+
+  - id: HO-04
+    name: "d'Amore 2021 EU optimal"
+    expected_range:
+      value: 52
+      unit: "EUR/tCO2"
+      year: 2018
+    independent: "Yes"
+    independence_notes: >
+      MILP network optimization of European CCS supply chains.
+      Fundamentally different approach (network vs single project).
+      Not directly comparable but provides European cost context.
+    source: "d'Amore et al. 2021, Comput. Chem. Eng."
+    comparison_caveats:
+      - "d'Amore is network-optimal, our model is single-project"
+      - "d'Amore includes capture + transport + storage"
+      - "European average, not Norway-specific"
+      - "MILP can find lower costs through network effects"
+
+  - id: HO-05
+    name: "Van der Spek 2019 Table 2 (meta-analysis)"
+    expected_range:
+      min: 2.2
+      max: 48.7
+      unit: "EUR/tCO2"
+      year: 2019
+    independent: "Yes"
+    independence_notes: >
+      Meta-analysis of 6 independent studies. Uses different cost indices,
+      escalation methods, and scope definitions.
+    source: "van der Spek et al. 2019, Int. J. Greenh. Gas Control"
+    n_studies: 6
+
+  - id: HO-06
+    name: "Becattini 2024 pioneering chains"
+    expected_range:
+      min: 100
+      max: 300
+      unit: "EUR/tCO2"
+      year: 2024
+    independent: "Yes"
+    independence_notes: >
+      Real supply chain analysis of 4 EU pioneering CCS projects.
+      Full-chain costs (capture + transport + storage).
+      Not directly comparable to our storage-only model.
+    source: "Becattini et al. 2024"
+    n_cases: 4
+    comparison_caveats:
+      - "Full-chain costs (capture dominates at 50-80%)"
+      - "Pioneering projects have first-of-kind premium"
+      - "Our model covers T&S only -- subtract capture to compare"
+
+  - id: HO-07
+    name: "Porthos (Netherlands)"
+    expected_range:
+      value: "TBD"
+      unit: "EUR/tCO2"
+    independent: "Yes"
+    independence_notes: "Different project, different country, different operator."
+    source: "Public disclosures when available"
+    status: "pending_data"
+
+  - id: HO-08
+    name: "Endurance (UK)"
+    expected_range:
+      value: "TBD"
+      unit: "GBP/tCO2"
+    independent: "Yes"
+    independence_notes: "BP-operated, UK-specific, depleted field (partially different scope)."
+    source: "BP disclosures when available"
+    status: "pending_data"
+
+
+# ============================================================================
+# NETL COMPARISON (E3)
+# Not calibration or hold-out -- structural comparison to highlight
+# model improvements for NCS context.
+# ============================================================================
+netl_comparison:
+  description: >
+    Run our model with NETL default inputs, compare to NETL output.
+    Purpose is NOT to match NETL but to document WHY our model differs
+    and show that differences are explainable by NCS-specific factors.
+  netl_reference:
+    formation: "Formation 1"
+    fybe: 14.38
+    unit: "USD/tCO2"
+    year: 2008
+    source: "NETL CO2_S_COM v4 (onshore saline, Formation 1)"
+  expected_divergence_reasons:
+    - reason: "NCS subsea tieback vs US jacket platform"
+      direction: "Our model higher"
+      magnitude: "Subsea system NOK 200M vs US platform included in NETL costs"
+
+    - reason: "Norwegian tax regime (22%) vs US (35%)"
+      direction: "Our model lower"
+      magnitude: "13 percentage point difference reduces FYBE"
+
+    - reason: "CEPCI escalation vs NETL Handy-Whitman inflation"
+      direction: "Both directions possible"
+      magnitude: "CEPCI 2008->2024 = 1.39x vs NETL factor 2.85x (different base)"
+
+    - reason: "Offshore vs onshore"
+      direction: "Our model higher"
+      magnitude: "Offshore multiplier 1.4-2.0x on most cost categories"
+
+    - reason: "European location factor"
+      direction: "Our model higher"
+      magnitude: "1.20x Euro factor + 1.15x NCS premium = 1.38x total"
+
+    - reason: "Subsea XT cost (NCS) vs platform wellhead (US)"
+      direction: "Our model higher"
+      magnitude: "NOK 100-125M per subsea tree, no equivalent in NETL onshore"
+
+  comparison_protocol: >
+    1. Configure model with NETL Formation 1 defaults (depth, porosity, permeability)
+    2. Run with US tax rate (35%) and no location factor (1.0x)
+    3. Compare FYBE in 2008 USD -- expect within 2x of NETL
+    4. Switch to NCS settings (22% tax, 1.38x factor, subsea)
+    5. Document the cost impact of each NCS-specific parameter
+
+
+# ============================================================================
+# d'AMORE EUROPEAN COMPARISON (E4)
+# ============================================================================
+damore_comparison:
+  description: >
+    Position our Norwegian storage cost within the European optimization context.
+    d'Amore (2021) found an optimal EU CCS network with average T&S cost of 52 EUR/t.
+  damore_optimal:
+    value: 52
+    unit: "EUR/tCO2"
+    year: 2018
+    source: "d'Amore et al. 2021"
+  comparison_caveats:
+    - "d'Amore is a MILP network optimization -- finds global European optimum"
+    - "Includes transport network effects (shared pipelines, hubs)"
+    - "Our model is single-project point-to-point"
+    - "52 EUR/t is the AVERAGE across all EU sources and sinks"
+    - "Norwegian-specific costs may be higher (offshore) or lower (short transport)"
+  expected_position: >
+    Our NCS storage-only cost (without capture) should be below 52 EUR/t
+    for favorable formations (Utsira, Johansen) but may exceed it for
+    deep/remote formations. This is consistent with Norwegian storage
+    being among the more competitive European options.
+
+
+# ============================================================================
+# DATA LEAKAGE PREVENTION
+# ============================================================================
+data_leakage_controls:
+  principle: >
+    Calibration data was used during model development and parameter selection.
+    Hold-out data was NOT used during development and is reserved for blind
+    prediction tests. No hold-out benchmark values were used to adjust
+    model parameters, coefficients, or default inputs.
+  calibration_sources_used_in_code:
+    - "NL pipeline EUR 480K/km -- informs pipeline cost validation range"
+    - "NL subsea NOK 250M -- directly in ncs_drilling_model.yaml fixed_costs"
+    - "ZEP Case 6 14 EUR/t -- used to set test_calibration.py range"
+    - "SBBU/Oliasoft -- directly in drilling model"
+    - "Sodir CO2 wells -- in drilling_uncertainty.py CO2 benchmarks"
+  holdout_sources_not_in_code:
+    - "BEIS 2019 UK benchmarks -- not referenced in any source file"
+    - "d'Amore 52 EUR/t -- referenced in research/ only, not in src/"
+    - "Van der Spek Table 2 ranges -- not used in any model equation"
+    - "Becattini 2024 -- not referenced in any source file"
+    - "Porthos/Endurance -- data not yet available"
+
+
+# ============================================================================
+# SUCCESS CRITERIA (from implementation plan Section 11)
+# ============================================================================
+success_criteria:
+  - id: SC-01
+    criterion: "Reproduces ZEP Case 6 within +/-40%"
+    target: "14 EUR/t +/- 5.6"
+    type: "calibration_check"
+
+  - id: SC-02
+    criterion: "BEIS hold-out cases fall within model P10-P90"
+    target: ">= 7 of 11 cases"
+    type: "holdout_prediction"
+
+  - id: SC-03
+    criterion: "IEA Europe range contains model P50"
+    target: "30-60 USD/t"
+    type: "holdout_prediction"
+
+  - id: SC-04
+    criterion: "NETL comparison shows explainable NCS improvement"
+    target: "Documented divergence with clear attribution"
+    type: "structural_comparison"
+
+  - id: SC-05
+    criterion: "Composite escalation index correlates with UCCI"
+    target: "r > 0.7 for 2000-2017"
+    type: "index_validation"
+
+  - id: SC-06
+    criterion: "Verification cases reproduce within +/-1%"
+    target: "5 cases deterministic, Monte Carlo with fixed seed"
+    type: "reproducibility"
+
+  - id: SC-07
+    criterion: "Tornado chart top-2 drivers match ZEP"
+    target: "Well cost and injection rate are top-2"
+    type: "sensitivity_validation"

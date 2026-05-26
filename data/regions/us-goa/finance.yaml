@@ -1,0 +1,48 @@
+# US Gulf of America (GOA) Financial Parameters
+# Source: NETL CO2_S_COM_Offshore v1.1 reference values
+#
+# All costs in USD. Base year 2008.
+
+tax:
+  corporate_rate: 0.2574         # Federal + state blended (NETL default)
+  petroleum_tax_rate: 0.0        # No petroleum special tax in US
+  use_petroleum_tax: false
+  loss_carryforward: true
+
+capital_structure:
+  equity_fraction: 0.45          # 45% equity, 55% debt
+  cost_of_equity: 0.108          # 10.8% nominal
+  cost_of_debt: 0.0391           # 3.91% nominal
+
+escalation:
+  base_cost_year: 2008
+  project_start_year: 2024
+  pre_project_rate: 0.06763416297931021  # Handy-Whitman derived (2008->2024)
+  during_project_rate: 0.0               # No escalation during project
+
+depreciation_map:
+  site_characterization:
+    method: DB150
+    recovery_period: 15
+  seismic:
+    method: SL
+    recovery_period: 5
+  wells:
+    method: DB200
+    recovery_period: 5
+  plug_abandon:
+    method: DB200
+    recovery_period: 5
+  pipeline:
+    method: DB150
+    recovery_period: 20
+  platform:
+    method: DB150
+    recovery_period: 20
+
+fr_instruments:
+  default_instrument: trust_fund
+  trust_fund_interest_rate: 0.015
+  surety_bond_premium_rate: 0.02
+  insurance_premium_rate: 0.02
+  letter_of_credit_fee_rate: 0.015

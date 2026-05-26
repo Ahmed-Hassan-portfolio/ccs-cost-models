@@ -1,0 +1,57 @@
+[project]
+name = "ccs-costs"
+version = "1.0.0"
+description = "Python-based CO2 storage cost estimation engine exposed as MCP tools"
+requires-python = ">=3.12"
+license = {text = "BSD-3-Clause"}
+readme = "README.md"
+keywords = ["ccs", "co2", "storage", "cost", "estimation", "mcp"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+    "License :: OSI Approved :: BSD License",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "pandas",
+    "pydantic>=2.0",
+    "pyyaml",
+    "fastmcp>=3.1.0",
+]
+
+[project.optional-dependencies]
+multiflash = [
+    "httpx",
+]
+ui = [
+    "streamlit",
+]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "hypothesis",
+]
+
+[project.scripts]
+ccs-cost-server = "ccs_costs.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ccs_costs"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v"
+
+[tool.coverage.run]
+source = ["ccs_costs"]
+
+[tool.coverage.report]
+show_missing = true

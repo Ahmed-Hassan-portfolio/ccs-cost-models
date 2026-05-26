@@ -1,0 +1,349 @@
+# NCS Activity-Based Drilling Model — Calibration Data v2
+# ======================================================
+# Build well construction time bottom-up from activity-level data,
+# then convert to cost via day rates.
+#
+# v2 changes: Split section overhead into FLAT + DEPTH-DEPENDENT components.
+# Flat = same time regardless of depth (BHA M/U, testing, cementing, L/D)
+# Depth-dep = scales with casing shoe depth (casing running, tripping)
+#
+# Derivation: SBBU Base Case vs Case-1 for 26" section gives two data points:
+#   At 1200m shoe: casing running = 9h
+#   At 2200m shoe: casing running = 14h
+#   → rate = 5.0 hr/km, intercept = 3.0h (rigging up)
+# Other sections: one data point each, rate derived from casing size.
+#
+# Sources:
+#   SBBU NTNU-IPT 2013/01 (Sangesland et al.) — activity hours, two-point fit
+#   Khosravanian & Aadnoy 2021 — WBS structure, PERT distributions
+#   Sodir FactPages 2025 — 920 NCS injection wells, percentile bands
+#   IEAGHG 2018-08 — CRA material multipliers, CO2 cement premium
+#
+# Created: 2026-03-22, v2: 2026-03-22
+
+metadata:
+  version: "2.0"
+  created: "2026-03-22"
+  notes: >
+    All values from SBBU Standard Conventional, Base Case Rev B (Excel verified).
+    BOP time is handled SEPARATELY — not included in section activities.
+    Flat/depth split empirically validated via SBBU Base Case vs Case-1 comparison.
+
+# ============================================================================
+# ROP ratio factors by hole size (normalized to 8.5" = 1.0)
+# Source: SBBU Tables 20/23/24, verified against Excel ROP sheets
+# ============================================================================
+rop_ratio_factors:
+  36.0: 0.17
+  26.0: 0.20
+  17.5: 0.50
+  12.25: 0.70
+  8.5: 1.00
+
+reference_rop_mhr: 30.0
+
+# ============================================================================
+# Per-section activities: FLAT + DEPTH-DEPENDENT split
+# Source: SBBU Standard Conventional, Base Case Rev B
+#
+# flat_hrs: Depth-independent time. Same whether section shoe is at 500m or 3000m.
+#   Includes: BHA M/U, displace, shoe track, LOT, circ/clean, cement pumping,
+#   BOP test, pull bushing, clean wellhead, L/D BHA, rigging up casing equipment.
+#
+# depth_rate_hr_per_km: Time per km of casing shoe depth for depth-dependent
+#   activities (casing running to shoe, tripping for casing).
+#   26": 5.0 hr/km — empirical from SBBU two-point fit (heavy 20" casing)
+#   17.5"/12.25"/8.5": 2.5 hr/km — lighter casing, faster connections
+#
+# Derivation for 26" section (the only one with two data points):
+#   Base Case: shoe=1200m, R/U+run 20" casing = 9h
+#   Case-1:    shoe=2200m, R/U+run 20" casing = 14h
+#   rate = (14-9)/(2.2-1.2) = 5.0 hr/km
+#   flat_component = total_overhead - BOP(46h) - casing_depth(5.0×1.2)
+#                  = 96.5 - 46 - 6.0 = 44.5h ≈ 50.5 (incl rigging)
+#
+# Verification at Case-1 depth:
+#   overhead = 50.5 + 5.0×2.2 = 61.5h → SBBU Case-1 shows 61.5h ✓
+# ============================================================================
+section_activities:
+  36.0:
+    flat_hrs: 65.0
+    depth_rate_hr_per_km: 0.0
+    notes: >
+      Conductor driven/jetted at ~100m below mudline. All time is flat.
+      position(6) + BHA M/U(12) + displace(10) + M/U conductor(10)
+      + run conductor(12) + cement(12) + L/D(3) = 65h
+
+  26.0:
+    flat_hrs: 50.5
+    depth_rate_hr_per_km: 5.0
+    notes: >
+      Empirical two-point fit. BOP run+test (46h) excluded (handled separately).
+      flat: BHA M/U(8) + shoe track(3) + circ/clean/POOH(15) + cement(12)
+      + BOP test(6) + L/D(3.5) + rigging(3) = 50.5h
+      depth: 5.0 hr/km × shoe_depth_km (20" casing running speed)
+
+  17.5:
+    flat_hrs: 52.0
+    depth_rate_hr_per_km: 2.5
+    notes: >
+      Single data point: 10h casing running at 2900m shoe.
+      13-3/8" casing lighter → rate ~2.5 hr/km (vs 5.0 for 20").
+      flat: BHA M/U(6) + displace(3) + test/LOT(8) + circ/clean(10)
+      + pull bushing(10) + cement/test(12) + rigging(3) = 52h
+      Check: 52 + 2.5×2.9 = 59.25h ≈ SBBU 59h ✓
+
+  12.25:
+    flat_hrs: 71.5
+    depth_rate_hr_per_km: 2.5
+    notes: >
+      Single data point: 14h casing running at 4400m shoe.
+      9-5/8" casing similar rate to 13-3/8".
+      flat: BHA M/U(10) + test/LOT(8) + circ/clean(15) + logging(8)
+      + pull bushing(10) + POOH/R/D(14) + L/D(3.5) + rigging(3) = 71.5h
+      Check: 71.5 + 2.5×4.4 = 82.5h = SBBU 82.5h ✓
+
+  8.5:
+    flat_hrs: 56.0
+    depth_rate_hr_per_km: 2.5
+    notes: >
+      Liner section. BOP pull (40h) excluded (handled separately).
+      flat: BHA M/U(13) + test/LOT(8) + circ/clean(17) + L/D(4)
+      + POOH hanger tool(6) + pull bushing(5) + rigging(3) = 56h
+      depth: liner trip to set depth at 2.5 hr/km
+      Check: 56 + 2.5×4.9 = 68.25h ≈ SBBU 68h (108-40 BOP) ✓
+
+# CO2 well simplification factor — applied to FLAT time only.
+# SBBU overheads are for a 4700m exploration well with full logging program.
+# CO2 injection wells skip: exploration logging suite (~8h), gyro survey,
+# complex wellhead configurations. Sodir confirms CO2 wells at P10-P25.
+# Depth-dependent time (casing running physics) is NOT reduced.
+co2_flat_factor: 0.85
+
+# ============================================================================
+# BOP run/pull time — water depth dependent, SEPARATE from section activities
+# Source: SBBU: 40+40 hrs at 200m WD (Standard Conventional)
+# ============================================================================
+bop:
+  reference_water_depth_m: 200
+  run_hours: 40.0
+  pull_hours: 40.0
+  scaling_hrs_per_100m: 9.1
+
+# ============================================================================
+# Completion time (injection well — no CCS-specific adder needed)
+# Source:
+#   Flat-time floor: Hassan, Schei, Stanko & Sangesland (2024),
+#     "Revolutionizing CCS Wells: Economically Feasible Design Innovations",
+#     EAGE Earthdoc, https://doi.org/10.3997/2214-4609.202421179 — 79h at
+#     1000m TVD.
+#   Depth scaling: tubing RIH at ~50 m/hr physics rate ≈ 6 hr per 1000m.
+# Completion is overwhelmingly flat-time (lower + upper + BOP pull); only
+# tubing RIH scales with depth. CCS completion = injection well completion
+# (SINTEF 2024). CRA material premium handled separately in cost model.
+# ============================================================================
+completion:
+  flat_hours: 75.0          # Lower completion (26h) + upper completion (25h) + BOP pull (24h)
+  depth_rate_hr_per_km: 6.0 # Tubing RIH at ~50 m/hr ≈ 6h per 1000m extra depth
+  # Calibration: at 1000m: 75 + 6×1.0 = 81h → Hassan et al. 2024 actual 79h (within 3%)
+  uncertainty:
+    optimistic: 0.85   # factor on total completion time
+    pessimistic: 1.20
+
+# ============================================================================
+# NPT (Non-Productive Time) factors
+# ============================================================================
+npt_factors:
+  optimistic: 0.10
+  base: 0.15
+  conservative: 0.25
+
+# ============================================================================
+# Batch drilling savings
+# ============================================================================
+batch_drilling:
+  savings_days_per_well: 3.0
+  min_wells_for_batch: 2
+
+# ============================================================================
+# Day rates (2026 NCS market estimates)
+# ============================================================================
+day_rates:
+  nok:
+    rig: 3_500_000
+    services: 1_500_000
+  usd:
+    rig: 350_000
+    services: 150_000
+
+# ============================================================================
+# Material costs — bottom-up from steel pricing research
+# Source: Argus Pipe Logix May 2025, IEAGHG 2018-08, cross-validated
+# ============================================================================
+materials:
+  # Carbon steel OCTG base price (L80 seamless, US domestic)
+  octg_base_usd_per_tonne: 2285    # Argus Pipe Logix May 2025
+  norway_premium: 1.40              # NORSOK compliance + freight to NCS
+
+  # Grade premiums relative to L80 (for carbon steel grades)
+  grade_factors:
+    J55: 0.85
+    K55: 0.90
+    X56: 0.90      # conductor grade
+    L80: 1.00
+    P110: 1.15
+    Q125: 1.25
+
+  # CRA multipliers relative to L80 (Source: IEAGHG 2018-08 Table 5, confirmed by steel-cra-pricing research)
+  cra_multipliers:
+    L80: 1.0
+    13Cr: 3.0
+    22Cr_duplex: 4.5
+    25Cr_super_duplex: 5.5
+    alloy_625: 10.0
+
+  # CRA coverage — DESIGN CHOICE, not physics-driven
+  # Determines which sections get CRA material pricing
+  # Calibrated against two independent projects:
+  #   Northern Lights (NCS): CRA on production casing + tubing only (~15% of casing)
+  #   Endurance (UK): CRA below surface casing shoe (~60% of casing)
+  # Both use 25Cr Super Duplex. Choice depends on operator risk appetite.
+  cra_coverage:
+    conservative: ["production", "liner"]                        # NL approach: CRA only where CO2-wetted
+    moderate: ["intermediate", "production", "liner"]            # Middle ground
+    full: ["intermediate", "production", "liner"]                # Endurance approach: all below surface shoe
+    default: "conservative"
+
+  # Casing weights (lb/ft) by nominal OD — for cost calculation
+  # Source: API 5CT standard weights, well_cost_reference.yaml
+  casing_weights_ppf:
+    30.0: 309.7    # conductor
+    20.0: 133.0    # surface
+    13.375: 72.0   # intermediate
+    9.625: 53.5    # production
+    7.0: 35.0      # liner
+
+  # Cement
+  cement_usd_per_m3: 500            # API Class G/H, delivered offshore
+  cement_excess_factor: 1.30        # Washouts and losses
+
+  # CO2-resistant cement premium — DESIGN CHOICE
+  # IEAGHG 2018-08 recommends +25% for CO2-resistant cement (EverCRETE type)
+  # bp Endurance (2022) uses standard Portland Class K — argues CO2 degradation
+  # takes tens of thousands of years and carbonation can improve sealing.
+  # Model default: 0 (standard cement). Set to 0.25 for conservative/IEAGHG approach.
+  co2_cement_premium: 0.0           # 0.0 = standard (Endurance practice), 0.25 = IEAGHG conservative
+
+  # Mud (included in service rate typically, but for reference)
+  mud_wbm_usd_per_m3: 200
+  mud_obm_usd_per_m3: 800
+
+# ============================================================================
+# Fixed costs per well (time-independent)
+# Source: NL Aker Solutions contract, global CO2 project survey, industry
+# ============================================================================
+fixed_costs:
+  nok:
+    # Subsea injection system: tree + wellhead + flow base + controls
+    # Source: NL Phase 1 Aker Solutions contract NOK 250M (includes options)
+    # Adjusted: NOK 200M base, NOK 170M for repeat wells
+    subsea_system_first: 200_000_000
+    subsea_system_repeat: 170_000_000
+
+    # Completion equipment: DHSV + packer + gauges + DTS
+    # Source: IEAGHG 2018-08 ADM CCS#2, industry estimates
+    completion_equipment: 12_000_000
+
+    # Mobilization + demobilization (total per campaign, shared across wells)
+    # Source: NCS industry typical
+    mob_demob_campaign: 50_000_000
+
+  usd:
+    subsea_system_first: 20_000_000
+    subsea_system_repeat: 17_000_000
+    completion_equipment: 1_200_000
+    mob_demob_campaign: 5_000_000
+
+# ============================================================================
+# Contingency — cost-only, NOT applied to time
+# WoW is INSIDE Sodir duration data, so NPT factor already captures weather.
+# Contingency covers cost estimate uncertainty only.
+# Source: AACE 87R-14 Class 3-4 accuracy, NCS industry practice
+# ============================================================================
+contingency:
+  rate: 0.15           # 15% on total cost for established design / known formation
+  first_of_kind: 0.25  # 25% for first well or new formation
+
+# ============================================================================
+# Life-cycle cost parameters
+# Source: IEAGHG 2018-08, ZEP 2011
+# ============================================================================
+lifecycle:
+  workover_multiplier: 2.0       # CO2 workover cost vs conventional
+  workover_probability: 0.15     # 15% chance over well life (ZEP 2011)
+  workover_cost_fraction: 0.60   # Workover cost as % of new well cost (ZEP 2011)
+  pa_cost_fraction: 0.15         # P&A cost as % of well CAPEX (ZEP 2011)
+  opex_rate: 0.05                # Annual O&M as % of well CAPEX (IEAGHG offshore)
+
+# ============================================================================
+# Default casing programs by well depth range
+# ============================================================================
+default_casing_programs:
+  shallow:
+    n_sections: 3
+    sections:
+      - {name: conductor, hole_in: 36.0, casing_in: 30.0, shoe_below_mudline_m: 100}
+      - {name: surface,   hole_in: 26.0, casing_in: 20.0, shoe_below_mudline_m: 300}
+      - {name: production, hole_in: 12.25, casing_in: 9.625, shoe_at_td: true}
+
+  moderate:
+    n_sections: 4
+    sections:
+      - {name: conductor,    hole_in: 36.0,  casing_in: 30.0,   shoe_below_mudline_m: 100}
+      - {name: surface,      hole_in: 26.0,  casing_in: 20.0,   shoe_below_mudline_m: 300}
+      - {name: intermediate, hole_in: 17.5,  casing_in: 13.375, shoe_fraction_of_td: 0.6}
+      - {name: production,   hole_in: 12.25, casing_in: 9.625,  shoe_at_td: true}
+
+  deep:
+    n_sections: 4
+    sections:
+      - {name: conductor,    hole_in: 36.0,  casing_in: 30.0,   shoe_below_mudline_m: 100}
+      - {name: surface,      hole_in: 26.0,  casing_in: 20.0,   shoe_below_mudline_m: 400}
+      - {name: intermediate, hole_in: 17.5,  casing_in: 13.375, shoe_fraction_of_td: 0.65}
+      - {name: production,   hole_in: 12.25, casing_in: 9.625,  shoe_at_td: true}
+
+# ============================================================================
+# Sodir calibration bands
+# ============================================================================
+sodir_calibration:
+  tvd_1000_2000:
+    n: 107
+    p10: 7
+    p25: 11
+    p50: 22
+    p75: 47
+    p90: 135
+  tvd_2000_3000:
+    n: 455
+    p10: 13
+    p25: 22
+    p50: 41
+    p75: 73
+    p90: 158
+  tvd_3000_4000:
+    n: 266
+    p10: 18
+    p25: 28
+    p50: 53
+    p75: 115
+    p90: 220
+
+# ============================================================================
+# CO2 well benchmarks (actual NCS wells)
+# ============================================================================
+co2_benchmarks:
+  - {name: "Sleipner 15/9-A-16",          year: 1996, tvd_m: 1164, wd_m:  82, days: 22}
+  - {name: "Snohvit 7121/4-F-2 H",        year: 2004, tvd_m: 2795, wd_m: 318, days: 45}
+  - {name: "Snohvit 7121/4-G-4 H",        year: 2016, tvd_m: 2636, wd_m: 316, days: 40}
+  - {name: "Northern Lights 31/5-A-7 AH",  year: 2022, tvd_m: 2818, wd_m: 307, days: 23}
+  - {name: "Northern Lights 31/5-C-1 H",   year: 2022, tvd_m: 2935, wd_m: 307, days: 33}

@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+.envrc
+
+# Test / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+~$*
+
+# Runtime artifacts
+data/scenario_history.db
+*.db
+*.sqlite
+*.sqlite3
+logs/
+*.log
+
+# Generated docs
+site/
+.streamlit/secrets.toml
+
+# Internal review briefs — do not publish
+CODEX_GITHUB_REVIEW.md

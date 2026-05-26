@@ -1,0 +1,130 @@
+# Norwegian Continental Shelf (NCS) region cost parameters
+# Source: Northern Lights Phase 1 contracts, SSB indices, EU CCS Directive
+# Purpose: Norwegian CCS project cost estimation
+
+region: norway-ncs
+base_year: 2024
+currency: NOK
+
+# ============================================================================
+# Exchange rates (indicative 2024)
+# ============================================================================
+exchange_rates:
+  NOK_per_USD: 10.5
+  NOK_per_EUR: 11.3
+
+# ============================================================================
+# Infrastructure costs (subsea tieback paradigm)
+# ============================================================================
+infrastructure:
+  model: subsea_tieback
+
+  # Subsea injection system: per well (Aker Solutions Northern Lights contract)
+  subsea_injection_per_well_nok: 250000000  # NOK 250M/well
+
+  # Platform control system: one-time (Aibel Northern Lights contract)
+  platform_control_nok: 140000000  # NOK 140M
+
+  # Manifold/template: per template unit (estimated from NL data)
+  manifold_per_template_nok: 80000000  # NOK 80M
+
+  # Umbilical: per km to host platform
+  umbilical_per_km_nok: 5000000  # NOK 5M/km
+
+  # O&M: percentage of CAPEX per year (subsea systems)
+  opex_fraction_of_capex: 0.03
+
+  # Confidence level for subsea tieback model
+  confidence: C  # Limited evidence, Northern Lights anchored
+
+# ============================================================================
+# Drilling costs
+# ============================================================================
+drilling:
+  regression: ieaghg_2005
+  escalation_source: ssb_ppi_oil_gas  # SSB Table 12462
+  escalation_factor_2000_to_2024: 30.0  # Year-2000 EUR to 2024 NOK-equivalent
+  # The IEAGHG regression returns year-2000 EUR, but the region uses NOK.
+  # Since the cost catalog treats all amounts as same-currency (NOK),
+  # this factor must include EUR->NOK conversion AND cost escalation:
+  #   ~2.0x inflation (EUR 2000 -> EUR 2024)
+  #   ~1.1x NCS premium over European average
+  #   ~11.3x EUR to NOK exchange rate
+  #   Combined: 2.0 * 1.1 * 11.3 = ~25x
+  # Calibration target: Johansen injection well NOK 200-300M
+  # Northern Lights benchmark: NOK 200-300M/well incl. subsea completion
+
+  # Norwegian well cost benchmarks (for validation, not primary model)
+  benchmarks:
+    exploration_well_avg_nok: 450000000  # NOK 450M (Norskpetroleum.no)
+    production_well_range_low_nok: 200000000  # NOK 200M
+    production_well_range_high_nok: 700000000  # NOK 700M
+    ccs_adjustment_factor: 0.7  # CCS wells simpler than exploration (known target)
+
+# ============================================================================
+# Vessel and marine rates
+# ============================================================================
+vessel_rates:
+  # Supply vessel day rates (NOK/day) - NCS range NOK 150K-350K
+  supply_vessel_day_nok: 250000  # NOK 250K/day (mid-range)
+
+  # Construction/heavy-lift vessel day rates
+  construction_vessel_day_nok: 1500000  # NOK 1.5M/day
+
+  # Seismic survey vessel rates
+  seismic_vessel_day_nok: 800000  # NOK 800K/day
+
+# ============================================================================
+# Weather and operational factors
+# ============================================================================
+weather_downtime_pct: 0.20  # 15-25% NCS average, using 20%
+
+# Environmental conditions
+mudline_temperature_c: 4  # 3-5C for NCS (vs 13C GOA)
+surface_water_temperature_c: 8  # Seasonal average
+
+# ============================================================================
+# Timeline defaults (Norwegian regulatory)
+# ============================================================================
+timeline:
+  screening_years: 1
+  characterization_years: 2
+  permitting_years: 2
+  construction_years: 3
+  operations_years: 30
+  pisc_years: 20  # EU CCS Directive Art. 17-18 minimum
+
+# ============================================================================
+# Monitoring (Norwegian/EU requirements)
+# ============================================================================
+monitoring:
+  pisc_years: 20  # EU CCS Directive Art. 17-18 minimum
+  seismic_3d_interval_years: 3  # More frequent than US
+  microseismic_required: true
+  gravity_survey_required: false  # Optional for NCS
+
+# ============================================================================
+# Financial parameters (Norwegian tax regime)
+# ============================================================================
+financial:
+  tax_rate: 0.22  # 22% Norwegian corporate tax
+  depreciation_method: linear  # Linear 6-year (vs MACRS in US)
+  depreciation_years: 6
+  wacc: 0.06  # Lower than US (state-backed projects)
+  co2_tax_nok_per_tonne: 700  # 2024 Norwegian CO2 tax rate
+
+# ============================================================================
+# Calibration reference (Northern Lights Phase 1)
+# ============================================================================
+calibration:
+  project: "Northern Lights Phase 1"
+  capacity_mtpa: 1.5
+  total_capex_nok: 6900000000  # NOK 6.9B
+  disclosed_fraction: 0.336  # 33.6% of costs disclosed
+  year: 2020
+  components:
+    onshore_site_jetty: 380000000  # Skanska
+    onshore_plant_facilities: 1050000000  # Kvaerner
+    subsea_pipeline_100km: 500000000  # Subsea 7
+    subsea_injection_system: 250000000  # Aker Solutions
+    platform_control_system: 140000000  # Aibel

@@ -1,0 +1,827 @@
+{
+  "_metadata": {
+    "source": "Res_Bas1 cols 60-63, 82",
+    "formation_count": 117
+  },
+  "formations": {
+    "1241_1": {
+      "seismic_3d_mi2": 254.673,
+      "seismic_2d_mi": 18.0072,
+      "plume_area_mi2": 218.3814,
+      "pressure_front_mi2": 1091.907,
+      "corrective_wells": 109
+    },
+    "1241_2": {
+      "seismic_3d_mi2": 159.2308,
+      "seismic_2d_mi": 14.2386,
+      "plume_area_mi2": 97.9079,
+      "pressure_front_mi2": 489.5396,
+      "corrective_wells": 48
+    },
+    "1241_3": {
+      "seismic_3d_mi2": 176.2933,
+      "seismic_2d_mi": 14.9821,
+      "plume_area_mi2": 125.5272,
+      "pressure_front_mi2": 627.636,
+      "corrective_wells": 62
+    },
+    "1241_4": {
+      "seismic_3d_mi2": 265.1403,
+      "seismic_2d_mi": 18.3735,
+      "plume_area_mi2": 208.1988,
+      "pressure_front_mi2": 1040.9939,
+      "corrective_wells": 104
+    },
+    "1261_1": {
+      "seismic_3d_mi2": 209.1673,
+      "seismic_2d_mi": 16.3193,
+      "plume_area_mi2": 168.5964,
+      "pressure_front_mi2": 842.982,
+      "corrective_wells": 84
+    },
+    "1261_2": {
+      "seismic_3d_mi2": 140.6553,
+      "seismic_2d_mi": 13.3824,
+      "plume_area_mi2": 69.2433,
+      "pressure_front_mi2": 346.2163,
+      "corrective_wells": 34
+    },
+    "1261_3": {
+      "seismic_3d_mi2": 130.0212,
+      "seismic_2d_mi": 12.8666,
+      "plume_area_mi2": 85.2604,
+      "pressure_front_mi2": 426.3021,
+      "corrective_wells": 42
+    },
+    "1261_4": {
+      "seismic_3d_mi2": 98.3643,
+      "seismic_2d_mi": 11.1911,
+      "plume_area_mi2": 47.6781,
+      "pressure_front_mi2": 238.3903,
+      "corrective_wells": 23
+    },
+    "1261_5": {
+      "seismic_3d_mi2": 104.8136,
+      "seismic_2d_mi": 11.5522,
+      "plume_area_mi2": 49.2915,
+      "pressure_front_mi2": 246.4577,
+      "corrective_wells": 24
+    },
+    "1261_6": {
+      "seismic_3d_mi2": 142.2865,
+      "seismic_2d_mi": 13.4597,
+      "plume_area_mi2": 79.7405,
+      "pressure_front_mi2": 398.7023,
+      "corrective_wells": 39
+    },
+    "1281_1": {
+      "seismic_3d_mi2": 197.4666,
+      "seismic_2d_mi": 15.8563,
+      "plume_area_mi2": 98.5087,
+      "pressure_front_mi2": 492.5437,
+      "corrective_wells": 49
+    },
+    "1281_2": {
+      "seismic_3d_mi2": 185.0319,
+      "seismic_2d_mi": 15.3489,
+      "plume_area_mi2": 97.647,
+      "pressure_front_mi2": 488.2348,
+      "corrective_wells": 48
+    },
+    "1281_3": {
+      "seismic_3d_mi2": 129.113,
+      "seismic_2d_mi": 12.8215,
+      "plume_area_mi2": 50.2073,
+      "pressure_front_mi2": 251.0365,
+      "corrective_wells": 25
+    },
+    "1281_4": {
+      "seismic_3d_mi2": 233.5939,
+      "seismic_2d_mi": 17.2459,
+      "plume_area_mi2": 148.7267,
+      "pressure_front_mi2": 743.6337,
+      "corrective_wells": 74
+    },
+    "1281_5": {
+      "seismic_3d_mi2": 154.2041,
+      "seismic_2d_mi": 14.0121,
+      "plume_area_mi2": 65.1248,
+      "pressure_front_mi2": 325.6242,
+      "corrective_wells": 32
+    },
+    "1341_1": {
+      "seismic_3d_mi2": 317.4642,
+      "seismic_2d_mi": 20.1049,
+      "plume_area_mi2": 273.4399,
+      "pressure_front_mi2": 1367.1993,
+      "corrective_wells": 136
+    },
+    "1341_2": {
+      "seismic_3d_mi2": 154.8285,
+      "seismic_2d_mi": 14.0404,
+      "plume_area_mi2": 89.219,
+      "pressure_front_mi2": 446.0949,
+      "corrective_wells": 44
+    },
+    "1341_3": {
+      "seismic_3d_mi2": 219.0738,
+      "seismic_2d_mi": 16.7013,
+      "plume_area_mi2": 148.8004,
+      "pressure_front_mi2": 744.0022,
+      "corrective_wells": 74
+    },
+    "1361_1": {
+      "seismic_3d_mi2": 96.7469,
+      "seismic_2d_mi": 11.0987,
+      "plume_area_mi2": 46.3123,
+      "pressure_front_mi2": 231.5615,
+      "corrective_wells": 23
+    },
+    "1361_2": {
+      "seismic_3d_mi2": 100.926,
+      "seismic_2d_mi": 11.3359,
+      "plume_area_mi2": 35.567,
+      "pressure_front_mi2": 177.8352,
+      "corrective_wells": 17
+    },
+    "1361_3": {
+      "seismic_3d_mi2": 89.0473,
+      "seismic_2d_mi": 10.6479,
+      "plume_area_mi2": 57.4056,
+      "pressure_front_mi2": 287.0281,
+      "corrective_wells": 28
+    },
+    "1361_4": {
+      "seismic_3d_mi2": 101.7857,
+      "seismic_2d_mi": 11.3841,
+      "plume_area_mi2": 39.7111,
+      "pressure_front_mi2": 198.5553,
+      "corrective_wells": 19
+    },
+    "1361_5": {
+      "seismic_3d_mi2": 486.2989,
+      "seismic_2d_mi": 24.8832,
+      "plume_area_mi2": 440.2485,
+      "pressure_front_mi2": 2201.2426,
+      "corrective_wells": 220
+    },
+    "1361_6": {
+      "seismic_3d_mi2": 203.4323,
+      "seismic_2d_mi": 16.094,
+      "plume_area_mi2": 155.2122,
+      "pressure_front_mi2": 776.061,
+      "corrective_wells": 77
+    },
+    "1381_1": {
+      "seismic_3d_mi2": 185.7765,
+      "seismic_2d_mi": 15.3798,
+      "plume_area_mi2": 78.4643,
+      "pressure_front_mi2": 392.3217,
+      "corrective_wells": 39
+    },
+    "1381_2": {
+      "seismic_3d_mi2": 224.2052,
+      "seismic_2d_mi": 16.8958,
+      "plume_area_mi2": 102.5129,
+      "pressure_front_mi2": 512.5646,
+      "corrective_wells": 51
+    },
+    "1381_3": {
+      "seismic_3d_mi2": 134.1753,
+      "seismic_2d_mi": 13.0705,
+      "plume_area_mi2": 58.7369,
+      "pressure_front_mi2": 293.6844,
+      "corrective_wells": 29
+    },
+    "1381_4": {
+      "seismic_3d_mi2": 105.5865,
+      "seismic_2d_mi": 11.5947,
+      "plume_area_mi2": 29.3761,
+      "pressure_front_mi2": 146.8805,
+      "corrective_wells": 14
+    },
+    "1381_5": {
+      "seismic_3d_mi2": 305.7144,
+      "seismic_2d_mi": 19.7294,
+      "plume_area_mi2": 220.0975,
+      "pressure_front_mi2": 1100.4875,
+      "corrective_wells": 110
+    },
+    "1761_1": {
+      "seismic_3d_mi2": 173.3132,
+      "seismic_2d_mi": 14.8549,
+      "plume_area_mi2": 120.9244,
+      "pressure_front_mi2": 604.6221,
+      "corrective_wells": 60
+    },
+    "1761_2": {
+      "seismic_3d_mi2": 149.2026,
+      "seismic_2d_mi": 13.783,
+      "plume_area_mi2": 98.5552,
+      "pressure_front_mi2": 492.7759,
+      "corrective_wells": 49
+    },
+    "1761_3": {
+      "seismic_3d_mi2": 147.2419,
+      "seismic_2d_mi": 13.6921,
+      "plume_area_mi2": 73.3824,
+      "pressure_front_mi2": 366.9118,
+      "corrective_wells": 36
+    },
+    "1761_4": {
+      "seismic_3d_mi2": 108.1097,
+      "seismic_2d_mi": 11.7324,
+      "plume_area_mi2": 84.5401,
+      "pressure_front_mi2": 422.7004,
+      "corrective_wells": 42
+    },
+    "1761_5": {
+      "seismic_3d_mi2": 163.1809,
+      "seismic_2d_mi": 14.4142,
+      "plume_area_mi2": 77.1104,
+      "pressure_front_mi2": 385.5518,
+      "corrective_wells": 38
+    },
+    "1761_6": {
+      "seismic_3d_mi2": 134.8875,
+      "seismic_2d_mi": 13.1051,
+      "plume_area_mi2": 46.9071,
+      "pressure_front_mi2": 234.5353,
+      "corrective_wells": 23
+    },
+    "1781_1": {
+      "seismic_3d_mi2": 196.7991,
+      "seismic_2d_mi": 15.8295,
+      "plume_area_mi2": 71.4574,
+      "pressure_front_mi2": 357.2872,
+      "corrective_wells": 35
+    },
+    "1781_2": {
+      "seismic_3d_mi2": 180.6627,
+      "seismic_2d_mi": 15.1666,
+      "plume_area_mi2": 107.9733,
+      "pressure_front_mi2": 539.8663,
+      "corrective_wells": 53
+    },
+    "1781_3": {
+      "seismic_3d_mi2": 171.6626,
+      "seismic_2d_mi": 14.784,
+      "plume_area_mi2": 68.8037,
+      "pressure_front_mi2": 344.0185,
+      "corrective_wells": 34
+    },
+    "1961_1": {
+      "seismic_3d_mi2": 443.992,
+      "seismic_2d_mi": 23.7762,
+      "plume_area_mi2": 350.4083,
+      "pressure_front_mi2": 1752.0415,
+      "corrective_wells": 175
+    },
+    "1961_2": {
+      "seismic_3d_mi2": 168.911,
+      "seismic_2d_mi": 14.6651,
+      "plume_area_mi2": 91.5325,
+      "pressure_front_mi2": 457.6625,
+      "corrective_wells": 45
+    },
+    "1961_3": {
+      "seismic_3d_mi2": 235.5148,
+      "seismic_2d_mi": 17.3167,
+      "plume_area_mi2": 178.7251,
+      "pressure_front_mi2": 893.6256,
+      "corrective_wells": 89
+    },
+    "1961_4": {
+      "seismic_3d_mi2": 221.8412,
+      "seismic_2d_mi": 16.8065,
+      "plume_area_mi2": 141.1401,
+      "pressure_front_mi2": 705.7004,
+      "corrective_wells": 70
+    },
+    "1981_1": {
+      "seismic_3d_mi2": 148.0866,
+      "seismic_2d_mi": 13.7313,
+      "plume_area_mi2": 58.6983,
+      "pressure_front_mi2": 293.4917,
+      "corrective_wells": 29
+    },
+    "1981_2": {
+      "seismic_3d_mi2": 263.5453,
+      "seismic_2d_mi": 18.3182,
+      "plume_area_mi2": 157.8145,
+      "pressure_front_mi2": 789.0726,
+      "corrective_wells": 78
+    },
+    "2121_1": {
+      "seismic_3d_mi2": 112.7375,
+      "seismic_2d_mi": 11.9809,
+      "plume_area_mi2": 60.4833,
+      "pressure_front_mi2": 302.4165,
+      "corrective_wells": 30
+    },
+    "2121_2": {
+      "seismic_3d_mi2": 335.9665,
+      "seismic_2d_mi": 20.6825,
+      "plume_area_mi2": 223.2539,
+      "pressure_front_mi2": 1116.2697,
+      "corrective_wells": 111
+    },
+    "2141_1": {
+      "seismic_3d_mi2": 242.0532,
+      "seismic_2d_mi": 17.5554,
+      "plume_area_mi2": 180.4069,
+      "pressure_front_mi2": 902.0345,
+      "corrective_wells": 90
+    },
+    "2141_2": {
+      "seismic_3d_mi2": 147.304,
+      "seismic_2d_mi": 13.695,
+      "plume_area_mi2": 120.4868,
+      "pressure_front_mi2": 602.4341,
+      "corrective_wells": 60
+    },
+    "2161_1": {
+      "seismic_3d_mi2": 374.8345,
+      "seismic_2d_mi": 21.8461,
+      "plume_area_mi2": 248.6012,
+      "pressure_front_mi2": 1243.0059,
+      "corrective_wells": 124
+    },
+    "2161_2": {
+      "seismic_3d_mi2": 217.1968,
+      "seismic_2d_mi": 16.6296,
+      "plume_area_mi2": 141.669,
+      "pressure_front_mi2": 708.3451,
+      "corrective_wells": 70
+    },
+    "2161_3": {
+      "seismic_3d_mi2": 143.0766,
+      "seismic_2d_mi": 13.4971,
+      "plume_area_mi2": 78.6821,
+      "pressure_front_mi2": 393.4107,
+      "corrective_wells": 39
+    },
+    "2161_4": {
+      "seismic_3d_mi2": 80.286,
+      "seismic_2d_mi": 10.1106,
+      "plume_area_mi2": 51.177,
+      "pressure_front_mi2": 255.8851,
+      "corrective_wells": 25
+    },
+    "2161_5": {
+      "seismic_3d_mi2": 147.6635,
+      "seismic_2d_mi": 13.7117,
+      "plume_area_mi2": 109.486,
+      "pressure_front_mi2": 547.4298,
+      "corrective_wells": 54
+    },
+    "2171_1": {
+      "seismic_3d_mi2": 185.4049,
+      "seismic_2d_mi": 15.3644,
+      "plume_area_mi2": 127.3719,
+      "pressure_front_mi2": 636.8595,
+      "corrective_wells": 63
+    },
+    "2181_1": {
+      "seismic_3d_mi2": 173.5138,
+      "seismic_2d_mi": 14.8635,
+      "plume_area_mi2": 75.1995,
+      "pressure_front_mi2": 375.9977,
+      "corrective_wells": 37
+    },
+    "2181_2": {
+      "seismic_3d_mi2": 840.0335,
+      "seismic_2d_mi": 32.7042,
+      "plume_area_mi2": 578.1472,
+      "pressure_front_mi2": 2890.7362,
+      "corrective_wells": 289
+    },
+    "2421_1": {
+      "seismic_3d_mi2": 274.6003,
+      "seismic_2d_mi": 18.6984,
+      "plume_area_mi2": 209.5359,
+      "pressure_front_mi2": 1047.6796,
+      "corrective_wells": 104
+    },
+    "2421_2": {
+      "seismic_3d_mi2": 457.5076,
+      "seismic_2d_mi": 24.1354,
+      "plume_area_mi2": 353.3808,
+      "pressure_front_mi2": 1766.9038,
+      "corrective_wells": 176
+    },
+    "2421_3": {
+      "seismic_3d_mi2": 871.5693,
+      "seismic_2d_mi": 33.3124,
+      "plume_area_mi2": 771.1321,
+      "pressure_front_mi2": 3855.6603,
+      "corrective_wells": 385
+    },
+    "2441_1": {
+      "seismic_3d_mi2": 1166.3589,
+      "seismic_2d_mi": 38.5364,
+      "plume_area_mi2": 1000.0,
+      "pressure_front_mi2": 5000.0,
+      "corrective_wells": 500
+    },
+    "2461_1": {
+      "seismic_3d_mi2": 155.401,
+      "seismic_2d_mi": 14.0664,
+      "plume_area_mi2": 71.8658,
+      "pressure_front_mi2": 359.329,
+      "corrective_wells": 35
+    },
+    "2461_2": {
+      "seismic_3d_mi2": 217.3485,
+      "seismic_2d_mi": 16.6354,
+      "plume_area_mi2": 155.5487,
+      "pressure_front_mi2": 777.7435,
+      "corrective_wells": 77
+    },
+    "2461_3": {
+      "seismic_3d_mi2": 186.2633,
+      "seismic_2d_mi": 15.3999,
+      "plume_area_mi2": 117.5979,
+      "pressure_front_mi2": 587.9894,
+      "corrective_wells": 58
+    },
+    "2461_4": {
+      "seismic_3d_mi2": 142.5196,
+      "seismic_2d_mi": 13.4708,
+      "plume_area_mi2": 96.9353,
+      "pressure_front_mi2": 484.6763,
+      "corrective_wells": 48
+    },
+    "2641_1": {
+      "seismic_3d_mi2": 179.7974,
+      "seismic_2d_mi": 15.1303,
+      "plume_area_mi2": 119.7016,
+      "pressure_front_mi2": 598.5078,
+      "corrective_wells": 59
+    },
+    "2641_2": {
+      "seismic_3d_mi2": 257.9071,
+      "seismic_2d_mi": 18.1212,
+      "plume_area_mi2": 173.138,
+      "pressure_front_mi2": 865.6902,
+      "corrective_wells": 86
+    },
+    "2661_1": {
+      "seismic_3d_mi2": 98.8348,
+      "seismic_2d_mi": 11.2179,
+      "plume_area_mi2": 44.6627,
+      "pressure_front_mi2": 223.3135,
+      "corrective_wells": 22
+    },
+    "2661_2": {
+      "seismic_3d_mi2": 229.5457,
+      "seismic_2d_mi": 17.0958,
+      "plume_area_mi2": 126.7843,
+      "pressure_front_mi2": 633.9216,
+      "corrective_wells": 63
+    },
+    "2661_3": {
+      "seismic_3d_mi2": 135.3658,
+      "seismic_2d_mi": 13.1283,
+      "plume_area_mi2": 84.1408,
+      "pressure_front_mi2": 420.704,
+      "corrective_wells": 42
+    },
+    "2681_1": {
+      "seismic_3d_mi2": 168.1203,
+      "seismic_2d_mi": 14.6307,
+      "plume_area_mi2": 59.8152,
+      "pressure_front_mi2": 299.0761,
+      "corrective_wells": 29
+    },
+    "2821_1": {
+      "seismic_3d_mi2": 330.8824,
+      "seismic_2d_mi": 20.5254,
+      "plume_area_mi2": 245.5396,
+      "pressure_front_mi2": 1227.6982,
+      "corrective_wells": 122
+    },
+    "2841_1": {
+      "seismic_3d_mi2": 187.2102,
+      "seismic_2d_mi": 15.439,
+      "plume_area_mi2": 122.228,
+      "pressure_front_mi2": 611.1402,
+      "corrective_wells": 61
+    },
+    "2861_1": {
+      "seismic_3d_mi2": 136.9723,
+      "seismic_2d_mi": 13.206,
+      "plume_area_mi2": 76.3466,
+      "pressure_front_mi2": 381.7331,
+      "corrective_wells": 38
+    },
+    "2861_2": {
+      "seismic_3d_mi2": 173.7037,
+      "seismic_2d_mi": 14.8717,
+      "plume_area_mi2": 89.5171,
+      "pressure_front_mi2": 447.5853,
+      "corrective_wells": 44
+    },
+    "2881_1": {
+      "seismic_3d_mi2": 222.9613,
+      "seismic_2d_mi": 16.8488,
+      "plume_area_mi2": 102.2273,
+      "pressure_front_mi2": 511.1363,
+      "corrective_wells": 51
+    },
+    "3061_1": {
+      "seismic_3d_mi2": 143.1709,
+      "seismic_2d_mi": 13.5015,
+      "plume_area_mi2": 64.7253,
+      "pressure_front_mi2": 323.6267,
+      "corrective_wells": 32
+    },
+    "3061_2": {
+      "seismic_3d_mi2": 110.3433,
+      "seismic_2d_mi": 11.853,
+      "plume_area_mi2": 61.3938,
+      "pressure_front_mi2": 306.969,
+      "corrective_wells": 30
+    },
+    "3081_1": {
+      "seismic_3d_mi2": 138.9335,
+      "seismic_2d_mi": 13.3002,
+      "plume_area_mi2": 48.2052,
+      "pressure_front_mi2": 241.0259,
+      "corrective_wells": 24
+    },
+    "3081_2": {
+      "seismic_3d_mi2": 185.1315,
+      "seismic_2d_mi": 15.3531,
+      "plume_area_mi2": 92.3178,
+      "pressure_front_mi2": 461.5892,
+      "corrective_wells": 46
+    },
+    "341_1": {
+      "seismic_3d_mi2": 159.369,
+      "seismic_2d_mi": 14.2448,
+      "plume_area_mi2": 133.8778,
+      "pressure_front_mi2": 669.3888,
+      "corrective_wells": 66
+    },
+    "341_2": {
+      "seismic_3d_mi2": 969.6893,
+      "seismic_2d_mi": 35.1375,
+      "plume_area_mi2": 907.9039,
+      "pressure_front_mi2": 4539.5197,
+      "corrective_wells": 453
+    },
+    "361_1": {
+      "seismic_3d_mi2": 152.5341,
+      "seismic_2d_mi": 13.936,
+      "plume_area_mi2": 123.1612,
+      "pressure_front_mi2": 615.806,
+      "corrective_wells": 61
+    },
+    "361_2": {
+      "seismic_3d_mi2": 91.1492,
+      "seismic_2d_mi": 10.7729,
+      "plume_area_mi2": 68.5349,
+      "pressure_front_mi2": 342.6743,
+      "corrective_wells": 34
+    },
+    "361_3": {
+      "seismic_3d_mi2": 159.6205,
+      "seismic_2d_mi": 14.2561,
+      "plume_area_mi2": 130.2878,
+      "pressure_front_mi2": 651.4392,
+      "corrective_wells": 65
+    },
+    "361_4": {
+      "seismic_3d_mi2": 659.9747,
+      "seismic_2d_mi": 28.988,
+      "plume_area_mi2": 603.5175,
+      "pressure_front_mi2": 3017.5877,
+      "corrective_wells": 301
+    },
+    "381_1": {
+      "seismic_3d_mi2": 118.0161,
+      "seismic_2d_mi": 12.2582,
+      "plume_area_mi2": 63.6082,
+      "pressure_front_mi2": 318.0409,
+      "corrective_wells": 31
+    },
+    "381_2": {
+      "seismic_3d_mi2": 136.7331,
+      "seismic_2d_mi": 13.1945,
+      "plume_area_mi2": 97.6937,
+      "pressure_front_mi2": 488.4686,
+      "corrective_wells": 48
+    },
+    "381_3": {
+      "seismic_3d_mi2": 96.7473,
+      "seismic_2d_mi": 11.0988,
+      "plume_area_mi2": 67.5918,
+      "pressure_front_mi2": 337.9591,
+      "corrective_wells": 33
+    },
+    "541_1": {
+      "seismic_3d_mi2": 131.4996,
+      "seismic_2d_mi": 12.9395,
+      "plume_area_mi2": 105.6488,
+      "pressure_front_mi2": 528.2439,
+      "corrective_wells": 52
+    },
+    "541_2": {
+      "seismic_3d_mi2": 96.1142,
+      "seismic_2d_mi": 11.0624,
+      "plume_area_mi2": 73.3463,
+      "pressure_front_mi2": 366.7317,
+      "corrective_wells": 36
+    },
+    "541_3": {
+      "seismic_3d_mi2": 55.3831,
+      "seismic_2d_mi": 8.3974,
+      "plume_area_mi2": 35.424,
+      "pressure_front_mi2": 177.1202,
+      "corrective_wells": 17
+    },
+    "541_4": {
+      "seismic_3d_mi2": 184.3448,
+      "seismic_2d_mi": 15.3204,
+      "plume_area_mi2": 153.7402,
+      "pressure_front_mi2": 768.701,
+      "corrective_wells": 76
+    },
+    "541_5": {
+      "seismic_3d_mi2": 216.2154,
+      "seismic_2d_mi": 16.592,
+      "plume_area_mi2": 185.7305,
+      "pressure_front_mi2": 928.6527,
+      "corrective_wells": 92
+    },
+    "561_1": {
+      "seismic_3d_mi2": 163.4585,
+      "seismic_2d_mi": 14.4264,
+      "plume_area_mi2": 129.4746,
+      "pressure_front_mi2": 647.373,
+      "corrective_wells": 64
+    },
+    "561_2": {
+      "seismic_3d_mi2": 68.3428,
+      "seismic_2d_mi": 9.3283,
+      "plume_area_mi2": 41.0765,
+      "pressure_front_mi2": 205.3823,
+      "corrective_wells": 20
+    },
+    "561_3": {
+      "seismic_3d_mi2": 88.6678,
+      "seismic_2d_mi": 10.6252,
+      "plume_area_mi2": 55.9209,
+      "pressure_front_mi2": 279.6046,
+      "corrective_wells": 27
+    },
+    "561_4": {
+      "seismic_3d_mi2": 79.9462,
+      "seismic_2d_mi": 10.0891,
+      "plume_area_mi2": 52.754,
+      "pressure_front_mi2": 263.7698,
+      "corrective_wells": 26
+    },
+    "561_5": {
+      "seismic_3d_mi2": 87.1321,
+      "seismic_2d_mi": 10.5328,
+      "plume_area_mi2": 57.5632,
+      "pressure_front_mi2": 287.8159,
+      "corrective_wells": 28
+    },
+    "5701_1": {
+      "seismic_3d_mi2": 300.2025,
+      "seismic_2d_mi": 19.5507,
+      "plume_area_mi2": 152.9261,
+      "pressure_front_mi2": 764.6303,
+      "corrective_wells": 76
+    },
+    "581_1": {
+      "seismic_3d_mi2": 146.9582,
+      "seismic_2d_mi": 13.6789,
+      "plume_area_mi2": 86.5586,
+      "pressure_front_mi2": 432.7928,
+      "corrective_wells": 43
+    },
+    "581_2": {
+      "seismic_3d_mi2": 146.4878,
+      "seismic_2d_mi": 13.657,
+      "plume_area_mi2": 93.0881,
+      "pressure_front_mi2": 465.4406,
+      "corrective_wells": 46
+    },
+    "581_3": {
+      "seismic_3d_mi2": 248.0346,
+      "seismic_2d_mi": 17.771,
+      "plume_area_mi2": 174.4712,
+      "pressure_front_mi2": 872.3561,
+      "corrective_wells": 87
+    },
+    "941_1": {
+      "seismic_3d_mi2": 242.6016,
+      "seismic_2d_mi": 17.5753,
+      "plume_area_mi2": 197.5592,
+      "pressure_front_mi2": 987.7958,
+      "corrective_wells": 98
+    },
+    "941_2": {
+      "seismic_3d_mi2": 104.1626,
+      "seismic_2d_mi": 11.5162,
+      "plume_area_mi2": 70.196,
+      "pressure_front_mi2": 350.9801,
+      "corrective_wells": 35
+    },
+    "941_3": {
+      "seismic_3d_mi2": 162.8828,
+      "seismic_2d_mi": 14.401,
+      "plume_area_mi2": 128.993,
+      "pressure_front_mi2": 644.9651,
+      "corrective_wells": 64
+    },
+    "941_4": {
+      "seismic_3d_mi2": 157.1594,
+      "seismic_2d_mi": 14.1457,
+      "plume_area_mi2": 112.958,
+      "pressure_front_mi2": 564.7899,
+      "corrective_wells": 56
+    },
+    "961_1": {
+      "seismic_3d_mi2": 91.2157,
+      "seismic_2d_mi": 10.7768,
+      "plume_area_mi2": 48.0845,
+      "pressure_front_mi2": 240.4227,
+      "corrective_wells": 24
+    },
+    "961_2": {
+      "seismic_3d_mi2": 137.949,
+      "seismic_2d_mi": 13.253,
+      "plume_area_mi2": 89.6796,
+      "pressure_front_mi2": 448.3982,
+      "corrective_wells": 44
+    },
+    "961_3": {
+      "seismic_3d_mi2": 90.5387,
+      "seismic_2d_mi": 10.7367,
+      "plume_area_mi2": 48.5315,
+      "pressure_front_mi2": 242.6575,
+      "corrective_wells": 24
+    },
+    "961_4": {
+      "seismic_3d_mi2": 118.4016,
+      "seismic_2d_mi": 12.2782,
+      "plume_area_mi2": 79.0093,
+      "pressure_front_mi2": 395.0465,
+      "corrective_wells": 39
+    },
+    "981_1": {
+      "seismic_3d_mi2": 197.8528,
+      "seismic_2d_mi": 15.8718,
+      "plume_area_mi2": 111.1375,
+      "pressure_front_mi2": 555.6877,
+      "corrective_wells": 55
+    },
+    "981_2": {
+      "seismic_3d_mi2": 150.1024,
+      "seismic_2d_mi": 13.8245,
+      "plume_area_mi2": 81.1696,
+      "pressure_front_mi2": 405.8478,
+      "corrective_wells": 40
+    },
+    "981_3": {
+      "seismic_3d_mi2": 117.8081,
+      "seismic_2d_mi": 12.2474,
+      "plume_area_mi2": 57.6821,
+      "pressure_front_mi2": 288.4107,
+      "corrective_wells": 28
+    },
+    "981_4": {
+      "seismic_3d_mi2": 148.0973,
+      "seismic_2d_mi": 13.7318,
+      "plume_area_mi2": 84.8488,
+      "pressure_front_mi2": 424.2438,
+      "corrective_wells": 42
+    },
+    "9941_1": {
+      "seismic_3d_mi2": 588.2856,
+      "seismic_2d_mi": 27.3684,
+      "plume_area_mi2": 284.3181,
+      "pressure_front_mi2": 1421.5905,
+      "corrective_wells": 142
+    },
+    "9951_1": {
+      "seismic_3d_mi2": 152.4883,
+      "seismic_2d_mi": 13.9339,
+      "plume_area_mi2": 127.5562,
+      "pressure_front_mi2": 637.7808,
+      "corrective_wells": 63
+    },
+    "9971_1": {
+      "seismic_3d_mi2": 76.1216,
+      "seismic_2d_mi": 9.8448,
+      "plume_area_mi2": 29.7829,
+      "pressure_front_mi2": 148.9147,
+      "corrective_wells": 14
+    }
+  }
+}

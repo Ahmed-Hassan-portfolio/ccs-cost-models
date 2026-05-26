@@ -1,0 +1,58 @@
+# Monte Carlo uncertainty distributions for Norwegian Continental Shelf formations
+parameters:
+  porosity:
+    distribution: triangular
+    relative: true
+    min: 0.75
+    mode: 1.0
+    max: 1.25
+
+  permeability_md:
+    distribution: triangular
+    relative: true
+    min: 0.4
+    mode: 1.0
+    max: 2.5
+
+  thickness_m:
+    distribution: triangular
+    relative: true
+    min: 0.75
+    mode: 1.0
+    max: 1.25
+
+  depth_m:
+    distribution: triangular
+    relative: true
+    min: 0.9
+    mode: 1.0
+    max: 1.1
+
+  net_to_gross:
+    distribution: triangular
+    relative: true
+    min: 0.75
+    mode: 1.0
+    max: 1.25
+
+  injection_rate_mtpa:
+    distribution: uniform
+    relative: true
+    min: 0.8
+    max: 1.2
+
+  ets_price:
+    distribution: uniform
+    relative: false
+    min: 40.0
+    max: 100.0
+    unit: "EUR/t"
+    description: "EU ETS CO2 price range 2025-2035 (absolute, EUR/t)"
+
+  co2_tax_rate:
+    distribution: uniform
+    relative: false
+    min: 50.0
+    max: 90.0
+    unit: "EUR/t"
+    description: "Norwegian CO2 tax rate (absolute, EUR/t)"

@@ -1,0 +1,82 @@
+{
+  "_metadata": {
+    "source_file": "reference-models\\netl-offshore\\FECM_NETL_CO2_S_COM_Offshore_V1.1.xlsm",
+    "sheets": [
+      "Surf Eq Cost",
+      "Key_Inputs"
+    ],
+    "extraction_timestamp": "2026-03-08T12:09:23.832395+00:00",
+    "note": "Pipeline cost regression coefficients from QUE$TOR analysis (2022$ base). CAPEX and O&M are piecewise-linear by diameter: value = slope * distance_mi + intercept."
+  },
+  "pipeline_sizing": {
+    "pipeline_length_total_mi": 41.563589354870004,
+    "roughness_ft": 0.00015,
+    "flow_rate_tpa": 3.9999999999999996,
+    "mudline_temperature_f": 285.92777777777775,
+    "co2_density_kgm3": 914.344787659076,
+    "co2_viscosity_pas": 9.531218413654335e-05,
+    "min_diameter_inches": 9.19e-05,
+    "nominal_diameter_inches": 0.23732198717631744
+  },
+  "pipeline_pressures": {
+    "distance_from_shore_mi": 37.7850812317,
+    "pipeline_length_mi": 41.563589354870004,
+    "inlet_pressure_psig": 2200,
+    "target_pressure_psig": 1200,
+    "pipeline_diameter_inches": 12
+  },
+  "capex_by_diameter_2022_usd": {
+    "6": {
+      "slope_per_mi": 2000000,
+      "intercept": 50000000
+    },
+    "8": {
+      "slope_per_mi": 2000000,
+      "intercept": 50000000
+    },
+    "12": {
+      "slope_per_mi": 3000000,
+      "intercept": 50000000
+    },
+    "16": {
+      "slope_per_mi": 4000000,
+      "intercept": 50000000
+    },
+    "20": {
+      "slope_per_mi": 5000000,
+      "intercept": 70000000
+    }
+  },
+  "opex_by_diameter_2022_usd_annual": {
+    "6": {
+      "slope_per_mi": 25807,
+      "intercept": 391276
+    },
+    "8": {
+      "slope_per_mi": 47936,
+      "intercept": 395535
+    },
+    "12": {
+      "slope_per_mi": 33077,
+      "intercept": 432578
+    },
+    "16": {
+      "slope_per_mi": 36490,
+      "intercept": 405489
+    },
+    "20": {
+      "slope_per_mi": 42255,
+      "intercept": 424004
+    }
+  },
+  "computed_default_scenario": {
+    "diameter_inches": 12,
+    "distance_shore_mi": 37.7850812317,
+    "capex_2022": 163355243.6951,
+    "opex_annual_2022": 1682395.1319009408
+  },
+  "decommissioning": {
+    "rate_per_mi_2008_usd": 1593000,
+    "source": "BSEE Decommissioning Cost Update for Pacific OCS Region Facilities (2016), Table 11.2"
+  }
+}

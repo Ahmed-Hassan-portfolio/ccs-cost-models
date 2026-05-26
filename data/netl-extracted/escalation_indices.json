@@ -1,0 +1,563 @@
+{
+  "_metadata": {
+    "source_file": "reference-models\\netl-offshore\\FECM_NETL_CO2_S_COM_Offshore_V1.1.xlsm",
+    "sheets": [
+      "FinMod_Main",
+      "Key_Inputs"
+    ],
+    "extraction_timestamp": "2026-03-07T15:18:42.261467+00:00",
+    "source": "Handy-Whitman Index of Public Utility Construction Costs",
+    "note": "The Handy-Whitman index computes an annual escalation rate of ~3.45% from 2008 to Jan 2023. The raw index table is not stored as data in the workbook; only the computed rate and factor are available. The annual escalation schedule shows the factor applied to each project year."
+  },
+  "parameters": {
+    "base_year_for_costs": 2008,
+    "starting_calendar_year": 2024,
+    "escalation_rate_base_to_start": 0.06763416297931021,
+    "escalation_rate_from_start": 0,
+    "escalation_factor_2008_to_2024": 2.8494392065079523,
+    "handy_whitman_annual_rate": 0.0345,
+    "sp_ucci_annual_rate": 0.06463559502808904
+  },
+  "annual_schedule": [
+    {
+      "calendar_year": 2024,
+      "project_year": 1,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1
+    },
+    {
+      "calendar_year": 2025,
+      "project_year": 2,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1.108
+    },
+    {
+      "calendar_year": 2026,
+      "project_year": 3,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1.2276640000000003
+    },
+    {
+      "calendar_year": 2027,
+      "project_year": 4,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1.3602517120000004
+    },
+    {
+      "calendar_year": 2028,
+      "project_year": 5,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1.5071588968960008
+    },
+    {
+      "calendar_year": 2029,
+      "project_year": 6,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1.669932057760769
+    },
+    {
+      "calendar_year": 2030,
+      "project_year": 7,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1.8502847199989323
+    },
+    {
+      "calendar_year": 2031,
+      "project_year": 8,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 2.050115469758817
+    },
+    {
+      "calendar_year": 2032,
+      "project_year": 9,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 2.27152794049277
+    },
+    {
+      "calendar_year": 2033,
+      "project_year": 10,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 2.5168529580659897
+    },
+    {
+      "calendar_year": 2034,
+      "project_year": 11,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 2.788673077537117
+    },
+    {
+      "calendar_year": 2035,
+      "project_year": 12,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 3.0898497699111256
+    },
+    {
+      "calendar_year": 2036,
+      "project_year": 13,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 3.423553545061528
+    },
+    {
+      "calendar_year": 2037,
+      "project_year": 14,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 3.7932973279281734
+    },
+    {
+      "calendar_year": 2038,
+      "project_year": 15,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 4.202973439344417
+    },
+    {
+      "calendar_year": 2039,
+      "project_year": 16,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 4.656894570793614
+    },
+    {
+      "calendar_year": 2040,
+      "project_year": 17,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 5.159839184439326
+    },
+    {
+      "calendar_year": 2041,
+      "project_year": 18,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 5.717101816358774
+    },
+    {
+      "calendar_year": 2042,
+      "project_year": 19,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 6.334548812525522
+    },
+    {
+      "calendar_year": 2043,
+      "project_year": 20,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 7.018680084278278
+    },
+    {
+      "calendar_year": 2044,
+      "project_year": 21,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 7.776697533380335
+    },
+    {
+      "calendar_year": 2045,
+      "project_year": 22,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 8.616580866985412
+    },
+    {
+      "calendar_year": 2046,
+      "project_year": 23,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 9.547171600619837
+    },
+    {
+      "calendar_year": 2047,
+      "project_year": 24,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 10.57826613348678
+    },
+    {
+      "calendar_year": 2048,
+      "project_year": 25,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 11.720718875903357
+    },
+    {
+      "calendar_year": 2049,
+      "project_year": 26,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 12.986556514500922
+    },
+    {
+      "calendar_year": 2050,
+      "project_year": 27,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 14.389104618067023
+    },
+    {
+      "calendar_year": 2051,
+      "project_year": 28,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 15.943127916818261
+    },
+    {
+      "calendar_year": 2052,
+      "project_year": 29,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 17.664985731834637
+    },
+    {
+      "calendar_year": 2053,
+      "project_year": 30,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 19.57280419087278
+    },
+    {
+      "calendar_year": 2054,
+      "project_year": 31,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 21.686667043487045
+    },
+    {
+      "calendar_year": 2055,
+      "project_year": 32,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 24.028827084183643
+    },
+    {
+      "calendar_year": 2056,
+      "project_year": 33,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 26.623940409275487
+    },
+    {
+      "calendar_year": 2057,
+      "project_year": 34,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 29.499325973477244
+    },
+    {
+      "calendar_year": 2058,
+      "project_year": 35,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 32.68525317861279
+    },
+    {
+      "calendar_year": 2059,
+      "project_year": 36,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 36.21526052190297
+    },
+    {
+      "calendar_year": 2060,
+      "project_year": 37,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 40.126508658268506
+    },
+    {
+      "calendar_year": 2061,
+      "project_year": 38,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 44.46017159336151
+    },
+    {
+      "calendar_year": 2062,
+      "project_year": 39,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 49.26187012544455
+    },
+    {
+      "calendar_year": 2063,
+      "project_year": 40,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 54.582152098992566
+    },
+    {
+      "calendar_year": 2064,
+      "project_year": 41,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 60.47702452568379
+    },
+    {
+      "calendar_year": 2065,
+      "project_year": 42,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 67.00854317445764
+    },
+    {
+      "calendar_year": 2066,
+      "project_year": 43,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 74.24546583729908
+    },
+    {
+      "calendar_year": 2067,
+      "project_year": 44,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 82.26397614772739
+    },
+    {
+      "calendar_year": 2068,
+      "project_year": 45,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 91.14848557168196
+    },
+    {
+      "calendar_year": 2069,
+      "project_year": 46,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 100.99252201342362
+    },
+    {
+      "calendar_year": 2070,
+      "project_year": 47,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 111.8997143908734
+    },
+    {
+      "calendar_year": 2071,
+      "project_year": 48,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 123.98488354508771
+    },
+    {
+      "calendar_year": 2072,
+      "project_year": 49,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 137.37525096795724
+    },
+    {
+      "calendar_year": 2073,
+      "project_year": 50,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 152.21177807249666
+    },
+    {
+      "calendar_year": 2074,
+      "project_year": 51,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 168.6506501043263
+    },
+    {
+      "calendar_year": 2075,
+      "project_year": 52,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 186.86492031559354
+    },
+    {
+      "calendar_year": 2076,
+      "project_year": 53,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 207.0463317096777
+    },
+    {
+      "calendar_year": 2077,
+      "project_year": 54,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 229.40733553432293
+    },
+    {
+      "calendar_year": 2078,
+      "project_year": 55,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 254.18332777202983
+    },
+    {
+      "calendar_year": 2079,
+      "project_year": 56,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 281.63512717140907
+    },
+    {
+      "calendar_year": 2080,
+      "project_year": 57,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 312.05172090592134
+    },
+    {
+      "calendar_year": 2081,
+      "project_year": 58,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 345.7533067637609
+    },
+    {
+      "calendar_year": 2082,
+      "project_year": 59,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 383.09466389424716
+    },
+    {
+      "calendar_year": 2083,
+      "project_year": 60,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 424.46888759482584
+    },
+    {
+      "calendar_year": 2084,
+      "project_year": 61,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 470.3115274550671
+    },
+    {
+      "calendar_year": 2085,
+      "project_year": 62,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 521.1051724202144
+    },
+    {
+      "calendar_year": 2086,
+      "project_year": 63,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 577.3845310415977
+    },
+    {
+      "calendar_year": 2087,
+      "project_year": 64,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 639.7420603940902
+    },
+    {
+      "calendar_year": 2088,
+      "project_year": 65,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 708.8342029166522
+    },
+    {
+      "calendar_year": 2089,
+      "project_year": 66,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 785.3882968316507
+    },
+    {
+      "calendar_year": 2090,
+      "project_year": 67,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 870.2102328894691
+    },
+    {
+      "calendar_year": 2091,
+      "project_year": 68,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 964.1929380415319
+    },
+    {
+      "calendar_year": 2092,
+      "project_year": 69,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1068.3257753500175
+    },
+    {
+      "calendar_year": 2093,
+      "project_year": 70,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1183.7049590878196
+    },
+    {
+      "calendar_year": 2094,
+      "project_year": 71,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1311.5450946693043
+    },
+    {
+      "calendar_year": 2095,
+      "project_year": 72,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1453.191964893589
+    },
+    {
+      "calendar_year": 2096,
+      "project_year": 73,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1610.1366971020973
+    },
+    {
+      "calendar_year": 2097,
+      "project_year": 74,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1784.031460389124
+    },
+    {
+      "calendar_year": 2098,
+      "project_year": 75,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 1976.7068581111498
+    },
+    {
+      "calendar_year": 2099,
+      "project_year": 76,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 2190.191198787154
+    },
+    {
+      "calendar_year": 2100,
+      "project_year": 77,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 2426.7318482561673
+    },
+    {
+      "calendar_year": 2101,
+      "project_year": 78,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 2688.8188878678334
+    },
+    {
+      "calendar_year": 2102,
+      "project_year": 79,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 2979.21132775756
+    },
+    {
+      "calendar_year": 2103,
+      "project_year": 80,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 3300.9661511553763
+    },
+    {
+      "calendar_year": 2104,
+      "project_year": 81,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 3657.470495480158
+    },
+    {
+      "calendar_year": 2105,
+      "project_year": 82,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 4052.477308992016
+    },
+    {
+      "calendar_year": 2106,
+      "project_year": 83,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 4490.1448583631545
+    },
+    {
+      "calendar_year": 2107,
+      "project_year": 84,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 4975.080503066375
+    },
+    {
+      "calendar_year": 2108,
+      "project_year": 85,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 5512.389197397545
+    },
+    {
+      "calendar_year": 2109,
+      "project_year": 86,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 6107.72723071648
+    },
+    {
+      "calendar_year": 2110,
+      "project_year": 87,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 6767.36177163386
+    },
+    {
+      "calendar_year": 2111,
+      "project_year": 88,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 7498.236842970318
+    },
+    {
+      "calendar_year": 2112,
+      "project_year": 89,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 8308.046422011115
+    },
+    {
+      "calendar_year": 2113,
+      "project_year": 90,
+      "escalation_factor": 2.8494392065079523,
+      "discount_factor": 9205.315435588318
+    }
+  ]
+}

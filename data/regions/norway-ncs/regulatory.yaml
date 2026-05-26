@@ -1,0 +1,70 @@
+# Norway NCS regulatory cost configuration
+# Norwegian regulatory framework: Petroleum Safety Authority + EU CCS Directive
+# All costs in NOK
+#
+# Key differences from US:
+# - NO pore space fees (production license model, not acreage-based)
+# - NO stewardship fees
+# - NO ERR fees
+# - NO injection fees
+# - CO2 storage permit application (EU CCS Directive)
+# - PDO preparation (Plan for Development and Operations)
+# - EIA (Environmental Impact Assessment)
+# - EU MRV reporting (similar to US Subpart RR)
+
+base_year: 2025
+currency: NOK
+
+regulatory_items:
+  - id: co2_storage_permit
+    name: "CO2 storage permit application"
+    amount: 25000000.00
+    classification: capital
+    stage: characterization
+    recurrence: one-time
+    depreciation: site_characterization
+    notes: "EU CCS Directive storage permit - estimated NOK 25M"
+
+  - id: pdo_preparation
+    name: "PDO preparation"
+    amount: 50000000.00
+    classification: capital
+    stage: characterization
+    recurrence: one-time
+    depreciation: site_characterization
+    notes: "Plan for Development and Operations - estimated NOK 50M"
+
+  - id: eia
+    name: "Environmental Impact Assessment"
+    amount: 15000000.00
+    classification: capital
+    stage: characterization
+    recurrence: one-time
+    depreciation: site_characterization
+    notes: "Norwegian EIA requirement - estimated NOK 15M"
+
+  - id: eu_mrv_reporting
+    name: "EU MRV reporting"
+    amount: 30000000.00
+    classification: expense
+    stage: operations
+    recurrence: annual
+    annual_amount: 1000000.00
+    notes: "Annual EU MRV compliance reporting - est NOK 1M/yr * 30yr"
+
+  - id: reservoir_modeling
+    name: "Reservoir model & data analysis"
+    amount: 45000000.00
+    classification: expense
+    stage: operations
+    recurrence: annual
+    annual_amount: 1500000.00
+    notes: "Ongoing reservoir modeling - est NOK 1.5M/yr * 30yr"
+
+  - id: public_consultation
+    name: "Public consultation"
+    amount: 5000000.00
+    classification: expense
+    stage: characterization
+    recurrence: one-time
+    notes: "Public participation process"

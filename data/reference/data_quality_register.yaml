@@ -1,0 +1,324 @@
+# Data Quality Register — Van der Spek 2019 Pedigree Matrix
+#
+# Each data source used in the CCS cost model is scored on 5 dimensions
+# (0-4 scale) from van der Spek, Roussanaly & Rubin (2019), Tables B1-B3:
+#
+#   1. theoretical_understanding: 0=crude speculation → 4=well-established theory
+#   2. methodological_rigor:      0=no discernible rigor → 4=best available practice
+#   3. validation:                0=no validation → 4=compared with independent data
+#   4. modeling_resources:        0=no expertise → 4=expert from multiple practitioners
+#   5. empirical_basis:           0=incomplete data → 4=large sample, representative
+#
+# Flag: "LOW CONFIDENCE" when any dimension scores ≤1.
+#
+# Reference: van der Spek M, Roussanaly S, Rubin ES (2019). Best practices
+#   and guidelines for large scale cost of CCS. Int J Greenh Gas Control 83:142-157.
+
+data_quality:
+
+  # =========================================================================
+  # WELL COSTS
+  # =========================================================================
+
+  - source: "SBBU Rev B (Sangesland 2013)"
+    used_for: "Well drilling time model — activity-based section timing"
+    scores:
+      theoretical_understanding: 4  # well-established drilling engineering fundamentals
+      methodological_rigor: 3       # industry-standard activity-based approach
+      validation: 3                 # validated against NCS injection wells (Sodir)
+      modeling_resources: 3         # single expert practitioner (NTNU-IPT)
+      empirical_basis: 2            # calibrated to limited NCS training dataset
+    average: 3.0
+    flag: null
+
+  - source: "IEAGHG 2005/2 (TNO)"
+    used_for: "European well cost regression — depth-based offshore injection wells"
+    scores:
+      theoretical_understanding: 3  # empirical regression on established cost drivers
+      methodological_rigor: 3       # structured regression, documented methodology
+      validation: 2                 # validated within original dataset only
+      modeling_resources: 4         # TNO consortium with oil industry data access
+      empirical_basis: 2            # European dataset, but pre-2005 vintage
+    average: 2.8
+    flag: null
+
+  - source: "IEAGHG 2018-08"
+    used_for: "CRA material multipliers (13Cr/22Cr/25Cr), CO2-resistant cement premium"
+    scores:
+      theoretical_understanding: 4  # metallurgy and CO2 corrosion well understood
+      methodological_rigor: 3       # systematic review of CRA pricing
+      validation: 2                 # compared with supplier quotes, not independent study
+      modeling_resources: 3         # IEAGHG technical review committee
+      empirical_basis: 2            # supplier catalog data, limited market sample
+    average: 2.8
+    flag: null
+
+  - source: "Argus Pipe Logix (2025)"
+    used_for: "Carbon steel OCTG base price ($2,285/tonne)"
+    scores:
+      theoretical_understanding: 4  # commodity pricing, transparent
+      methodological_rigor: 4       # industry-standard price reporting
+      validation: 4                 # cross-checked with market data
+      modeling_resources: 4         # professional commodity intelligence
+      empirical_basis: 3            # spot price snapshot, subject to volatility
+    average: 3.8
+    flag: null
+
+  - source: "Aker Solutions / Northern Lights Phase 1"
+    used_for: "Subsea XT and wellhead costs (NL contract)"
+    scores:
+      theoretical_understanding: 3  # actual contract prices, not theoretical
+      methodological_rigor: 3       # real procurement, but limited cost breakdown
+      validation: 3                 # actual project costs (realized)
+      modeling_resources: 3         # Equinor/TotalEnergies/Shell consortium
+      empirical_basis: 1            # n=1 project (Northern Lights only)
+    average: 2.6
+    flag: "LOW CONFIDENCE"  # empirical_basis ≤1
+
+  - source: "Sodir FactPages 2025"
+    used_for: "NCS injection well duration calibration (920 wells), percentile bands"
+    scores:
+      theoretical_understanding: 3  # operational data, no theoretical model
+      methodological_rigor: 4       # regulatory reporting, standardized format
+      validation: 4                 # official government database, audited
+      modeling_resources: 4         # Norwegian Offshore Directorate
+      empirical_basis: 4            # 920 injection wells across NCS
+    average: 3.8
+    flag: null
+
+  - source: "Khosravanian & Aadnoy (2021)"
+    used_for: "35-activity WBS for well construction, PERT distributions"
+    scores:
+      theoretical_understanding: 4  # well-established WBS methodology
+      methodological_rigor: 4       # textbook-level engineering reference
+      validation: 2                 # limited independent validation of PERT parameters
+      modeling_resources: 4         # established drilling engineering authors
+      empirical_basis: 2            # generic activity splits, not CCS-specific
+    average: 3.2
+    flag: null
+
+  # =========================================================================
+  # PIPELINE COSTS
+  # =========================================================================
+
+  - source: "Knoope et al. (2014)"
+    used_for: "Pipeline cost model — weight-based material, FERC-derived labor"
+    scores:
+      theoretical_understanding: 4  # physics-based wall thickness, established models
+      methodological_rigor: 4       # 14 models reviewed, best practices applied
+      validation: 3                 # cross-validated with FERC and IEA data
+      modeling_resources: 4         # Utrecht University, peer-reviewed
+      empirical_basis: 3            # US FERC pipeline data, adapted for CO2
+    average: 3.6
+    flag: null
+
+  - source: "NETL CO2_S_COM (2020)"
+    used_for: "Pipeline cost regressions — cross-verification baseline"
+    scores:
+      theoretical_understanding: 3  # empirical regression, DOE methodology
+      methodological_rigor: 3       # standardized NETL framework
+      validation: 3                 # used widely in US CCS studies
+      modeling_resources: 4         # US DOE national laboratory
+      empirical_basis: 3            # US Gulf Coast data, large dataset
+    average: 3.2
+    flag: null
+
+  # =========================================================================
+  # SUBSEA INFRASTRUCTURE
+  # =========================================================================
+
+  - source: "Olivan et al. (2024)"
+    used_for: "Subsea infrastructure — CAPEX splits, architecture scenarios"
+    scores:
+      theoretical_understanding: 3  # industry architecture analysis
+      methodological_rigor: 2       # single scenario study, limited sensitivity
+      validation: 1                 # no independent validation
+      modeling_resources: 3         # OneSubsea/Subsea7 industry expertise
+      empirical_basis: 1            # n=1 project scenario (Northern Lights analog)
+    average: 2.0
+    flag: "LOW CONFIDENCE"  # validation ≤1 AND empirical_basis ≤1
+
+  - source: "QUE$TOR regressions (via NETL Offshore)"
+    used_for: "Jacket platform costs — water depth regressions"
+    scores:
+      theoretical_understanding: 3  # cost-engineering tool with industry basis
+      methodological_rigor: 3       # proprietary methodology, regressions extracted
+      validation: 2                 # not independently validated for CCS
+      modeling_resources: 4         # IHS Markit industry tool
+      empirical_basis: 3            # large oil & gas dataset (not CCS-specific)
+    average: 3.0
+    flag: null
+
+  # =========================================================================
+  # SHIP TRANSPORT
+  # =========================================================================
+
+  - source: "GCCSI (2025)"
+    used_for: "Ship CAPEX power-law regressions (LP and MP vessels)"
+    scores:
+      theoretical_understanding: 3  # empirical regressions from industry data
+      methodological_rigor: 3       # GCCSI methodology, standard approach
+      validation: 2                 # limited independent validation
+      modeling_resources: 4         # Global CCS Institute
+      empirical_basis: 2            # few operational CO2 ships as reference
+    average: 2.8
+    flag: null
+
+  - source: "d'Amore et al. (2021)"
+    used_for: "Ship operating cost linear model by flow bin"
+    scores:
+      theoretical_understanding: 3  # optimization model with cost components
+      methodological_rigor: 3       # peer-reviewed, systematic approach
+      validation: 2                 # model-based, limited empirical validation
+      modeling_resources: 3         # ETH Zurich / academic
+      empirical_basis: 2            # derived from LNG analogy, few CO2 ship data
+    average: 2.6
+    flag: null
+
+  - source: "Roussanaly et al. (2024)"
+    used_for: "Liquefaction cost range (12-15.5 EUR/t)"
+    scores:
+      theoretical_understanding: 3  # process engineering basis
+      methodological_rigor: 4       # SINTEF methodology, peer-reviewed
+      validation: 3                 # compared with multiple studies
+      modeling_resources: 4         # SINTEF / established CCS research group
+      empirical_basis: 2            # limited operational data for CO2 liquefaction
+    average: 3.2
+    flag: null
+
+  # =========================================================================
+  # MONITORING
+  # =========================================================================
+
+  - source: "NETL CO2_S_COM_Offshore v1.1"
+    used_for: "Monitoring technology costs, MVA schedule"
+    scores:
+      theoretical_understanding: 3  # technology-based cost framework
+      methodological_rigor: 3       # standardized NETL cost methodology
+      validation: 2                 # US-focused, not validated for NCS
+      modeling_resources: 4         # US DOE national laboratory
+      empirical_basis: 2            # expert estimates, limited CCS monitoring data
+    average: 2.8
+    flag: null
+
+  # =========================================================================
+  # FINANCIAL MODEL
+  # =========================================================================
+
+  - source: "CEPCI (Chemical Engineering Plant Cost Index)"
+    used_for: "Historical cost escalation from various base years to EUR_2024"
+    scores:
+      theoretical_understanding: 4  # standard industrial cost index methodology
+      methodological_rigor: 4       # 60+ year track record, peer-accepted
+      validation: 3                 # US-focused; converged with WEBCI by 2010 (van der Spek)
+      modeling_resources: 4         # Chemical Engineering magazine
+      empirical_basis: 3            # US chemical process plants (not offshore CCS)
+    average: 3.6
+    flag: null
+
+  - source: "Van der Spek, Roussanaly & Rubin (2019)"
+    used_for: "Location factors (Euro 1.20), pedigree methodology, cost index comparison"
+    scores:
+      theoretical_understanding: 4  # systematic CCS cost estimation framework
+      methodological_rigor: 4       # best-practice guidelines, peer-reviewed
+      validation: 4                 # cross-validated across 6 cost indices
+      modeling_resources: 4         # leading CCS cost researchers
+      empirical_basis: 3            # comprehensive literature review, 2000-2016 data
+    average: 3.8
+    flag: null
+
+  - source: "Gassnova (2020)"
+    used_for: "CCS learning rates (transport 2%, storage 3%, aggregate 10%)"
+    scores:
+      theoretical_understanding: 3  # experience curve theory well established
+      methodological_rigor: 3       # Norwegian government study
+      validation: 1                 # learning rates are projections, not validated
+      modeling_resources: 3         # Norwegian CCS agency
+      empirical_basis: 1            # very limited CCS deployment history for calibration
+    average: 2.2
+    flag: "LOW CONFIDENCE"  # validation ≤1 AND empirical_basis ≤1
+
+  - source: "Sievert (2024)"
+    used_for: "Component-level experience rates (22%/13%/5%/2.5% by complexity)"
+    scores:
+      theoretical_understanding: 4  # well-established experience curve theory
+      methodological_rigor: 3       # systematic classification by complexity
+      validation: 2                 # technology-general rates, not CCS-validated
+      modeling_resources: 3         # academic research
+      empirical_basis: 2            # meta-analysis of general industrial data
+    average: 2.8
+    flag: null
+
+  - source: "Mitterrutzner & Roussanaly (2026)"
+    used_for: "FOAK premium (93-200%), scaling exponent (0.82), NL cost trajectory"
+    scores:
+      theoretical_understanding: 4  # scaling theory well established
+      methodological_rigor: 4       # peer-reviewed, systematic
+      validation: 2                 # forward projections, limited validation possible
+      modeling_resources: 4         # SINTEF / leading CCS research group
+      empirical_basis: 2            # Northern Lights as single calibration point
+    average: 3.2
+    flag: null
+
+  - source: "NORSOK Z-014"
+    used_for: "Contingency rates (15% base, 20% novel CCS components)"
+    scores:
+      theoretical_understanding: 4  # mature risk management framework
+      methodological_rigor: 4       # Norwegian industry standard
+      validation: 4                 # decades of NCS project application
+      modeling_resources: 4         # Norwegian petroleum industry consensus
+      empirical_basis: 3            # oil & gas projects (CCS is novel application)
+    average: 3.8
+    flag: null
+
+  # =========================================================================
+  # DECOMMISSIONING
+  # =========================================================================
+
+  - source: "BSEE Pacific OCS"
+    used_for: "Pipeline decommissioning rate per km"
+    scores:
+      theoretical_understanding: 3  # empirical cost data from regulations
+      methodological_rigor: 3       # US regulatory framework
+      validation: 2                 # US-specific, not validated for NCS
+      modeling_resources: 3         # US Bureau of Safety and Environmental Enforcement
+      empirical_basis: 2            # US offshore data, not directly applicable to Norway
+    average: 2.6
+    flag: null
+
+  # =========================================================================
+  # GEOLOGICAL DATA
+  # =========================================================================
+
+  - source: "Sodir CO2 Storage Atlas"
+    used_for: "Formation properties — porosity, permeability, area, depth, thickness"
+    scores:
+      theoretical_understanding: 4  # well-characterized geological parameters
+      methodological_rigor: 4       # systematic geological survey
+      validation: 3                 # cross-referenced with well data
+      modeling_resources: 4         # Norwegian Petroleum Directorate (Sodir)
+      empirical_basis: 3            # 76 formations, 30 with full property sets
+    average: 3.6
+    flag: null
+
+  - source: "ZEP (2011)"
+    used_for: "Storage cost validation cases — 6 scenarios, well cost fractions"
+    scores:
+      theoretical_understanding: 3  # industry consensus-based estimates
+      methodological_rigor: 3       # multi-stakeholder European platform
+      validation: 2                 # expert estimates, not project-validated
+      modeling_resources: 4         # Zero Emissions Platform EU coalition
+      empirical_basis: 2            # pre-FID estimates, no operational CCS data at time
+    average: 2.8
+    flag: null
+
+  - source: "Oliasoft WellDesign (2025)"
+    used_for: "Reference well quantities — casing lengths, weights, shoe depths"
+    scores:
+      theoretical_understanding: 4  # commercial well design software
+      methodological_rigor: 4       # industry-standard design tool
+      validation: 3                 # designs validated by tool engineering checks
+      modeling_resources: 3         # NTNU academic license (no cost rulesets)
+      empirical_basis: 3            # 6 reference wells designed for NCS formations
+    average: 3.4
+    flag: null

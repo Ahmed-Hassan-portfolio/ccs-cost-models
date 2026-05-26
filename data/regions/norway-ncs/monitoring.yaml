@@ -1,0 +1,96 @@
+# Norway NCS monitoring configuration
+# Adapted from NETL US-GOA with Norwegian cost factors
+# All costs in NOK (Norwegian Kroner)
+#
+# Key differences from US-GOA:
+# - Vessel rates: NOK 250,000/day (5-10x GOA $3,000/day)
+# - Weather downtime: 20% (vs 7% GOA)
+# - PISC: 20 years (EU CCS Directive Art. 17-18) vs 50 years (US EPA)
+# - Similar monitoring technologies but different unit costs
+
+base_year: 2025
+currency: NOK
+
+monitoring_technologies:
+  subsea_monitoring:
+    # Vessel-based subsea surveys with much higher Norwegian rates
+    # Scaled from US costs by vessel rate ratio and weather factor
+    # US vessel day: $3000, Norway: NOK 250,000 (~$25,000)
+    # Factor: ~8x cost, plus 20% vs 7% weather downtime
+    characterization_cost: 120000000.00   # ~NOK 120M baseline surveys
+    construction_capital: 45000000.00     # ~NOK 45M equipment
+    annual_ops_cost: 50000000.00          # ~NOK 50M/yr ops campaigns
+    annual_pisc_cost: 60000000.00         # ~NOK 60M/yr PISC campaigns
+    classification_capital: capital
+    classification_ops: expense
+    depreciation: site_characterization
+
+  seismic_3d:
+    # 3-D seismic surveys -- similar technology, Norwegian contractor rates
+    frequency_years: 5
+    ops_cost_per_event: 40000000.00    # ~NOK 40M per survey
+    pisc_cost_per_event: 50000000.00   # ~NOK 50M per survey
+    classification: capital
+    depreciation: seismic
+
+  seismic_2d:
+    frequency_years: 5
+    pisc_cost_per_event: 1500000.00
+    ops_cost_per_event: 0.0
+    classification: capital
+    depreciation: seismic
+
+  microseismic:
+    equipment_capital: 70000000.00       # ~NOK 70M
+    annual_ops_cost: 2800000.00          # ~NOK 2.8M/yr
+    annual_pisc_cost: 2800000.00         # ~NOK 2.8M/yr
+    classification_equipment: capital
+    classification_operations: expense
+    depreciation: site_characterization
+
+  well_integrity_test:
+    cost_per_well_per_year: 2500000.00   # ~NOK 2.5M/well/yr
+    applies_to: injection
+    during: operations
+    classification: expense
+
+  well_mit_inject:
+    cost_per_well_per_year: 300000.00    # ~NOK 300K/well/yr
+    applies_to: injection
+    during: operations
+    classification: expense
+
+  well_om_inject:
+    cost_per_well_per_year: 2400000.00   # ~NOK 2.4M/well/yr
+    applies_to: injection
+    during: operations
+    classification: expense
+
+  well_om_in_res:
+    ops_cost_per_well_per_year: 400000.00   # ~NOK 400K/well/yr
+    pisc_cost_per_well_per_year: 800000.00  # ~NOK 800K/well/yr
+    n_wells_default: 12
+    applies_to: in_reservoir
+    classification: expense
+
+  sampling_analysis_in_res:
+    ops_annual: 450000.00
+    pisc_annual: 450000.00
+    applies_to: in_reservoir
+    classification: expense
+
+  sampling_analysis_ab_seal:
+    ops_annual: 220000.00
+    pisc_annual: 220000.00
+    applies_to: above_seal
+    classification: expense
+
+  gravity_survey:
+    cost: 13000000.00   # ~NOK 13M
+    classification: capital
+    depreciation: site_characterization
+    timing: characterization
+
+vessel_rates:
+  supply_vessel_day: 250000   # NOK/day (5-10x GOA)
+  weather_downtime_pct: 0.20  # 20% downtime

@@ -1,0 +1,1187 @@
+{
+  "_metadata": {
+    "source_file": "reference-models\\netl-offshore\\FECM_NETL_CO2_S_COM_Offshore_V1.1.xlsm",
+    "sheet": "Geol Sal",
+    "region": "Attachment A, rows 758-886",
+    "extraction_timestamp": "2026-03-07T15:18:23.909825+00:00",
+    "source": "IEA GHG 2009/12 (Development of Storage Coefficients for CO2 Storage in Deep Saline Formations)",
+    "note": "Storage efficiency factors by lithology, depositional environment, and structure type",
+    "entry_count": 129
+  },
+  "verification": {
+    "default_formation_lookup": "clastic-shallow shelf-reg_dip",
+    "expected_p50": 0.0593,
+    "actual": {
+      "lithology": "Clastic",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Reg_Dip",
+      "lookup_key": "clastic-shallow shelf-reg_dip",
+      "p10": 0.050633333333333336,
+      "p50": 0.0593,
+      "p90": 0.0677
+    }
+  },
+  "coefficients": [
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "General",
+      "structure": "General",
+      "lookup_key": "clastic-general-general",
+      "p10": 0.0462,
+      "p50": 0.0679,
+      "p90": 0.1492
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "General",
+      "structure": "General",
+      "lookup_key": "dolomite-general-general",
+      "p10": 0.0657,
+      "p50": 0.0791,
+      "p90": 0.1492
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "General",
+      "structure": "General",
+      "lookup_key": "limestone-general-general",
+      "p10": 0.0424,
+      "p50": 0.0613,
+      "p90": 0.0982
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Alluvial Fan",
+      "structure": "General",
+      "lookup_key": "clastic-alluvial fan-general",
+      "p10": 0.0435,
+      "p50": 0.0622,
+      "p90": 0.1397
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Delta",
+      "structure": "General",
+      "lookup_key": "clastic-delta-general",
+      "p10": 0.0496,
+      "p50": 0.067,
+      "p90": 0.1403
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Eolian",
+      "structure": "General",
+      "lookup_key": "clastic-eolian-general",
+      "p10": 0.0564,
+      "p50": 0.0744,
+      "p90": 0.1586
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Fluvial",
+      "structure": "General",
+      "lookup_key": "clastic-fluvial-general",
+      "p10": 0.0513,
+      "p50": 0.0644,
+      "p90": 0.125
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Peritidal",
+      "structure": "General",
+      "lookup_key": "clastic-peritidal-general",
+      "p10": 0.0412,
+      "p50": 0.0606,
+      "p90": 0.1541
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Slope basin",
+      "structure": "General",
+      "lookup_key": "clastic-slope basin-general",
+      "p10": 0.0489,
+      "p50": 0.0739,
+      "p90": 0.1698
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shallow shelf",
+      "structure": "General",
+      "lookup_key": "clastic-shallow shelf-general",
+      "p10": 0.0541,
+      "p50": 0.0767,
+      "p90": 0.1562
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shelf",
+      "structure": "General",
+      "lookup_key": "clastic-shelf-general",
+      "p10": 0.0407,
+      "p50": 0.0623,
+      "p90": 0.1723
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Strandplain",
+      "structure": "General",
+      "lookup_key": "clastic-strandplain-general",
+      "p10": 0.054,
+      "p50": 0.0672,
+      "p90": 0.129
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Peritidal",
+      "structure": "General",
+      "lookup_key": "limestone-peritidal-general",
+      "p10": 0.0445,
+      "p50": 0.0561,
+      "p90": 0.0941
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Reef",
+      "structure": "General",
+      "lookup_key": "limestone-reef-general",
+      "p10": 0.0409,
+      "p50": 0.0531,
+      "p90": 0.09
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Shallow shelf",
+      "structure": "General",
+      "lookup_key": "limestone-shallow shelf-general",
+      "p10": 0.047,
+      "p50": 0.0747,
+      "p90": 0.1059
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Peritidal",
+      "structure": "General",
+      "lookup_key": "carbonate-peritidal-general",
+      "p10": 0.0445,
+      "p50": 0.0561,
+      "p90": 0.0941
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Reef",
+      "structure": "General",
+      "lookup_key": "carbonate-reef-general",
+      "p10": 0.0409,
+      "p50": 0.0531,
+      "p90": 0.09
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Shallow shelf",
+      "structure": "General",
+      "lookup_key": "carbonate-shallow shelf-general",
+      "p10": 0.047,
+      "p50": 0.0747,
+      "p90": 0.1059
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Peritidal",
+      "structure": "General",
+      "lookup_key": "dolomite-peritidal-general",
+      "p10": 0.0657,
+      "p50": 0.0791,
+      "p90": 0.1492
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Reef",
+      "structure": "General",
+      "lookup_key": "dolomite-reef-general",
+      "p10": 0.0657,
+      "p50": 0.0791,
+      "p90": 0.1492
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Shallow shelf",
+      "structure": "General",
+      "lookup_key": "dolomite-shallow shelf-general",
+      "p10": 0.0657,
+      "p50": 0.0791,
+      "p90": 0.1492
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Alluvial Fan",
+      "structure": "Anticline",
+      "lookup_key": "clastic-alluvial fan-anticline",
+      "p10": 0.0642,
+      "p50": 0.1085,
+      "p90": 0.1242
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Alluvial Fan",
+      "structure": "Dome",
+      "lookup_key": "clastic-alluvial fan-dome",
+      "p10": 0.0812,
+      "p50": 0.1476,
+      "p90": 0.2248
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Alluvial Fan",
+      "structure": "Incline_10deg",
+      "lookup_key": "clastic-alluvial fan-incline_10deg",
+      "p10": 0.046,
+      "p50": 0.0485,
+      "p90": 0.0607
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Alluvial Fan",
+      "structure": "Incline_5deg",
+      "lookup_key": "clastic-alluvial fan-incline_5deg",
+      "p10": 0.0457,
+      "p50": 0.0529,
+      "p90": 0.0559
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Alluvial Fan",
+      "structure": "Flat",
+      "lookup_key": "clastic-alluvial fan-flat",
+      "p10": 0.0422,
+      "p50": 0.046,
+      "p90": 0.0608
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Alluvial Fan",
+      "structure": "Reg_Dip",
+      "lookup_key": "clastic-alluvial fan-reg_dip",
+      "p10": 0.04463333333333334,
+      "p50": 0.049133333333333334,
+      "p90": 0.059133333333333336
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Delta",
+      "structure": "Anticline",
+      "lookup_key": "clastic-delta-anticline",
+      "p10": 0.0756,
+      "p50": 0.1096,
+      "p90": 0.124
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Delta",
+      "structure": "Dome",
+      "lookup_key": "clastic-delta-dome",
+      "p10": 0.1062,
+      "p50": 0.1551,
+      "p90": 0.1998
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Delta",
+      "structure": "Incline_10deg",
+      "lookup_key": "clastic-delta-incline_10deg",
+      "p10": 0.0485,
+      "p50": 0.0522,
+      "p90": 0.0553
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Delta",
+      "structure": "Incline_5deg",
+      "lookup_key": "clastic-delta-incline_5deg",
+      "p10": 0.0514,
+      "p50": 0.0548,
+      "p90": 0.0584
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Delta",
+      "structure": "Flat",
+      "lookup_key": "clastic-delta-flat",
+      "p10": 0.0521,
+      "p50": 0.06,
+      "p90": 0.0629
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Delta",
+      "structure": "Reg_Dip",
+      "lookup_key": "clastic-delta-reg_dip",
+      "p10": 0.050666666666666665,
+      "p50": 0.05566666666666667,
+      "p90": 0.05886666666666666
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Eolian",
+      "structure": "Anticline",
+      "lookup_key": "clastic-eolian-anticline",
+      "p10": 0.0846,
+      "p50": 0.1078,
+      "p90": 0.1393
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Eolian",
+      "structure": "Dome",
+      "lookup_key": "clastic-eolian-dome",
+      "p10": 0.1078,
+      "p50": 0.1719,
+      "p90": 0.2573
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Eolian",
+      "structure": "Incline_10deg",
+      "lookup_key": "clastic-eolian-incline_10deg",
+      "p10": 0.0556,
+      "p50": 0.0562,
+      "p90": 0.067
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Eolian",
+      "structure": "Incline_5deg",
+      "lookup_key": "clastic-eolian-incline_5deg",
+      "p10": 0.0603,
+      "p50": 0.0617,
+      "p90": 0.0652
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Eolian",
+      "structure": "Flat",
+      "lookup_key": "clastic-eolian-flat",
+      "p10": 0.0597,
+      "p50": 0.0679,
+      "p90": 0.0696
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Eolian",
+      "structure": "Reg_Dip",
+      "lookup_key": "clastic-eolian-reg_dip",
+      "p10": 0.05853333333333333,
+      "p50": 0.06193333333333334,
+      "p90": 0.06726666666666666
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Fluvial",
+      "structure": "Anticline",
+      "lookup_key": "clastic-fluvial-anticline",
+      "p10": 0.0636,
+      "p50": 0.0892,
+      "p90": 0.1297
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Fluvial",
+      "structure": "Dome",
+      "lookup_key": "clastic-fluvial-dome",
+      "p10": 0.0802,
+      "p50": 0.1373,
+      "p90": 0.1961
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Fluvial",
+      "structure": "Incline_10deg",
+      "lookup_key": "clastic-fluvial-incline_10deg",
+      "p10": 0.0548,
+      "p50": 0.0554,
+      "p90": 0.0562
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Fluvial",
+      "structure": "Incline_5deg",
+      "lookup_key": "clastic-fluvial-incline_5deg",
+      "p10": 0.0544,
+      "p50": 0.0553,
+      "p90": 0.0612
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Fluvial",
+      "structure": "Flat",
+      "lookup_key": "clastic-fluvial-flat",
+      "p10": 0.0507,
+      "p50": 0.0523,
+      "p90": 0.0611
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Fluvial",
+      "structure": "Reg_Dip",
+      "lookup_key": "clastic-fluvial-reg_dip",
+      "p10": 0.05329999999999999,
+      "p50": 0.054333333333333324,
+      "p90": 0.0595
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Peritidal",
+      "structure": "Anticline",
+      "lookup_key": "clastic-peritidal-anticline",
+      "p10": 0.076,
+      "p50": 0.0929,
+      "p90": 0.1176
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Peritidal",
+      "structure": "Dome",
+      "lookup_key": "clastic-peritidal-dome",
+      "p10": 0.1278,
+      "p50": 0.1697,
+      "p90": 0.2574
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Peritidal",
+      "structure": "Incline_10deg",
+      "lookup_key": "clastic-peritidal-incline_10deg",
+      "p10": 0.0401,
+      "p50": 0.0456,
+      "p90": 0.0471
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Peritidal",
+      "structure": "Incline_5deg",
+      "lookup_key": "clastic-peritidal-incline_5deg",
+      "p10": 0.0421,
+      "p50": 0.0474,
+      "p90": 0.0498
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Peritidal",
+      "structure": "Flat",
+      "lookup_key": "clastic-peritidal-flat",
+      "p10": 0.0482,
+      "p50": 0.0484,
+      "p90": 0.0538
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Peritidal",
+      "structure": "Reg_Dip",
+      "lookup_key": "clastic-peritidal-reg_dip",
+      "p10": 0.04346666666666666,
+      "p50": 0.04713333333333333,
+      "p90": 0.05023333333333333
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Slope basin",
+      "structure": "Anticline",
+      "lookup_key": "clastic-slope basin-anticline",
+      "p10": 0.0882,
+      "p50": 0.0991,
+      "p90": 0.1112
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Slope basin",
+      "structure": "Dome",
+      "lookup_key": "clastic-slope basin-dome",
+      "p10": 0.1611,
+      "p50": 0.2342,
+      "p90": 0.2443
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Slope basin",
+      "structure": "Incline_10deg",
+      "lookup_key": "clastic-slope basin-incline_10deg",
+      "p10": 0.0396,
+      "p50": 0.0437,
+      "p90": 0.0459
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Slope basin",
+      "structure": "Incline_5deg",
+      "lookup_key": "clastic-slope basin-incline_5deg",
+      "p10": 0.0437,
+      "p50": 0.0456,
+      "p90": 0.0474
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Slope basin",
+      "structure": "Flat",
+      "lookup_key": "clastic-slope basin-flat",
+      "p10": 0.0492,
+      "p50": 0.0494,
+      "p90": 0.055
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Slope basin",
+      "structure": "Reg_Dip",
+      "lookup_key": "clastic-slope basin-reg_dip",
+      "p10": 0.04416666666666667,
+      "p50": 0.04623333333333333,
+      "p90": 0.04943333333333333
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Anticline",
+      "lookup_key": "clastic-shallow shelf-anticline",
+      "p10": 0.0858,
+      "p50": 0.1021,
+      "p90": 0.1233
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Dome",
+      "lookup_key": "clastic-shallow shelf-dome",
+      "p10": 0.1297,
+      "p50": 0.1853,
+      "p90": 0.2777
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Incline_10deg",
+      "lookup_key": "clastic-shallow shelf-incline_10deg",
+      "p10": 0.0467,
+      "p50": 0.05,
+      "p90": 0.069
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Incline_5deg",
+      "lookup_key": "clastic-shallow shelf-incline_5deg",
+      "p10": 0.0526,
+      "p50": 0.0612,
+      "p90": 0.0663
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Flat",
+      "lookup_key": "clastic-shallow shelf-flat",
+      "p10": 0.0526,
+      "p50": 0.0667,
+      "p90": 0.0678
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Reg_Dip",
+      "lookup_key": "clastic-shallow shelf-reg_dip",
+      "p10": 0.050633333333333336,
+      "p50": 0.0593,
+      "p90": 0.0677
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shelf",
+      "structure": "Anticline",
+      "lookup_key": "clastic-shelf-anticline",
+      "p10": 0.0802,
+      "p50": 0.1124,
+      "p90": 0.1159
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shelf",
+      "structure": "Dome",
+      "lookup_key": "clastic-shelf-dome",
+      "p10": 0.1339,
+      "p50": 0.1722,
+      "p90": 0.2317
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shelf",
+      "structure": "Incline_10deg",
+      "lookup_key": "clastic-shelf-incline_10deg",
+      "p10": 0.0519,
+      "p50": 0.0647,
+      "p90": 0.0711
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shelf",
+      "structure": "Incline_5deg",
+      "lookup_key": "clastic-shelf-incline_5deg",
+      "p10": 0.0565,
+      "p50": 0.0634,
+      "p90": 0.0646
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shelf",
+      "structure": "Flat",
+      "lookup_key": "clastic-shelf-flat",
+      "p10": 0.0565,
+      "p50": 0.0679,
+      "p90": 0.0694
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Shelf",
+      "structure": "Reg_Dip",
+      "lookup_key": "clastic-shelf-reg_dip",
+      "p10": 0.054966666666666664,
+      "p50": 0.06533333333333334,
+      "p90": 0.06836666666666667
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Strandplain",
+      "structure": "Anticline",
+      "lookup_key": "clastic-strandplain-anticline",
+      "p10": 0.0748,
+      "p50": 0.0948,
+      "p90": 0.1141
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Strandplain",
+      "structure": "Dome",
+      "lookup_key": "clastic-strandplain-dome",
+      "p10": 0.0975,
+      "p50": 0.1528,
+      "p90": 0.1791
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Strandplain",
+      "structure": "Incline_10deg",
+      "lookup_key": "clastic-strandplain-incline_10deg",
+      "p10": 0.0535,
+      "p50": 0.0539,
+      "p90": 0.062
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Strandplain",
+      "structure": "Incline_5deg",
+      "lookup_key": "clastic-strandplain-incline_5deg",
+      "p10": 0.0558,
+      "p50": 0.0558,
+      "p90": 0.0615
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Strandplain",
+      "structure": "Flat",
+      "lookup_key": "clastic-strandplain-flat",
+      "p10": 0.058,
+      "p50": 0.0591,
+      "p90": 0.0656
+    },
+    {
+      "lithology": "Clastic",
+      "depositional_environment": "Strandplain",
+      "structure": "Reg_Dip",
+      "lookup_key": "clastic-strandplain-reg_dip",
+      "p10": 0.055766666666666666,
+      "p50": 0.056266666666666666,
+      "p90": 0.06303333333333333
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Peritidal",
+      "structure": "Anticline",
+      "lookup_key": "limestone-peritidal-anticline",
+      "p10": 0.0662,
+      "p50": 0.0712,
+      "p90": 0.0765
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Peritidal",
+      "structure": "Dome",
+      "lookup_key": "limestone-peritidal-dome",
+      "p10": 0.0878,
+      "p50": 0.1082,
+      "p90": 0.1174
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Peritidal",
+      "structure": "Incline_10deg",
+      "lookup_key": "limestone-peritidal-incline_10deg",
+      "p10": 0.0433,
+      "p50": 0.0453,
+      "p90": 0.0495
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Peritidal",
+      "structure": "Incline_5deg",
+      "lookup_key": "limestone-peritidal-incline_5deg",
+      "p10": 0.0481,
+      "p50": 0.0497,
+      "p90": 0.0499
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Peritidal",
+      "structure": "Flat",
+      "lookup_key": "limestone-peritidal-flat",
+      "p10": 0.0481,
+      "p50": 0.0491,
+      "p90": 0.0514
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Peritidal",
+      "structure": "Reg_Dip",
+      "lookup_key": "limestone-peritidal-reg_dip",
+      "p10": 0.04649999999999999,
+      "p50": 0.04803333333333334,
+      "p90": 0.05026666666666666
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Reef",
+      "structure": "Anticline",
+      "lookup_key": "limestone-reef-anticline",
+      "p10": 0.0511,
+      "p50": 0.0698,
+      "p90": 0.0786
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Reef",
+      "structure": "Dome",
+      "lookup_key": "limestone-reef-dome",
+      "p10": 0.0519,
+      "p50": 0.0889,
+      "p90": 0.1227
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Reef",
+      "structure": "Incline_10deg",
+      "lookup_key": "limestone-reef-incline_10deg",
+      "p10": 0.0403,
+      "p50": 0.0505,
+      "p90": 0.0525
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Reef",
+      "structure": "Incline_5deg",
+      "lookup_key": "limestone-reef-incline_5deg",
+      "p10": 0.0403,
+      "p50": 0.0481,
+      "p90": 0.0592
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Reef",
+      "structure": "Flat",
+      "lookup_key": "limestone-reef-flat",
+      "p10": 0.0394,
+      "p50": 0.0514,
+      "p90": 0.0631
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Reef",
+      "structure": "Reg_Dip",
+      "lookup_key": "limestone-reef-reg_dip",
+      "p10": 0.04,
+      "p50": 0.049999999999999996,
+      "p90": 0.05826666666666667
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Anticline",
+      "lookup_key": "limestone-shallow shelf-anticline",
+      "p10": 0.0709,
+      "p50": 0.0864,
+      "p90": 0.1011
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Dome",
+      "lookup_key": "limestone-shallow shelf-dome",
+      "p10": 0.0875,
+      "p50": 0.1038,
+      "p90": 0.1262
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Incline_10deg",
+      "lookup_key": "limestone-shallow shelf-incline_10deg",
+      "p10": 0.0328,
+      "p50": 0.0646,
+      "p90": 0.0731
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Incline_5deg",
+      "lookup_key": "limestone-shallow shelf-incline_5deg",
+      "p10": 0.0552,
+      "p50": 0.071,
+      "p90": 0.0782
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Flat",
+      "lookup_key": "limestone-shallow shelf-flat",
+      "p10": 0.0552,
+      "p50": 0.0555,
+      "p90": 0.0768
+    },
+    {
+      "lithology": "Limestone",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Reg_Dip",
+      "lookup_key": "limestone-shallow shelf-reg_dip",
+      "p10": 0.04773333333333333,
+      "p50": 0.06369999999999999,
+      "p90": 0.07603333333333333
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Peritidal",
+      "structure": "Anticline",
+      "lookup_key": "carbonate-peritidal-anticline",
+      "p10": 0.0662,
+      "p50": 0.0712,
+      "p90": 0.0765
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Peritidal",
+      "structure": "Dome",
+      "lookup_key": "carbonate-peritidal-dome",
+      "p10": 0.0878,
+      "p50": 0.1082,
+      "p90": 0.1174
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Peritidal",
+      "structure": "Incline_10deg",
+      "lookup_key": "carbonate-peritidal-incline_10deg",
+      "p10": 0.0433,
+      "p50": 0.0453,
+      "p90": 0.0495
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Peritidal",
+      "structure": "Incline_5deg",
+      "lookup_key": "carbonate-peritidal-incline_5deg",
+      "p10": 0.0481,
+      "p50": 0.0497,
+      "p90": 0.0499
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Peritidal",
+      "structure": "Flat",
+      "lookup_key": "carbonate-peritidal-flat",
+      "p10": 0.0481,
+      "p50": 0.0491,
+      "p90": 0.0514
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Peritidal",
+      "structure": "Reg_Dip",
+      "lookup_key": "carbonate-peritidal-reg_dip",
+      "p10": 0.04649999999999999,
+      "p50": 0.04803333333333334,
+      "p90": 0.05026666666666666
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Reef",
+      "structure": "Anticline",
+      "lookup_key": "carbonate-reef-anticline",
+      "p10": 0.0511,
+      "p50": 0.0698,
+      "p90": 0.0786
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Reef",
+      "structure": "Dome",
+      "lookup_key": "carbonate-reef-dome",
+      "p10": 0.0519,
+      "p50": 0.0889,
+      "p90": 0.1227
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Reef",
+      "structure": "Incline_10deg",
+      "lookup_key": "carbonate-reef-incline_10deg",
+      "p10": 0.0403,
+      "p50": 0.0505,
+      "p90": 0.0525
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Reef",
+      "structure": "Incline_5deg",
+      "lookup_key": "carbonate-reef-incline_5deg",
+      "p10": 0.0403,
+      "p50": 0.0481,
+      "p90": 0.0592
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Reef",
+      "structure": "Flat",
+      "lookup_key": "carbonate-reef-flat",
+      "p10": 0.0394,
+      "p50": 0.0514,
+      "p90": 0.0631
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Reef",
+      "structure": "Reg_Dip",
+      "lookup_key": "carbonate-reef-reg_dip",
+      "p10": 0.04,
+      "p50": 0.049999999999999996,
+      "p90": 0.05826666666666667
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Anticline",
+      "lookup_key": "carbonate-shallow shelf-anticline",
+      "p10": 0.0709,
+      "p50": 0.0864,
+      "p90": 0.1011
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Dome",
+      "lookup_key": "carbonate-shallow shelf-dome",
+      "p10": 0.0875,
+      "p50": 0.1038,
+      "p90": 0.1262
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Incline_10deg",
+      "lookup_key": "carbonate-shallow shelf-incline_10deg",
+      "p10": 0.0328,
+      "p50": 0.0646,
+      "p90": 0.0731
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Incline_5deg",
+      "lookup_key": "carbonate-shallow shelf-incline_5deg",
+      "p10": 0.0552,
+      "p50": 0.071,
+      "p90": 0.0782
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Flat",
+      "lookup_key": "carbonate-shallow shelf-flat",
+      "p10": 0.0552,
+      "p50": 0.0555,
+      "p90": 0.0768
+    },
+    {
+      "lithology": "Carbonate",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Reg_Dip",
+      "lookup_key": "carbonate-shallow shelf-reg_dip",
+      "p10": 0.04773333333333333,
+      "p50": 0.06369999999999999,
+      "p90": 0.07603333333333333
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Peritidal",
+      "structure": "Anticline",
+      "lookup_key": "dolomite-peritidal-anticline",
+      "p10": 0.0957,
+      "p50": 0.1153,
+      "p90": 0.1177
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Peritidal",
+      "structure": "Dome",
+      "lookup_key": "dolomite-peritidal-dome",
+      "p10": 0.1157,
+      "p50": 0.1501,
+      "p90": 0.182
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Peritidal",
+      "structure": "Incline_10deg",
+      "lookup_key": "dolomite-peritidal-incline_10deg",
+      "p10": 0.0657,
+      "p50": 0.074,
+      "p90": 0.0776
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Peritidal",
+      "structure": "Incline_5deg",
+      "lookup_key": "dolomite-peritidal-incline_5deg",
+      "p10": 0.0655,
+      "p50": 0.074,
+      "p90": 0.0772
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Peritidal",
+      "structure": "Flat",
+      "lookup_key": "dolomite-peritidal-flat",
+      "p10": 0.0637,
+      "p50": 0.0721,
+      "p90": 0.075
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Peritidal",
+      "structure": "Reg_Dip",
+      "lookup_key": "dolomite-peritidal-reg_dip",
+      "p10": 0.06496666666666666,
+      "p50": 0.07336666666666666,
+      "p90": 0.0766
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Reef",
+      "structure": "Anticline",
+      "lookup_key": "dolomite-reef-anticline",
+      "p10": 0.0957,
+      "p50": 0.1153,
+      "p90": 0.1177
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Reef",
+      "structure": "Dome",
+      "lookup_key": "dolomite-reef-dome",
+      "p10": 0.1157,
+      "p50": 0.1501,
+      "p90": 0.182
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Reef",
+      "structure": "Incline_10deg",
+      "lookup_key": "dolomite-reef-incline_10deg",
+      "p10": 0.0657,
+      "p50": 0.074,
+      "p90": 0.0776
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Reef",
+      "structure": "Incline_5deg",
+      "lookup_key": "dolomite-reef-incline_5deg",
+      "p10": 0.0655,
+      "p50": 0.074,
+      "p90": 0.0772
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Reef",
+      "structure": "Flat",
+      "lookup_key": "dolomite-reef-flat",
+      "p10": 0.0637,
+      "p50": 0.0721,
+      "p90": 0.075
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Reef",
+      "structure": "Reg_Dip",
+      "lookup_key": "dolomite-reef-reg_dip",
+      "p10": 0.06496666666666666,
+      "p50": 0.07336666666666666,
+      "p90": 0.0766
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Anticline",
+      "lookup_key": "dolomite-shallow shelf-anticline",
+      "p10": 0.0957,
+      "p50": 0.1153,
+      "p90": 0.1177
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Dome",
+      "lookup_key": "dolomite-shallow shelf-dome",
+      "p10": 0.1157,
+      "p50": 0.1501,
+      "p90": 0.182
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Incline_10deg",
+      "lookup_key": "dolomite-shallow shelf-incline_10deg",
+      "p10": 0.0657,
+      "p50": 0.074,
+      "p90": 0.0776
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Incline_5deg",
+      "lookup_key": "dolomite-shallow shelf-incline_5deg",
+      "p10": 0.0655,
+      "p50": 0.074,
+      "p90": 0.0772
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Flat",
+      "lookup_key": "dolomite-shallow shelf-flat",
+      "p10": 0.0637,
+      "p50": 0.0721,
+      "p90": 0.075
+    },
+    {
+      "lithology": "Dolomite",
+      "depositional_environment": "Shallow shelf",
+      "structure": "Reg_Dip",
+      "lookup_key": "dolomite-shallow shelf-reg_dip",
+      "p10": 0.06496666666666666,
+      "p50": 0.07336666666666666,
+      "p90": 0.0766
+    }
+  ]
+}

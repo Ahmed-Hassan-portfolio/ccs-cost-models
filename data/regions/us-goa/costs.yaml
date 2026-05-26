@@ -1,0 +1,113 @@
+# US Gulf of America (GOA) region cost parameters
+# Source: NETL CO2_S_COM_Offshore v1.1 (2008$)
+# Purpose: Cross-verification against NETL reference values
+
+region: us-goa
+base_year: 2008
+currency: USD
+
+# ============================================================================
+# Drilling costs
+# ============================================================================
+drilling:
+  regression: netl_questor
+  rig_type: mobile
+
+  # Per-well drilling + completion costs (2008$)
+  # Extracted from NETL Drilling Costs sheet for Formation 1 defaults.
+  # NETL row80/86/95 report totals; each value below is the per-well share
+  # for the standard NETL well plan (2 strat + 5 inject + 2 in-res).
+  well_costs:
+    injection: 11331862.817746283  # row86: $56,659,314.09 / 5 wells
+    stratigraphic_test: 9867141.6928241  # row80: $19,734,283.39 / 2 wells
+    monitoring_in_reservoir: 9144257.478828713  # row95: $18,288,514.96 / 2 wells
+    monitoring_above_seal: 9144257.478828713  # approximate same cost as in-reservoir
+
+  # Well data/logging costs (total for all wells of each type, 2008$)
+  well_data_costs:
+    stratigraphic_test: 6961142.23204438  # row82
+    injection: 4623645.260161485  # row89 (total for 5 wells)
+    monitoring_in_reservoir: 5310954.31410524  # row98
+    monitoring_above_seal: 5310954.31410524  # approximate same cost
+
+# ============================================================================
+# Platform/infrastructure costs
+# ============================================================================
+infrastructure:
+  model: platform_jacket
+  # Primary offshore structure (jacket) CAPEX
+  primary_capex: 46918491.73654595  # row47 (2008$)
+  # Satellite structure CAPEX
+  satellite_capex: 19012621.171896935  # row49 (2008$)
+  # O&M totals over project life
+  primary_om_total: 45306120.53872053  # row47 col4 (operations + PISC)
+  satellite_om_total: 38652494.077385895  # row49 col4
+
+# ============================================================================
+# Vessel and marine rates
+# ============================================================================
+vessel_rates:
+  supply_vessel_day: 3000  # USD/day GOA rates
+  construction_vessel_day: 50000  # USD/day GOA rates (est.)
+
+# ============================================================================
+# Weather and operational factors
+# ============================================================================
+weather_downtime_pct: 0.07  # 5-10% GOA average, using 7%
+
+# ============================================================================
+# Timeline defaults (NETL standard)
+# ============================================================================
+timeline:
+  screening_years: 1
+  characterization_years: 2
+  permitting_years: 2  # NETL "Permitting & Construction" combined phase
+  construction_years: 0  # NETL has no separate construction phase (absorbed into permitting)
+  operations_years: 30
+  pisc_years: 50  # US regulatory default
+  # Total = 1+2+2+0+30+50 = 85 years (matching NETL FinMod_Main)
+
+# ============================================================================
+# Pipeline routing
+# ============================================================================
+pipeline:
+  # NETL applies a 1.1x routing factor to formation distance_from_shore
+  # to get actual pipeline length (accounts for routing around obstacles)
+  routing_factor: 1.1
+
+# ============================================================================
+# Additional cost items not covered by individual cost modules
+# Source: NETL CO2_S_COM_Offshore v1.1, Cost Breakdown 1 sheet
+# These are formation-independent costs that the NETL model includes
+# but our modular cost functions don't cover.
+# ============================================================================
+additional_costs:
+  # Transport vessels (row51): supply/construction vessels for offshore operations
+  transport_vessels:
+    capex: 8832000           # Capital: vessel purchase/lease (2008$)
+    opex_annual_ops: 1970160 # Annual O&M during operations ($59,104,800 / 30yr)
+    opex_annual_pisc: 422400 # Annual O&M during PISC (NETL row51 col10=21,120,000/50yr=422,400/yr)
+    stage_capex: permitting_construction
+
+  # Surface equipment (row43): wellhead, metering, flow control
+  surface_equipment:
+    capex: 3672455            # Capital: equipment purchase (2008$)
+    opex_annual_ops: 875654   # Annual O&M during operations ($26,269,628 / 30yr)
+    opex_annual_pisc: 0       # Negligible during PISC
+    stage_capex: permitting_construction
+
+  # Data acquisition (row30): upfront geological/geophysical data
+  data_acquisition:
+    capex: 6290135            # Capital only (2008$)
+    stage_capex: site_characterization
+
+  # Design (row34): FEED and reservoir modeling
+  design:
+    capex: 1536148            # Capital only (2008$)
+    stage_capex: site_characterization
+
+# ============================================================================
+# Monitoring defaults
+# ============================================================================
+monitoring:
+  pisc_years: 50

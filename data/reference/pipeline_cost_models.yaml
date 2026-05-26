@@ -1,0 +1,96 @@
+# Pipeline cost model regression coefficients
+#
+# Two models are supported:
+# 1. NETL/QUE$TOR: Piecewise linear regressions from NETL Surf Eq Cost sheet
+#    (derived from QUE$TOR analysis, 2022$ base)
+# 2. Knoope 2014: Power-law regression from published literature
+#    (EUR 2010$ base)
+
+netl_questor:
+  # Source: NETL CO2_S_COM_Offshore v1.1, Surf Eq Cost sheet
+  # Formulas extracted from cell D52 (CAPEX) and D58 (O&M)
+  # Both use distance from shore (Key_Inputs N51) as length variable
+  # CAPEX = slope * L_mi + intercept (by diameter)
+  # O&M   = slope * L_mi + intercept (by diameter, annual)
+  capex:
+    base_year: 2008
+    currency: USD
+    note: "Pipeline CAPEX = slope * distance_mi + intercept. Calibrated to NETL CO2_S_COM_Offshore v1.1 Cost Breakdown 1 (2008$). Pipeline length includes 1.1x routing factor applied by orchestrator."
+    by_diameter:
+      6:
+        slope_per_mi: 2500000
+        intercept: 50000000
+      8:
+        slope_per_mi: 2500000
+        intercept: 50000000
+      12:
+        slope_per_mi: 3762510
+        intercept: 50000000
+      16:
+        slope_per_mi: 5000000
+        intercept: 50000000
+      20:
+        slope_per_mi: 6250000
+        intercept: 70000000
+  opex:
+    base_year: 2008
+    currency: USD
+    note: "Annual pipeline O&M = slope * distance_mi + intercept. Calibrated to NETL CO2_S_COM_Offshore v1.1 (2008$)."
+    by_diameter:
+      6:
+        slope_per_mi: 25807
+        intercept: 391276
+      8:
+        slope_per_mi: 47936
+        intercept: 395535
+      12:
+        slope_per_mi: 34065
+        intercept: 432578
+      16:
+        slope_per_mi: 36490
+        intercept: 405489
+      20:
+        slope_per_mi: 42255
+        intercept: 424004
+  decommissioning:
+    rate_per_mi: 1593000
+    base_year: 2008
+    currency: USD
+    source: "BSEE Decommissioning Cost Update for Pacific OCS Region Facilities (2016), Table 11.2. Costs assumed in 2014$, converted to 2008$ via Handy-Whitman index."
+
+knoope_2014:
+  # Source: Knoope et al. (2014), "Improved cost models for optimizing CO2 pipeline
+  #         configuration", Int. J. Greenh. Gas Control, 22, 25-46.
+  # DOI: 10.1016/J.IJGGC.2013.12.016
+  #
+  # CAPEX model: CAPEX_per_km = a * D_m^b (EUR/km)
+  # Total CAPEX = CAPEX_per_km * L_km * offshore_multiplier
+  #
+  # Coefficients from Knoope (2014) Table 3, "Improved model":
+  # Investment cost = 3,230,000 * D^1.77 EUR(2010)/km for onshore
+  # Offshore multiplier: 1.4x typical (range 1.1-2.0 depending on conditions)
+  capex:
+    a: 3230000        # EUR(2010)/km coefficient
+    b: 1.77           # diameter exponent
+    offshore_multiplier: 1.4  # typical offshore markup
+    base_year: 2010
+    currency: EUR
+    r_squared: 0.92
+    diameter_range_m: [0.1, 1.2]   # validity range
+    length_range_km: [10, 500]     # validity range
+    source: "Knoope et al. (2014), Table 3, improved model"
+  opex:
+    fraction_of_capex: 0.02  # 2% of CAPEX per year (Knoope 2014, Section 4.2)
+    note: "Annual O&M as fraction of total CAPEX. Range in literature: 0.015-0.04."
+
+# Calibration benchmarks
+calibration:
+  northern_lights:
+    pipeline_length_km: 100
+    diameter_range_inches: "12-16"
+    contract_value_nok: 500000000
+    derived_cost_per_km_nok: 5000000  # NOK 5M/km
+    derived_cost_per_km_eur: 480000   # ~EUR 480K/km at ~10.4 NOK/EUR
+    year: 2020
+    contractor: "Subsea 7 (EPCI)"
+    notes: "Remarkably low vs literature - benign seabed, competitive bid, NCS mobilization"

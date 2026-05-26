@@ -1,0 +1,178 @@
+# Verification Cases for CCS Cost Model
+# =======================================
+# 5 reproducible scenarios with fully specified inputs and expected output ranges.
+# These define the reproducibility contract: re-runs must match within +/-1%.
+# Expected ranges are derived from literature benchmarks (ZEP, IEA, NL actuals).
+#
+# AACE Class 5 accuracy: +/-50% on absolute cost, but model-to-model reproducibility
+# is exact (deterministic equations + fixed random seeds for Monte Carlo).
+#
+# Source: Implementation plan Section 5.3
+# Created: 2026-03-27
+
+verification_cases:
+
+  V1_utsira_shallow:
+    description: >
+      Utsira shallow aquifer -- high porosity, short pipeline, low well cost.
+      Represents the best-case Norwegian storage scenario (Sleipner analog).
+    inputs:
+      formation: "utsira"
+      injection_rate_mtpa: 5.0
+      n_wells: 2
+      pipeline_length_km: 200
+      transport_mode: "pipeline"
+      tvd_m: 1000
+      water_depth_m: 100
+      porosity: 0.35
+      permeability_md: 2000
+      temperature_c: 37
+      salinity_ppm: 35000
+      casing_program: "shallow"   # 3 sections (conductor, surface, production)
+      cra_coverage: "conservative"
+      contingency: 0.15
+      npt_factor: 0.15
+      project_lifetime_years: 25
+      pisc_years: 20
+      tax_rate: 0.22
+      discount_rate: 0.08
+    expected_output:
+      fybe_eur_per_t: {min: 8, max: 25}
+      total_capex_meur: {min: 150, max: 500}
+      well_cost_meur_per_well: {min: 30, max: 80}
+      pipeline_capex_meur: {min: 50, max: 200}
+      drilling_days_per_well: {min: 15, max: 35}
+    benchmark_references:
+      - "ZEP 2011 Case 6 (offshore aquifer): 14 EUR/t median"
+      - "IEA European range: 30-60 USD/t (storage only)"
+      - "Sleipner actual injection: ~1 Mt/yr since 1996"
+
+  V2_johansen_deep:
+    description: >
+      Johansen deep aquifer -- Northern Lights analog (2600m TVD, 300m WD).
+      Moderate porosity, 4 wells, 100 km pipeline. Primary calibration case.
+    inputs:
+      formation: "johansen"
+      injection_rate_mtpa: 3.0
+      n_wells: 4
+      pipeline_length_km: 100
+      transport_mode: "pipeline"
+      tvd_m: 2600
+      water_depth_m: 300
+      porosity: 0.25
+      permeability_md: 500
+      temperature_c: 98
+      salinity_ppm: 100000
+      casing_program: "moderate"  # 4 sections (conductor, surface, intermediate, production)
+      cra_coverage: "conservative"
+      contingency: 0.15
+      npt_factor: 0.15
+      project_lifetime_years: 25
+      pisc_years: 20
+      tax_rate: 0.22
+      discount_rate: 0.08
+    expected_output:
+      fybe_eur_per_t: {min: 15, max: 45}
+      total_capex_meur: {min: 400, max: 1200}
+      well_cost_meur_per_well: {min: 60, max: 160}
+      pipeline_capex_meur: {min: 40, max: 150}
+      drilling_days_per_well: {min: 25, max: 55}
+    benchmark_references:
+      - "Northern Lights Phase 1: ~250 MNOK/well (~25 MEUR), 23-33 days"
+      - "Northern Lights total Phase 1 CAPEX: ~NOK 8B (~0.8B EUR)"
+      - "ZEP 2011 Cases 1-6: well cost 40-70% of total storage"
+
+  V3_long_transport:
+    description: >
+      Long pipeline transport scenario -- tests pipeline cost dominance.
+      500 km offshore pipeline at 5 Mtpa. Relevant for Central North Sea routes.
+    inputs:
+      formation: "generic_saline"
+      injection_rate_mtpa: 5.0
+      n_wells: 3
+      pipeline_length_km: 500
+      transport_mode: "pipeline"
+      tvd_m: 1500
+      water_depth_m: 200
+      porosity: 0.20
+      permeability_md: 200
+      temperature_c: 55
+      salinity_ppm: 50000
+      casing_program: "moderate"
+      cra_coverage: "conservative"
+      contingency: 0.15
+      npt_factor: 0.15
+      project_lifetime_years: 25
+      pisc_years: 20
+      tax_rate: 0.22
+      discount_rate: 0.08
+    expected_output:
+      fybe_eur_per_t: {min: 20, max: 60}
+      total_capex_meur: {min: 600, max: 1800}
+      pipeline_capex_meur: {min: 200, max: 800}
+      pipeline_share_of_total: {min: 0.30, max: 0.60}
+    benchmark_references:
+      - "Knoope 2014: 500km offshore pipeline ~200-600 MEUR (diameter dependent)"
+      - "At 500 km, pipeline-vs-ship crossover zone (GCCSI 2025)"
+
+  V4_ship_transport:
+    description: >
+      Ship transport scenario -- tests ship cost model and crossover.
+      800 km distance, 2 Mtpa. Ship should be competitive at this range.
+    inputs:
+      formation: "generic_saline"
+      injection_rate_mtpa: 2.0
+      n_wells: 2
+      transport_mode: "ship"
+      transport_distance_km: 800
+      ship_capacity_tonnes: 7500
+      ship_pressure: "LP"
+      tvd_m: 1500
+      water_depth_m: 150
+      porosity: 0.22
+      permeability_md: 300
+      temperature_c: 55
+      salinity_ppm: 50000
+      casing_program: "moderate"
+      cra_coverage: "conservative"
+      contingency: 0.15
+      npt_factor: 0.15
+      project_lifetime_years: 25
+      pisc_years: 20
+      tax_rate: 0.22
+      discount_rate: 0.08
+    expected_output:
+      fybe_eur_per_t: {min: 25, max: 80}
+      total_capex_meur: {min: 300, max: 1000}
+      ship_transport_eur_per_t: {min: 15, max: 30}
+      liquefaction_eur_per_t: {min: 12, max: 16}
+    benchmark_references:
+      - "d'Amore 2021: ship transport 800 km, 2 Mtpa ~17 EUR/t (transport only)"
+      - "Roussanaly 2024: LP ship 22-28 EUR/t at 50-166 km (incl. liquefaction)"
+      - "GCCSI 2025: ship preferred at <2.5 Mtpa and >1000 km"
+
+  V5_netl_reference:
+    description: >
+      NETL Formation 1 reference case -- direct comparison with NETL model outputs.
+      Uses NETL default inputs and USD 2008 basis for cross-verification.
+    inputs:
+      use_netl_model: true
+      formation: "netl_formation_1"
+      injection_rate_mtpa: 3.156  # NETL default: 100 Mscf/day at 46 lb/ft3
+      n_wells: 5                  # NETL: varies with injectivity
+      pipeline_length_km: 161     # NETL default: 100 miles
+      transport_mode: "pipeline"
+      tvd_m: 1219                 # NETL default: 4000 ft
+      water_depth_m: 61           # NETL default: 200 ft
+      porosity: 0.24              # NETL Formation 1
+      permeability_md: 463        # NETL Formation 1
+      base_year: 2008
+      currency: "USD"
+      escalation_model: "handy_whitman"
+      discount_rate: 0.10         # NETL default
+    expected_output:
+      fybe_2008_usd_per_t: {min: 10, max: 30}
+      total_capex_musd: {min: 200, max: 800}
+    benchmark_references:
+      - "NETL CO2_S_COM v4 Formation 1: FYBE ~$14.38/t (2008 USD)"
+      - "Our model expected to differ due to NCS labor, offshore premium"

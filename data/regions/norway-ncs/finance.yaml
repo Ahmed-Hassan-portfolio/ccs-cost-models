@@ -1,0 +1,53 @@
+# Norwegian Continental Shelf (NCS) Financial Parameters
+# Sources: Norwegian Petroleum Tax Act, Northern Lights project data
+#
+# All costs in NOK unless noted. Base year 2024.
+
+tax:
+  corporate_rate: 0.22           # Norwegian corporate tax rate
+  petroleum_tax_rate: 0.56       # Petroleum special tax (NOT applied to CCS)
+  use_petroleum_tax: false       # CCS not subject to petroleum tax
+  loss_carryforward: true
+
+capital_structure:
+  equity_fraction: 0.30          # State-backed projects typically higher debt
+  cost_of_equity: 0.08           # 8% nominal (lower risk, government backing)
+  cost_of_debt: 0.035            # 3.5% nominal
+
+escalation:
+  base_cost_year: 2024
+  project_start_year: 2028
+  pre_project_rate: 0.0          # No pre-project escalation (costs already in 2024)
+  during_project_rate: 0.02      # 2% annual during project (SSB cost index aligned)
+
+depreciation_map:
+  # All categories: Norwegian linear 6-year for offshore assets
+  site_characterization:
+    method: NO_LIN
+    recovery_period: 6
+  seismic:
+    method: NO_LIN
+    recovery_period: 6
+  wells:
+    method: NO_LIN
+    recovery_period: 6
+  plug_abandon:
+    method: NO_LIN
+    recovery_period: 6
+  pipeline:
+    method: NO_LIN
+    recovery_period: 6
+  platform:
+    method: NO_LIN
+    recovery_period: 6
+
+revenue_streams:
+  ets_price_eur_per_tonne: 70.0       # EU ETS price (~EUR 60-80/t, 2024-2025)
+  co2_tax_per_tonne: 70.0             # Norwegian CO2 tax (~NOK 790/t ≈ EUR 70/t)
+  government_grant_fraction: 0.0       # No direct subsidy assumed
+  ets_escalation_rate: 0.02            # 2% annual ETS price increase
+  co2_tax_escalation_rate: 0.0         # CO2 tax held constant (nominal)
+
+financial_security:
+  type: parent_company_guarantee
+  annual_cost_fraction: 0.005          # 0.5% of outstanding liability per year

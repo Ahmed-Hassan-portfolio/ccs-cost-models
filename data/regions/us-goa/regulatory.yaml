@@ -1,0 +1,101 @@
+# US Gulf of America (GOA) regulatory cost configuration
+# Source: NETL CO2_S_COM_Offshore v1.1 Back-End_Cost Items sheet
+# All costs in 2008 USD
+#
+# US regulatory framework: EPA Class VI permit, BOEM/BSEE oversight
+# Key US-specific items: pore space fees, ERR fees, stewardship fees
+
+base_year: 2008
+currency: USD
+
+regulatory_items:
+  - id: lease_surface_access
+    name: "Lease and surface access"
+    amount: 15826939.35
+    classification: capital
+    stage: characterization
+    recurrence: one-time
+    depreciation: site_characterization
+    notes: "NETL row53 - OCS lease fees + surface access"
+
+  - id: stewardship_fees
+    name: "Long-term stewardship fees"
+    amount: 8400000.00
+    classification: expense
+    stage: operations
+    recurrence: annual
+    annual_amount: 280000.00
+    notes: "NETL row54 - $0.07/tonne * 4M tpa = $280K/yr * 30yr = $8.4M"
+
+  - id: pore_space_fees
+    name: "Pore space fees"
+    amount: 30000000.00
+    classification: expense
+    stage: operations
+    recurrence: annual
+    annual_amount: 1000000.00
+    notes: "NETL row55 - $0.25/tonne * 4M tpa = $1M/yr * 30yr = $30M"
+
+  - id: other_fees
+    name: "Other fees"
+    amount: 1353478.62
+    classification: expense
+    stage: operations
+    recurrence: annual
+    annual_amount: 45115.95
+    notes: "NETL row56"
+
+  - id: err_fees
+    name: "ERR fees or premiums"
+    amount: 89999999.99
+    classification: expense
+    stage: operations
+    recurrence: annual
+    annual_amount: 3000000.00
+    notes: "NETL row57 - $0.75/tonne * 4M tpa = $3M/yr * 30yr = $90M"
+
+  - id: reporting_ops
+    name: "Reporting - Operations"
+    amount: 2899140.9
+    classification: expense
+    stage: operations
+    recurrence: annual
+    annual_amount: 96638.03
+    notes: "NETL row37 col9 - regulatory reporting during operations (30yr * 96,638.03 = 2,899,141)"
+
+  - id: reporting_pisc
+    name: "Reporting - PISC"
+    amount: 3577923.0
+    classification: expense
+    stage: pisc
+    recurrence: annual
+    annual_amount: 71558.46
+    notes: "NETL row37 col10 - PISC reporting ($3,577,923 / 50yr = $71,558.46/yr). col10 is the NETL timing-split value used in FYBE NPV."
+
+  - id: subpart_rr
+    name: "Subpart RR reporting"
+    amount: 1029408.0
+    classification: expense
+    stage: operations
+    recurrence: annual
+    annual_amount: 34313.60
+    notes: "NETL row40 - EPA greenhouse gas reporting (30yr * 34,313.60 = 1,029,408)"
+
+  - id: corrective_action
+    name: "Corrective action"
+    amount: 4697024.78
+    classification: capital
+    stage: characterization
+    recurrence: one-time
+    depreciation: site_characterization
+    per_well_cost: 43091.97
+    notes: "NETL row41 - $43,092/corrective_well * n_corrective_wells (ref 1241_1: 109 wells = $4,697,025)"
+
+  - id: reservoir_modeling
+    name: "Reservoir model & data analysis"
+    amount: 4800000.00
+    classification: expense
+    stage: operations
+    recurrence: annual
+    annual_amount: 160000.00
+    notes: "NETL row39 - ongoing reservoir modeling"

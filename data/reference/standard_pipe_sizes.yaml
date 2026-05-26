@@ -1,0 +1,89 @@
+# Standard commercial pipe sizes for CO2 pipelines
+# Source: NETL CO2_S_COM_Offshore VBA modEng_Calcs.bas (Pipe_Size, Dia_in_nom, Pthick_nom)
+#
+# The Pipe_Size function maps minimum inner diameter to the next available
+# standard nominal pipe size. The thresholds are the inner diameters of
+# each standard size (not the nominal diameters for larger pipes).
+#
+# For nominal sizes >= 16 inches, the nominal diameter is the OUTER diameter
+# and the inner diameter is smaller due to wall thickness.
+
+# Full set of standard sizes (onshore NETL model supports all)
+standard_sizes:
+  - nominal_inches: 4
+    inner_diameter_inches: 4.0
+    wall_thickness_inches: 0.237
+    outer_diameter_inches: 4.474
+    threshold_inches: 4.0  # Dia_in <= 4 -> 4
+
+  - nominal_inches: 6
+    inner_diameter_inches: 6.0
+    wall_thickness_inches: 0.280
+    outer_diameter_inches: 6.560
+    threshold_inches: 6.0
+
+  - nominal_inches: 8
+    inner_diameter_inches: 8.0
+    wall_thickness_inches: 0.322
+    outer_diameter_inches: 8.644
+    threshold_inches: 8.0
+
+  - nominal_inches: 10
+    inner_diameter_inches: 10.0
+    wall_thickness_inches: 0.365
+    outer_diameter_inches: 10.730
+    threshold_inches: 10.0
+
+  - nominal_inches: 12
+    inner_diameter_inches: 12.0
+    wall_thickness_inches: 0.375
+    outer_diameter_inches: 12.750
+    threshold_inches: 12.0
+
+  - nominal_inches: 16
+    inner_diameter_inches: 15.162
+    wall_thickness_inches: 0.419
+    outer_diameter_inches: 16.0
+    threshold_inches: 15.162
+
+  - nominal_inches: 20
+    inner_diameter_inches: 18.952
+    wall_thickness_inches: 0.524
+    outer_diameter_inches: 20.0
+    threshold_inches: 18.952
+
+  - nominal_inches: 24
+    inner_diameter_inches: 22.742
+    wall_thickness_inches: 0.629
+    outer_diameter_inches: 24.0
+    threshold_inches: 22.742
+
+  - nominal_inches: 30
+    inner_diameter_inches: 28.428
+    wall_thickness_inches: 0.786
+    outer_diameter_inches: 30.0
+    threshold_inches: 28.428
+
+  - nominal_inches: 36
+    inner_diameter_inches: 34.114
+    wall_thickness_inches: 0.943
+    outer_diameter_inches: 36.0
+    threshold_inches: 34.114
+
+  - nominal_inches: 42
+    inner_diameter_inches: 39.8
+    wall_thickness_inches: 1.100
+    outer_diameter_inches: 42.0
+    threshold_inches: 39.8
+
+  - nominal_inches: 48
+    inner_diameter_inches: 45.5
+    wall_thickness_inches: 1.250
+    outer_diameter_inches: 48.0
+    threshold_inches: 45.5
+
+# NETL offshore model only supports these sizes (capped at 20")
+offshore_sizes: [6, 8, 12, 16, 20]
+
+# Conversion factor
+inches_to_meters: 0.0254

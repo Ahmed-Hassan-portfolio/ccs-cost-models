@@ -1,0 +1,328 @@
+{
+  "_metadata": {
+    "source_file": "reference-models/netl-offshore/FECM_NETL_CO2_S_COM_Offshore_V1.1.xlsm",
+    "sheet": "Cost Breakdown 1",
+    "note": "Row 142 = category sum ($1,725,419,844.47), Row 143 = Back-End sheet total ($1,725,534,661.15). Difference of $114,817 (0.007%) is expected rounding from annual timeline."
+  },
+  "totals": {
+    "total_capital": 518211344.1150747,
+    "total_om": 1207208500.3521008,
+    "total_cost": 1725419844.4671755
+  },
+  "by_stage": {
+    "site_characterization": {
+      "capital": 48302012.57212347,
+      "expense": 14503531.998673346,
+      "total": 62805544.570796825
+    },
+    "permitting_construction": {
+      "capital": 372244552.35695386,
+      "expense": 6178888.987680646,
+      "total": 378423441.3446345
+    },
+    "operations": {
+      "capital": 36422931.057325676,
+      "expense": 643935544.2697638,
+      "total": 680358475.3270893
+    },
+    "pisc": {
+      "capital": 61147835.73907174,
+      "expense": 542590535.0959828,
+      "total": 603738370.8350544
+    }
+  },
+  "by_category": {
+    "data_acquisition": {
+      "label": "Acquire existing data",
+      "netl_row": 30,
+      "capital": 6290135.130827268,
+      "om": 0,
+      "total": 6290135.130827268,
+      "notes": "Data acquisition and analysis costs"
+    },
+    "design": {
+      "label": "Design",
+      "netl_row": 34,
+      "capital": 1536147.6439999999,
+      "om": 0,
+      "total": 1536147.6439999999,
+      "notes": "FEED and reservoir modeling design"
+    },
+    "reporting_ops_pisc": {
+      "label": "Reporting-Ops & PISC",
+      "netl_row": 37,
+      "capital": 526844.808,
+      "om": 6038027.04,
+      "total": 6564871.848,
+      "notes": "Labor-based regulatory reporting"
+    },
+    "reservoir_modeling": {
+      "label": "Reservoir model & data analysis",
+      "netl_row": 39,
+      "capital": 0,
+      "om": 4800000,
+      "total": 4800000,
+      "notes": "Ongoing reservoir modeling"
+    },
+    "subpart_rr": {
+      "label": "Subpart RR",
+      "netl_row": 40,
+      "capital": 208771.92,
+      "om": 1029407.999999999,
+      "total": 1238179.92,
+      "notes": "EPA greenhouse gas reporting"
+    },
+    "corrective_action": {
+      "label": "Corrective action",
+      "netl_row": 41,
+      "capital": 4697024.7824,
+      "om": 0,
+      "total": 4697024.7824,
+      "notes": "Upfront corrective action costs"
+    },
+    "surface_equipment": {
+      "label": "Surface Equipment",
+      "netl_row": 43,
+      "capital": 3672455.321911197,
+      "om": 26269628.337908678,
+      "total": 29942083.659819875,
+      "notes": "Wellhead equipment, metering, flow control"
+    },
+    "pipeline": {
+      "label": "Offshore Pipeline",
+      "netl_row": 46,
+      "capital": 206369911.29228276,
+      "om": 127445902.94701925,
+      "total": 333815814.23930174,
+      "notes": "Pipeline construction + O&M (operations + PISC)"
+    },
+    "primary_platform": {
+      "label": "Primary Offshore Structure",
+      "netl_row": 47,
+      "capital": 46918491.73654595,
+      "om": 45306120.53872053,
+      "total": 92224612.27526657,
+      "notes": "Primary jacket platform CAPEX + O&M"
+    },
+    "satellite_platform": {
+      "label": "Offshore Satellite Structure",
+      "netl_row": 49,
+      "capital": 19012621.171896935,
+      "om": 38652494.077385895,
+      "total": 57665115.24928283,
+      "notes": "Satellite structure CAPEX + O&M"
+    },
+    "transport_vessels": {
+      "label": "Transport Vessels",
+      "netl_row": 51,
+      "capital": 8832000,
+      "om": 71608800,
+      "total": 80440800,
+      "ops_om": 59104800,
+      "pisc_om": 12504000,
+      "notes": "Vessel capital + O&M during operations and PISC"
+    },
+    "lease_surface_access": {
+      "label": "Lease and surface access",
+      "netl_row": 53,
+      "capital": 15826939.349003624,
+      "om": 0,
+      "total": 15826939.349003624,
+      "notes": "OCS lease fees + surface access"
+    },
+    "stewardship_fees": {
+      "label": "Long-term stewardship fees",
+      "netl_row": 54,
+      "capital": 0,
+      "om": 8400000,
+      "total": 8400000,
+      "notes": "$0.07/tonne * 4M tpa * 30yr = $8.4M"
+    },
+    "pore_space_fees": {
+      "label": "Pore space fees",
+      "netl_row": 55,
+      "capital": 0,
+      "om": 30000000,
+      "total": 30000000,
+      "notes": "$0.25/tonne * 4M tpa * 30yr = $30M"
+    },
+    "other_fees": {
+      "label": "Other fees",
+      "netl_row": 56,
+      "capital": 36455.0,
+      "om": 1317023.615209691,
+      "total": 1353478.6152096908,
+      "notes": "Miscellaneous fees"
+    },
+    "err_fees": {
+      "label": "ERR fees or premiums",
+      "netl_row": 57,
+      "capital": 0,
+      "om": 89999999.99999999,
+      "total": 89999999.99999999,
+      "notes": "$0.75/tonne * 4M tpa * 30yr = $90M"
+    },
+    "seismic_3d": {
+      "label": "3-D Seismic",
+      "netl_row": 60,
+      "capital": 80069359.19709083,
+      "om": 0,
+      "total": 80069359.19709083,
+      "notes": "Periodic 3-D seismic surveys"
+    },
+    "seismic_2d": {
+      "label": "2-D Seismic",
+      "netl_row": 61,
+      "capital": 1558543.4629038132,
+      "om": 0,
+      "total": 1558543.4629038132,
+      "notes": "Periodic 2-D seismic surveys (PISC only)"
+    },
+    "microseismic": {
+      "label": "Microseismic",
+      "netl_row": 63,
+      "capital": 7319520.0,
+      "om": 26095680,
+      "total": 33415200,
+      "notes": "Microseismic equipment + monitoring"
+    },
+    "gravity_survey": {
+      "label": "Gravity Survey",
+      "netl_row": 68,
+      "capital": 1512480.0,
+      "om": 0,
+      "total": 1512480.0,
+      "notes": "One-time gravity survey"
+    },
+    "subsea_monitoring": {
+      "label": "Subsea Monitoring",
+      "netl_row": 77,
+      "capital": 0,
+      "om": 555768744.1075068,
+      "total": 555768744.1075068,
+      "notes": "Vessel-based subsea monitoring campaigns (dominant monitoring cost)"
+    },
+    "well_drl_cmp_strat": {
+      "label": "Well Drl & Cmp-Strat",
+      "netl_row": 80,
+      "capital": 19734283.3856482,
+      "om": 0,
+      "total": 19734283.3856482,
+      "notes": "Stratigraphic test well drilling & completion"
+    },
+    "well_data_strat": {
+      "label": "Well Data-Strat",
+      "netl_row": 82,
+      "capital": 6961142.23204438,
+      "om": 0,
+      "total": 6961142.23204438,
+      "notes": "Stratigraphic test well data/logging"
+    },
+    "well_drl_cmp_inject": {
+      "label": "Well Drl & Cmp-Inject",
+      "netl_row": 86,
+      "capital": 56659314.088731416,
+      "om": 0,
+      "total": 56659314.088731416,
+      "notes": "Injection well drilling & completion (5 wells)"
+    },
+    "well_data_inject": {
+      "label": "Well Data-Inject",
+      "netl_row": 89,
+      "capital": 4623645.260161485,
+      "om": 0,
+      "total": 4623645.260161485,
+      "notes": "Injection well data/logging (5 wells)"
+    },
+    "well_integrity_test": {
+      "label": "Well Integrity Test-Inject",
+      "netl_row": 90,
+      "capital": 0,
+      "om": 44398569.6,
+      "total": 44398569.6,
+      "notes": "Annual well integrity testing - injection wells"
+    },
+    "well_mit_inject": {
+      "label": "Well MIT-Inject",
+      "netl_row": 91,
+      "capital": 0,
+      "om": 5082069.860730591,
+      "total": 5082069.860730591,
+      "notes": "MIT testing for injection wells"
+    },
+    "well_om_inject": {
+      "label": "Well O&M-Inject",
+      "netl_row": 92,
+      "capital": 0,
+      "om": 42790611.02831595,
+      "total": 42790611.02831595,
+      "notes": "Well O&M for injection wells"
+    },
+    "well_drl_cmp_in_res": {
+      "label": "Well Drl & Cmp-In Res",
+      "netl_row": 95,
+      "capital": 18288514.957657427,
+      "om": 0,
+      "total": 18288514.957657427,
+      "notes": "In-reservoir monitoring well drilling (2 wells)"
+    },
+    "well_data_in_res": {
+      "label": "Well Data-In Res",
+      "netl_row": 98,
+      "capital": 5310954.31410524,
+      "om": 0,
+      "total": 5310954.31410524,
+      "notes": "In-reservoir monitoring well data/logging"
+    },
+    "well_om_in_res": {
+      "label": "Well O&M-In Res",
+      "netl_row": 100,
+      "capital": 0,
+      "om": 74170392.44908106,
+      "total": 74170392.44908106,
+      "notes": "Well O&M for in-reservoir monitoring wells (12 wells)"
+    },
+    "samp_analys_in_res": {
+      "label": "Sampling & Analysis-In Res",
+      "netl_row": 102,
+      "capital": 0,
+      "om": 4089600,
+      "total": 4089600,
+      "notes": "Sampling and analysis - in-reservoir"
+    },
+    "samp_analys_ab_seal": {
+      "label": "Sampling & Analysis-Ab Seal",
+      "netl_row": 111,
+      "capital": 0,
+      "om": 1968000,
+      "total": 1968000,
+      "notes": "Sampling and analysis - above seal"
+    }
+  },
+  "gap_items": {
+    "transport_vessels": {
+      "capital": 8832000,
+      "om": 71608800,
+      "total": 80440800,
+      "ops_om": 59104800,
+      "pisc_om": 12504000,
+      "notes": "Not covered by existing cost modules. Needs to be added as additional items."
+    },
+    "surface_equipment": {
+      "capital": 3672455.321911197,
+      "om": 26269628.337908678,
+      "total": 29942083.659819875,
+      "notes": "Not covered by existing cost modules. Needs to be added as additional items."
+    },
+    "data_acquisition": {
+      "capital": 6290135.130827268,
+      "total": 6290135.130827268,
+      "notes": "Upfront data acquisition. Not covered by existing cost modules."
+    },
+    "design": {
+      "capital": 1536147.6439999999,
+      "total": 1536147.6439999999,
+      "notes": "FEED and design. Not covered by existing cost modules."
+    }
+  }
+}

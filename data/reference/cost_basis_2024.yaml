@@ -1,0 +1,95 @@
+# Cost Basis Conversions to EUR_2024
+# All literature sources escalated to common EUR_2024 basis via CEPCI index.
+#
+# CEPCI source: Chemical Engineering Online (annual averages)
+# CEPCI 2024 (estimated): 800.0 (June 2024 preliminary = 798.8)
+#
+# Methodology: cost_EUR_2024 = cost_original * cepci_ratio * currency_factor
+#   where cepci_ratio = CEPCI_2024 / CEPCI_base_year
+#
+# Location factor (van der Spek 2019, Table 1): 1.20 for European sites vs US Gulf Coast
+# Norwegian offshore premium: 1.15 (default, range 1.0-1.3)
+
+sources:
+  ieaghg_2005_2:
+    description: "IEAGHG 2005/2 — European well + facility cost equations (TNO)"
+    original_currency: EUR
+    base_year: 2000
+    cepci_base: 394.1
+    cepci_target: 800.0
+    cepci_ratio: 2.030  # 800.0 / 394.1
+    notes: "Year-2000 EUR. Primary source for European well and facility costs."
+
+  knoope_2014:
+    description: "Knoope et al. 2013/2014 — CO2 pipeline cost models"
+    original_currency: EUR
+    base_year: 2010
+    cepci_base: 550.8
+    cepci_target: 800.0
+    cepci_ratio: 1.453  # 800.0 / 550.8
+    notes: "14+ pipeline cost models with equations. Best European pipeline source."
+
+  zep_2011:
+    description: "ZEP 2011 — Storage cost report (6 cases)"
+    original_currency: EUR
+    base_year: 2009
+    cepci_base: 521.9
+    cepci_target: 800.0
+    cepci_ratio: 1.533  # 800.0 / 521.9
+    notes: "Wells = 40-70% of storage costs across 6 reference cases."
+
+  northern_lights:
+    description: "Northern Lights — Meld. St. 33 cost data"
+    original_currency: NOK
+    base_year: 2022
+    cepci_base: 816.0
+    cepci_target: 800.0
+    cepci_ratio: 0.980  # 800.0 / 816.0
+    nok_eur_rate: 0.095  # avg NOK/EUR 2022 (Norges Bank)
+    effective_factor: 0.093  # 0.095 * 0.980
+    notes: "Pipeline NOK 500M/100km, subsea injection NOK 250M/well. Currency via Norges Bank."
+
+  gccsi_olivan_2024:
+    description: "GCCSI / Olivan 2024 — Global CCS cost survey"
+    original_currency: USD
+    base_year: 2023
+    cepci_base: 797.9
+    cepci_target: 800.0
+    cepci_ratio: 1.003  # 800.0 / 797.9
+    eur_usd_rate: 0.924  # avg EUR/USD 2023
+    effective_factor: 0.926  # 0.924 * 1.003
+    notes: "USD_2023 costs. Currency via ECB annual average."
+
+  oeuvray_2024:
+    description: "Oeuvray et al. 2024 — CCS cost analysis"
+    original_currency: EUR
+    base_year: 2021
+    cepci_base: 708.8
+    cepci_target: 800.0
+    cepci_ratio: 1.129  # 800.0 / 708.8
+    notes: "EUR_2021 base year."
+
+  bennaes_2024:
+    description: "Bennaes et al. 2024 — CCS cost data"
+    original_currency: EUR
+    base_year: 2024
+    cepci_base: 800.0
+    cepci_target: 800.0
+    cepci_ratio: 1.000
+    notes: "Already in EUR_2024. No escalation needed."
+
+location_factors:
+  euro_region:
+    factor: 1.20
+    source: "van der Spek 2019, Table 1"
+    description: "European site vs US Gulf Coast composite"
+
+  ncs_offshore_premium:
+    factor: 1.15
+    range: [1.0, 1.3]
+    source: "Default estimate for Norwegian Continental Shelf"
+    description: "Additional premium for NCS offshore operations"
+
+  ncs_effective:
+    factor: 1.38  # 1.20 * 1.15
+    description: "Combined European + NCS offshore factor relative to US Gulf Coast"

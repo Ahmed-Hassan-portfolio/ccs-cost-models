@@ -1,0 +1,143 @@
+# Assumptions Register for CCS Cost Model
+# =========================================
+# All 12 key assumptions with risk ratings and sensitivity response plans.
+# Risk levels: LOW, LOW-MEDIUM, MEDIUM, HIGH
+# Every HIGH or MEDIUM risk assumption has a defined sensitivity analysis.
+#
+# Source: Implementation plan Section 7
+# Created: 2026-03-27
+
+assumptions:
+
+  - id: 1
+    assumption: "Subsea tieback is the Norwegian CCS paradigm (no fixed platform)"
+    category: "infrastructure"
+    risk: LOW
+    justification: >
+      74% of NCS installations are subsea. Northern Lights, Smeaheia, and all
+      planned Norwegian CCS projects use subsea tiebacks. Fixed platforms are
+      only relevant for hub scenarios (excluded from scope).
+    sensitivity_response: "N/A -- confirmed by industry practice"
+    source: "Sodir FactPages, Northern Lights EIA, industry practice"
+
+  - id: 2
+    assumption: "CEPCI + 1.20 Euro location factor approximates European CCS costs"
+    category: "cost_escalation"
+    risk: LOW-MEDIUM
+    justification: >
+      Van der Spek (2019) Table A1 shows CEPCI/WEBCI converge within 5% for 2010-2016.
+      Euro location factor 1.20 from Table 1 covers NL, DE, UK, NO composite.
+      CEPCI is chemical process plant, not offshore-specific -- covered by ±10% band.
+    sensitivity_response: "Run at location factors 1.10, 1.20, 1.30. Report total cost sensitivity."
+    source: "Van der Spek et al. 2019, Int. J. Greenh. Gas Control"
+
+  - id: 3
+    assumption: "FERC labor costs apply to NCS with 1.5x adjustment factor"
+    category: "pipeline_costs"
+    risk: HIGH
+    justification: >
+      Knoope 2014 pipeline model uses FERC-derived US labor data.
+      NCS labor is significantly more expensive due to offshore regulations,
+      union agreements, and cost of living. 1.5x is Vikra thesis estimate (+6.5%
+      materials + ~40% labor premium).
+    sensitivity_response: "Run at 1.0x, 1.5x, 2.0x labor factor. Show total cost and FYBE impact."
+    source: "Knoope 2014, Vikra 2025 NTNU thesis, Compass International"
+
+  - id: 4
+    assumption: "IEAGHG 2005/2 well cost equations are consistent with Oliasoft estimates"
+    category: "well_costs"
+    risk: HIGH
+    justification: >
+      IEAGHG 2005/2 (TNO) provides European well cost equations from year 2000.
+      These must be escalated 2.03x via CEPCI and cross-checked against Oliasoft
+      WellDesign/Forecast output. Divergence is expected (different methodology,
+      era, and scope), but should be within 50%.
+    sensitivity_response: "De-escalate Oliasoft to year 2000 and compare. Document divergence."
+    source: "IEAGHG 2005/2, Oliasoft WellDesign reference wells"
+
+  - id: 5
+    assumption: "Northern Lights costs are representative of future Norwegian CCS projects"
+    category: "calibration"
+    risk: MEDIUM
+    justification: >
+      Northern Lights is the only operational NCS CCS project with disclosed costs.
+      First-of-a-kind premium and Equinor partnership structure may not generalize.
+      NOK 250M/well and NOK 500M/100km pipeline are useful benchmarks but singular.
+    sensitivity_response: "Show model output at NL actual values AND at literature-average values."
+    source: "Meld. St. 33, Northern Lights project disclosures"
+
+  - id: 6
+    assumption: "ZEP injection rate of 0.8 Mt/yr/well is reasonable for NCS saline aquifers"
+    category: "reservoir"
+    risk: LOW
+    justification: >
+      ZEP 2011 uses 0.8 Mt/yr/well as standard. Northern Lights targets 1.5 Mt/yr
+      per well. Sleipner achieves ~1 Mt/yr from one well. Range 0.2-2.5 Mt/yr
+      covers known CCS projects.
+    sensitivity_response: "Sensitivity at 0.2, 0.5, 0.8, 1.5, 2.5 Mt/yr/well."
+    source: "ZEP 2011, Northern Lights CDR, Sleipner monitoring reports"
+
+  - id: 7
+    assumption: "20-year post-injection site care (PISC) per Norwegian CCS Directive"
+    category: "regulatory"
+    risk: LOW
+    justification: >
+      Norwegian CCS regulations (based on EU CCS Directive) mandate 20-year PISC
+      before transfer to state. This is a regulatory requirement, not an estimate.
+    sensitivity_response: "Scenario with 30-year PISC to show financial impact."
+    source: "Norwegian CCS Directive, EU Directive 2009/31/EC"
+
+  - id: 8
+    assumption: "22% corporate tax, no petroleum tax regime for CCS"
+    category: "fiscal"
+    risk: LOW
+    justification: >
+      CCS is classified outside the petroleum tax regime in Norway.
+      Standard corporate tax rate of 22% applies. No special petroleum tax
+      (51.8%) or uplift applies to pure CCS activities.
+    sensitivity_response: "Scenario with petroleum tax applied (hypothetical regulatory change)."
+    source: "Norwegian Tax Administration, Longship framework agreements"
+
+  - id: 9
+    assumption: "Olivan 2024 subsea CAPEX splits generalize across distances"
+    category: "infrastructure"
+    risk: MEDIUM
+    justification: >
+      Olivan (2024) provides CAPEX splits for a 5-well daisy-chain at 130 km.
+      Umbilical, flowline, and manifold costs are distance-dependent and vendor-specific.
+      Extrapolation to other distances carries ±50-80% uncertainty.
+    sensitivity_response: "Parameterize on distance (50-300 km). Show CAPEX split sensitivity."
+    source: "Olivan et al. 2024, TotalEnergies/NTNU"
+
+  - id: 10
+    assumption: "15-20% contingency is adequate for CCS (NORSOK Z-014)"
+    category: "project_management"
+    risk: LOW-MEDIUM
+    justification: >
+      NORSOK Z-014 and AACE 87R-14 recommend 15-25% for Class 3-4 estimates.
+      For Class 5 (this model), 25-50% would be more appropriate, but the model
+      uses 15% as base case with sensitivity analysis.
+    sensitivity_response: "Run at 10%, 15%, 25% contingency. Report total cost impact."
+    source: "NORSOK Z-014, AACE 87R-14"
+
+  - id: 11
+    assumption: "CRA adds +5-12% to total well cost (material is 3-6x but small fraction of total steel)"
+    category: "well_costs"
+    risk: LOW-MEDIUM
+    justification: >
+      CRA (25Cr Super Duplex) costs 5.5x carbon steel per tonne (IEAGHG 2018-08).
+      But casing steel is ~8-12% of total well cost. Conservative CRA coverage
+      (production + liner only) adds ~5-12% to total.
+    sensitivity_response: "Sensitivity at +5%, +10%, +15% CRA premium on total well cost."
+    source: "IEAGHG 2018-08, Argus Pipe Logix May 2025"
+
+  - id: 12
+    assumption: "Composite CEPCI/SSB escalation index tracks UCCI adequately"
+    category: "cost_escalation"
+    risk: MEDIUM
+    justification: >
+      CEPCI and SSB wage index are public proxies for offshore cost escalation.
+      UCCI (IHS CERA Upstream Capital Costs Index) is the gold standard but
+      proprietary ($25k+/year subscription). Our composite must be back-tested.
+    sensitivity_response: "Back-test composite vs UCCI 2000-2017. Report correlation coefficient."
+    source: "CEPCI (Chemical Engineering), SSB Table 11418, IHS CERA UCCI"
